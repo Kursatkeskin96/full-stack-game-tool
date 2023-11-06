@@ -1,0 +1,155 @@
+{
+    "armor": [
+        {
+            "category": "leather",
+            "items": [
+                {
+                    "name": "Mercenary Jacket",
+                    "value": "LEATHER_SET1",
+                    "recipe1": "LEATHER",
+                    "q1": "16",
+                    "recipe2": "METALBAR",
+                    "q2": "16"
+                },
+                {
+                    "name": "Hunter Jacket",
+                    "value": "LEATHER_SET2",
+                    "recipe1": "LEATHER",
+                    "q1": "16"
+                },
+                {
+                    "name": "Assasin Jacket",
+                    "value": "LEATHER_SET3",
+                    "recipe1": "LEATHER",
+                    "q1": "16"
+                },
+                {
+                    "name": "Royal Jacket",
+                    "value": "LEATHER_ROYAL",
+                    "recipe1": "LEATHER",
+                    "q1": "16"
+                },
+                {
+                    "name": "Stalker Jacket",
+                    "value": "LEATHER_MORGANA",
+                    "recipe1": "LEATHER",
+                    "q1": "16"
+                },
+                {
+                    "name": "Specter Jacket",
+                    "value": "LEATHER_UNDEAD",
+                    "recipe1": "LEATHER",
+                    "q1": "16"
+                },
+                {
+                    "name": "Jacket Of Tenacity",
+                    "value": "LEATHER_AVALON",
+                    "recipe1": "LEATHER",
+                    "q1": "16"
+                }
+            ]
+        },
+        {
+            "category": "cloth",
+            "items": [
+                {
+                    "name": "Scholar Robe",
+                    "value": "CLOTH_SET1"
+                },
+                {
+                    "name": "Cleric Robe",
+                    "value": "CLOTH_SET2"
+                },
+                {
+                    "name": "Mage Robe",
+                    "value": "CLOTH_SET3"
+                },
+                {
+                    "name": "Druid Robe",
+                    "value": "CLOTH_KEEPER"
+                },
+                {
+                    "name": "Fiend Robe",
+                    "value": "CLOTH_HELL"
+                },
+                {
+                    "name": "Royal Robe",
+                    "value": "CLOTH_ROYAL"
+                },
+                {
+                    "name": "Robe of Purity",
+                    "value": "CLOTH_AVALON"
+                }
+            ]
+        },
+        {
+            "category": "plate",
+            "items": [
+                {
+                    "name": "Soldier Armor",
+                    "value": "PLATE_SET1"
+                },
+                {
+                    "name": "Knight Armor",
+                    "value": "PLATE_SET2"
+                },
+                {
+                    "name": "Guardian Armor",
+                    "value": "PLATE_SET3"
+                },
+                {
+                    "name": "Graveguard Armor",
+                    "value": "PLATE_UNDEAD"
+                },
+                {
+                    "name": "Demon Armor",
+                    "value": "PLATE_HELL"
+                },
+                {
+                    "name": "Royal Armor",
+                    "value": "PLATE_ROYAL"
+                },
+                {
+                    "name": "Armor of Valor",
+                    "value": "PLATE_AVALON"
+                }
+            ]
+        }
+    ],
+    "main": [
+        {
+            "category": "Fire",
+            "items": [
+                {
+                    "name": "Fire Staff",
+                    "value": "LEATHER_SET2",
+                    "recipe1": "LEATHER",
+                    "q1": "16"
+                },
+                {
+                    "name": "Wildfire staff",
+                    "value": "LEATHER_SET3",
+                    "recipe1": "LEATHER",
+                    "q1": "16"
+                }
+            ]
+        },
+        {
+            "category": "Cursed",
+            "items": [
+                {
+                    "name": "Cursed Staff",
+                    "value": "LEATHER_SET2",
+                    "recipe1": "LEATHER",
+                    "q1": "16"
+                },
+                {
+                    "name": "Arcane staff",
+                    "value": "LEATHER_SET3",
+                    "recipe1": "LEATHER",
+                    "q1": "16"
+                }
+            ]
+        }
+    ]
+}
