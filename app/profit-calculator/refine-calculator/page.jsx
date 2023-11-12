@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
 
+
 export default function Refinealculator() {
 const [category, setCategory] = useState('LEATHER')
 const [tier, setTier] = useState('')
@@ -20,6 +21,51 @@ const [itemValue, setItemValue] = useState('')
 const [returnRate, setReturnRate] = useState('')
 const [fee, setFee] = useState('')
 const [sellPrice, setSellPrice] = useState('')
+const [t4mastery, setT4mastery] = useState(0)
+const [t5mastery, setT5mastery] = useState(0)
+const [t6mastery, setT6mastery] = useState(0)
+const [t7mastery, setT7mastery] = useState(0)
+const [t8mastery, setT8mastery] = useState(0)
+const [t4efficiency, setT4efficiency] = useState("")
+const [t5efficiency, setT5efficiency] = useState("")
+const [t6efficiency, setT6efficiency] = useState("")
+const [t7efficiency, setT7efficiency] = useState("")
+const [t8efficiency, setT8efficiency] = useState("")
+const [fullFocusprofit ,setFullFocusprofit] = useState('')
+const [updatedFocusCost, setUpdatedFocusCost] = useState('');
+
+function formatNumberWithCommas(number) {
+    return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
+
+// Spec Efficiency Calculate 
+const calculateSpecEfficiency = () => {
+    setT4efficiency(t4mastery*280+t5mastery*30+t6mastery*30+t7mastery*30+t8mastery*30)
+    setT5efficiency(t4mastery*30+t5mastery*280+t6mastery*30+t7mastery*30+t8mastery*30)
+    setT6efficiency(t4mastery*30+t5mastery*30+t6mastery*280+t7mastery*30+t8mastery*30)
+    setT7efficiency(t4mastery*30+t5mastery*30+t6mastery*30+t7mastery*280+t8mastery*30)
+    setT8efficiency(t4mastery*30+t5mastery*30+t6mastery*30+t7mastery*30+t8mastery*280)
+}
+
+const handleT4mastery = (e) => {
+    setT4mastery(e.target.value)
+}
+
+const handleT5mastery = (e) => {
+    setT5mastery(e.target.value)
+}
+
+const handleT6mastery = (e) => {
+    setT6mastery(e.target.value)
+}
+
+const handleT7mastery = (e) => {
+    setT7mastery(e.target.value)
+}
+
+const handleT8mastery = (e) => {
+    setT8mastery(e.target.value)
+}
 
 const handleR1cost = (e) => {
     setR1cost(e.target.value)
@@ -67,22 +113,6 @@ const handleEnch = (e) => {
     handleItemValue()
 }
 
-useEffect(() => {
-    handleItemValue()
-}, [tier, ench])
-
-useEffect(() => {
-    handleRecipe();
-  }, [category]);
-
-  useEffect(() => {
-    handleQ();
-  }, [tier]);
-
-  useEffect(() => {
-    handleHeart();
-  }, [category, tier, ench])
-  
 
 const handleRecipe = () => {
     if(category === "LEATHER"){
@@ -125,7 +155,7 @@ const handleQ = () => {
         setQ2("1")
     }
     if(tier == 8){
-        setQ1("4")
+        setQ1("5")
         setQ2("1")
     }
 }
@@ -189,6 +219,94 @@ const handleItemValue = () => {
             break;
     }
 }
+useEffect(() => {
+    handleItemValue()
+}, [tier, ench])
+
+useEffect(() => {
+    handleRecipe();
+  }, [category]);
+
+  useEffect(() => {
+    handleQ();
+  }, [tier]);
+
+  useEffect(() => {
+    handleHeart();
+  }, [category, tier, ench])
+  
+  useEffect(() => {
+    calculateSpecEfficiency();
+    console.log(updatedFocusCost)
+}, [tier, ench, t4mastery, t5mastery, t6mastery, t7mastery, t8mastery]);
+
+const calculateFocusCost = () => {
+    const tierNum = parseInt(tier);
+    const enchNum = parseInt(ench);
+    const totalTier = tierNum + enchNum;
+
+    let efficiency = 0;
+    switch (tierNum) {
+        case 4:
+            efficiency = t4efficiency;
+            break;
+        case 5:
+            efficiency = t5efficiency;
+            break;
+        case 6:
+            efficiency = t6efficiency;
+            break;
+        case 7:
+            efficiency = t7efficiency;
+            break;
+        case 8:
+            efficiency = t8efficiency;
+            break;
+        default:
+            // Handle unexpected tier
+            return;
+    }
+
+    let baseCost = 0;
+    switch (totalTier) {
+        case 4:
+            baseCost = 54;
+            break;
+        case 5:
+            baseCost = 94;
+            break;
+        case 6: 
+            baseCost = 164;
+            break;
+        case 7:
+            baseCost = 287;
+            break;
+        case 8:
+            baseCost = 503;
+            break;
+        case 9: 
+            baseCost = 880;
+            break;
+        case 10:
+            baseCost = 1539
+            break;
+        case 11:
+            baseCost = 2694
+            break;
+        default:
+            baseCost = 0
+            return;
+    }
+
+    if (efficiency > 0) {
+        const focusCostValue = baseCost / (2 ** (efficiency / 10000));
+        return Math.round(focusCostValue); // Apply Math.round here
+    } else {
+        return 0;
+    }
+};
+
+const focusCostValue = calculateFocusCost();
 
 
 let resourceImg;
@@ -215,25 +333,53 @@ if (ench !== "0") {
     matImg2 = `https://render.albiononline.com/v1/item/T${decreasedTier}_${r2}`;
 }
 
-const matImg3 = `https://render.albiononline.com/v1/item/${r3}`;
+let matImg3 = `https://render.albiononline.com/v1/item/${r3}`;
+
+useEffect(() => {
+    calculateSpecEfficiency();
+    const focusCostValue = calculateFocusCost();
+    setUpdatedFocusCost(focusCostValue);
+}, [tier, ench, t4mastery, t5mastery, t6mastery, t7mastery, t8mastery]);
+
 
 // Calculations
 
 const calculateFee = itemValue / 8.9 * fee / 100
+const roundedCalculateFee = Math.round(calculateFee)
 const resourceCost = q1 * r1cost + q2 * r2cost + q3 * r3cost
 const roundedResourceCost = Math.round(resourceCost);
 
 const returnedResource = resourceCost * returnRate / 100
+const roundedReturnedResource = Math.round(returnedResource)
 const calculateTax = sellPrice * 0.065
 const roundedCalculateTax = Math.round(calculateTax)
 const totalCost = resourceCost + calculateFee + roundedCalculateTax
 const isProfit = parseInt(returnedResource) + parseInt(sellPrice) - parseInt(totalCost);
 const roundedIsProfit = Math.round(isProfit)
+const itemSellPrice = sellPrice
 
-console.log(returnedResource)
-console.log(sellPrice)
-console.log(totalCost)
-console.log(roundedIsProfit)
+// Use this for displaying the number with thousand separators
+const formattedProfit = formatNumberWithCommas(roundedIsProfit);
+const formattedFee = formatNumberWithCommas(roundedCalculateFee)
+const formattedResourceCost = formatNumberWithCommas(roundedResourceCost)
+const formattedReturnedResource = formatNumberWithCommas(roundedReturnedResource)
+const formattedTax = formatNumberWithCommas(roundedCalculateTax)
+const formattedSellPrice = formatNumberWithCommas(itemSellPrice)
+
+const calculateFocusProfit = () => {
+    const profit = (30000 / focusCostValue * roundedIsProfit);
+    const roundedProfit = Math.round(profit);
+
+    // This is the formatted value for display
+    const formattedProfit = formatNumberWithCommas(roundedProfit);
+
+    // Use this for displaying the number with thousand separators
+    setFullFocusprofit(formattedProfit);
+}
+
+useEffect(() => {
+    calculateFocusProfit()
+}, [focusCostValue, roundedIsProfit]);
 
   return (
     <div className="min-h-screen pt-20 max-w-[90%] mx-auto">
@@ -244,7 +390,32 @@ console.log(roundedIsProfit)
       <div>Home / Calculator / Item Profit Calculator</div>
 
       <div className="bg-[rgb(55,62,77)] min-h-96 mt-10">
-        <div className="flex justify-evenly items-center pt-20 flex-wrap">
+        <h3 className="pt-10 text-lg text-white ml-10">Mastery Levels</h3>
+        <p className="text-md text-gray-200 ml-10">Type your mastery levels to learn your focus cost and profit per 30k focus</p>
+      <div className="flex justify-evenly items-center pt-4 flex-wrap">
+      <div className="flex flex-col">
+          <label name="t4mastery" className="text-white text-sm text-center mb-1">T4</label>
+            <input value={t4mastery} onChange={handleT4mastery} id="t4mastery" name="t4mastery" type="text" placeholder="0" className="h-8 w-20 text-center" />
+          </div>
+          <div className="flex flex-col">
+          <label name="t5mastery" className="text-white text-sm text-center mb-1">T5</label>
+            <input value={t5mastery} onChange={handleT5mastery} id="t5mastery" name="t5mastery" type="text" placeholder="0" className="h-8 w-20 text-center" />
+          </div>
+          <div className="flex flex-col">
+          <label name="t6mastery" className="text-white text-sm text-center mb-1">T6</label>
+            <input value={t6mastery}  onChange={handleT6mastery} id="t6mastery" name="t6mastery" type="text" placeholder="0" className="h-8 w-20 text-center" />
+          </div>
+          <div className="flex flex-col">
+          <label name="t7mastery" className="text-white text-sm text-center mb-1">T7</label>
+            <input value={t7mastery}  onChange={handleT7mastery} id="t7mastery" name="t7mastery" type="text" placeholder="0" className="h-8 w-20 text-center" />
+          </div>
+          <div className="flex flex-col">
+          <label name="t8mastery" className="text-white text-sm text-center mb-1">T8</label>
+            <input value={t8mastery}  onChange={handleT8mastery} id="t8mastery" name="t8mastery" type="text" placeholder="0" className="h-8 w-20 text-center" />
+          </div>
+      </div>
+      <hr className="mt-10 mx-auto w-[90%]"></hr>
+        <div className="flex justify-evenly items-center pt-10 flex-wrap">
         <div className="flex flex-col">
             <label name="category" className="text-white mb-1">
               Choose Refine Category
@@ -273,7 +444,7 @@ console.log(roundedIsProfit)
               className="h-8 w-28"
               onChange={handleTier}
             >
-              <option value="">Choose Tier</option>
+              <option value="">Tier</option>
               <option value={4}>T4</option>
               <option value={5}>T5</option>
               <option value={6}>T6</option>
@@ -283,7 +454,7 @@ console.log(roundedIsProfit)
           </div>
           <div className="flex flex-col">
             <label name="category" className="text-white mb-1">
-              Choose Enchanment
+              Enchanment
             </label>
             <select
               name="category"
@@ -291,7 +462,7 @@ console.log(roundedIsProfit)
               className="h-8 w-28"
               onChange={handleEnch}
             >
-              <option value="empty">Choose Enchanment</option>
+              <option value="empty">Enchanment</option>
               <option value="0">0</option>
               <option value="1">.1</option>
               <option value="2">.2</option>
@@ -300,22 +471,23 @@ console.log(roundedIsProfit)
             </select>
           </div>
           <div className="flex flex-col">
-          <label for="fee" className="text-white text-sm text-left mb-1">Refine Fee</label>
-            <input onChange={handleFee} id="fee" name="fee" type="text" placeholder="Type Fee"  className="h-8 w-28" />
+          <label name="fee" className="text-white text-sm text-left mb-1">Usage Fee</label>
+            <input onChange={handleFee} id="fee" name="fee" type="text" placeholder="Type Fee" className="h-8 w-28" />
           </div>
           <div className="flex flex-col">
-          <label for="returnrate" className="text-white text-sm text-left mb-1">Return Rate</label>
+          <label name="returnrate" className="text-white text-sm text-left mb-1">% Return Rate</label>
         <input onChange={handleRRR} id="returnrate" name="returnrate" type="text" placeholder="53.9"  className="h-8 w-28" />
           </div>
         </div>
 
-
+   
         <div className="flex justify-evenly items-center pt-20 flex-wrap">
+        {category && tier && ench && (
              <div className="flex justify-center items-center gap-10 flex-wrap">
                 <div className="flex justify-center items-center">
                 <Image src={resourceImg} alt="item-img" width={130} height={130} />
                 <div className="flex flex-col">
-                <label for="mainresource" className="text-white text-sm text-left mb-1">Selling Price</label>
+                <label name="mainresource" className="text-white text-sm text-left mb-1">Selling Price</label>
                 <input onChange={handleSellPrice} id="mainresource" name="mainresource" type="text" placeholder="Type Price" className="pl-1 h-6 w-32" />
                 </div>
                 </div>
@@ -324,7 +496,7 @@ console.log(roundedIsProfit)
                 <p className="flex justify-center items-center text-white mr-4">{q1} x</p>
                 <Image src={matImg1} alt="item-img" width={65} height={65} />
                 <div className="flex flex-col">
-                <label for="resource1" className="text-white text-sm text-left mb-1">Resource Price</label>
+                <label name="resource1" className="text-white text-sm text-left mb-1">Resource Price</label>
                 <input onChange={handleR1cost} id="resource1" name="resource1" type="text" placeholder="Type Price" className="pl-1 h-6 w-32" />
                 </div>
                 </div>
@@ -333,7 +505,7 @@ console.log(roundedIsProfit)
                     <p className="flex justify-center items-center text-white mr-4">{q2} x</p>
                     <Image src="https://render.albiononline.com/v1/item/T3_LEATHER" alt="item-img" width={65} height={130} />
                     <div className="flex flex-col">
-                <label for="resource2" className="text-white text-sm text-left mb-1">Resource Price</label>
+                <label name="resource2" className="text-white text-sm text-left mb-1">Resource Price</label>
                 <input onChange={handleR2cost} id="resource2" name="resource2" type="text" placeholder="Refined Price" className="pl-1 h-6 w-32" />
                 </div>
                 </div>
@@ -342,7 +514,7 @@ console.log(roundedIsProfit)
                     <p className="flex justify-center items-center text-white mr-4">{q2} x</p>
                     <Image src={matImg2} alt="item-img" width={65} height={130} />
                     <div className="flex flex-col">
-                <label for="resource2" className="text-white text-sm text-left mb-1">Resource Price</label>
+                <label name="resource2" className="text-white text-sm text-left mb-1">Resource Price</label>
                 <input onChange={handleR2cost} id="resource2" name="resource2" type="text" placeholder="Type Price" className="pl-1 h-6 w-32" />
                 </div>
                 </div>
@@ -352,13 +524,72 @@ console.log(roundedIsProfit)
                     <p className="flex justify-center items-center text-white mr-4">{q3} x</p>
                     <Image src={matImg3} alt="item-img" width={65} height={130} />
                     <div className="flex flex-col">
-                <label for="resource3" className="text-white text-sm text-left mb-1">Heart Price</label>
+                <label name="resource3" className="text-white text-sm text-left mb-1">Heart Price</label>
                 <input onChange={handleR3cost} id="resource3" name="resource3" type="text" placeholder="Type Price" className="pl-1 h-6 w-32" />
                 </div>
                 </div>
                 )}
              </div>
+            )}
         </div>
+        {category && tier && ench && fee && returnRate && sellPrice && r1cost && r2cost && (
+        <div className="flex justify-center items-center pt-10 flex-wrap">
+            {roundedIsProfit < 0 ? (
+                <div className="bg-red-500 text-white min-h-32 w-1/3 flex justfiy-start items-start mb-10">
+                <div className="mx-auto">
+                    <h5 className="">PROFITABILITY WITH %{returnRate} RETURN RATE</h5>
+                 <div className="flex justify-evenly items-center mt-4 text-sm">
+                    <div>
+                    <p>Item Price</p>
+                    <p>Returned Resource</p>
+                    <p>- Material Cost</p>
+                    <p>- Sell Order Tax %6.5</p>
+                    <p>- Usage Fee</p>
+                    <p>Total = </p>
+                    </div>
+                    <div>
+                    <p>{sellPrice}</p>
+                    <p>{roundedReturnedResource}</p>
+                    <p>{roundedResourceCost}</p>
+                    <p>{roundedCalculateTax}</p>
+                    <p>{roundedCalculateFee}</p>
+                    <p>{roundedIsProfit} </p>
+                    <p>{fullFocusprofit}</p>
+                    </div>
+                    </div>
+                </div>
+                </div>
+            ) : (
+                <div className="bg-green-500 text-white min-h-32 w-1/3 flex justfiy-start items-start mb-10">
+                <div className="mx-auto">
+                    <h5 className="">PROFITABILITY WITH %{returnRate} RETURN RATE</h5>
+                 <div className="flex justify-evenly items-center mt-4 text-sm">
+                    <div>
+                    <p>Item Price</p>
+                    <p>Returned Resource</p>
+                    <p>- Material Cost</p>
+                    <p>- Sell Order Tax %6.5</p>
+                    <p>- Usage Fee</p>
+                    <p>Total = </p>
+                    <p>Focus Cost =</p>
+                    <p>30K Focus Profit =</p>
+                    </div>
+                    <div>
+                    <p>{formattedSellPrice}</p>
+                    <p>{formattedReturnedResource}</p>
+                    <p>{formattedResourceCost}</p>
+                    <p>{formattedTax}</p>
+                    <p>{formattedFee}</p>
+                    <p>{formattedProfit} </p>
+                    <p>{focusCostValue}</p> 
+                    <p>{fullFocusprofit}</p>
+                    </div>
+                    </div>
+                </div>
+                </div>
+            )}
+        </div>
+        )}
       </div>
     </div>
   );

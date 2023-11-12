@@ -1,155 +1,389 @@
-{
+ [ 
+    {
     "armor": [
         {
-            "category": "leather",
+            "category": "leather armor",
+            "value": "ARMOR",
             "items": [
                 {
                     "name": "Mercenary Jacket",
-                    "value": "LEATHER_SET1",
+                    "value": "ARMOR_LEATHER_SET1",
                     "recipe1": "LEATHER",
                     "q1": "16",
-                    "recipe2": "METALBAR",
-                    "q2": "16"
+                    "recipe2": "",
+                    "q2": "",
+                    "artifact": "",
+                    "itemValue": 256
+                },
+                {
+                    "name": "Hunter Jacket",
+                    "value": "ARMOR_LEATHER_SET2",
+                    "recipe1": "LEATHER",
+                    "q1": "16",
+                    "recipe2": "",
+                    "q2": "",
+                    "artifact": "",
+                    "itemValue": 256
+                },
+                {
+                    "name": "Assasin Jacket",
+                    "value": "ARMOR_LEATHER_SET3",
+                    "recipe1": "LEATHER",
+                    "q1": "16",
+                    "recipe2": "",
+                    "q2": "",
+                    "artifact": "",
+                    "itemValue": 256
+                },
+                {
+                    "name": "Royal Jacket",
+                    "value": "ARMOR_LEATHER_ROYAL",
+                    "recipe1": "LEATHER",
+                    "q1": "16",
+                    "recipe2": "",
+                    "q2": "",
+                    "artifact": "QUESTITEM_TOKEN_ROYAL",
+                    "itemValue": 320
+                },
+                {
+                    "name": "Stalker Jacket",
+                    "value": "ARMOR_LEATHER_MORGANA",
+                    "recipe1": "LEATHER",
+                    "q1": "16",
+                    "recipe2": "",
+                    "q2": "",
+                    "artifact": "ARTEFACT_ARMOR_LEATHER_MORGANA",
+                    "itemValue": 320
+                },
+                {
+                    "name": "Hellion Jacket",
+                    "value": "ARMOR_LEATHER_HELL",
+                    "recipe1": "LEATHER",
+                    "q1": "16",
+                    "recipe2": "",
+                    "q2": "",
+                    "artifact": "ARTEFACT_ARMOR_LEATHER_HELL",
+                    "itemValue": 448
+                },
+                {
+                    "name": "Specter Jacket",
+                    "value": "ARMOR_LEATHER_UNDEAD",
+                    "recipe1": "LEATHER",
+                    "q1": "16",
+                    "recipe2": "",
+                    "q2": "",
+                    "artifact": "ARTEFACT_ARMOR_LEATHER_UNDEAD",
+                    "itemValue": 704
+                },
+                {
+                    "name": "Mistwalker Jacket",
+                    "value": "ARMOR_LEATHER_FEY",
+                    "recipe1": "LEATHER",
+                    "q1": "16",
+                    "recipe2": "",
+                    "q2": "",
+                    "artifact": "ARTEFACT_ARMOR_LEATHER_FEY",
+                    "itemValue": 704
+                },
+                {
+                    "name": "Jacket Of Tenacity",
+                    "value": "ARMOR_LEATHER_AVALON",
+                    "recipe1": "LEATHER",
+                    "q1": "16",
+                    "recipe2": "",
+                    "q2": "",
+                    "artifact": "ARTEFACT_ARMOR_LEATHER_AVALON",
+                    "itemValue": 1216
+                }
+            ]
+        },
+        {
+            "category": "cloth armor",
+            "items": [
+                {
+                    "name": "Scholar Robe",
+                    "value": "ARMOR_CLOTH_SET1",
+                    "recipe1": "CLOTH",
+                    "q1": "16",
+                    "recipe2": "",
+                    "q2": "",
+                    "artifact": "",
+                    "itemValue": 256
+                },
+                {
+                    "name": "Cleric Robe",
+                    "value": "ARMOR_CLOTH_SET2",
+                    "recipe1": "CLOTH",
+                    "q1": "16",
+                    "recipe2": "",
+                    "q2": "",
+                    "artifact": "",
+                    "itemValue": 256
+                },
+                {
+                    "name": "Mage Robe",
+                    "value": "ARMOR_CLOTH_SET3",
+                    "recipe1": "CLOTH",
+                    "q1": "16",
+                    "recipe2": "",
+                    "q2": "",
+                    "artifact": "",
+                    "itemValue": 256
+                },
+                {
+                    "name": "Royal Robe",
+                    "value": "ARMOR_CLOTH_ROYAL",
+                    "recipe1": "CLOTH",
+                    "q1": "16",
+                    "recipe2": "",
+                    "q2": "",
+                    "artifact": "QUESTITEM_TOKEN_ROYAL",
+                    "itemValue": 320
+                },
+                {
+                    "name": "Druid Robe",
+                    "value": "ARMOR_CLOTH_KEEPER",
+                    "recipe1": "CLOTH",
+                    "q1": "16",
+                    "recipe2": "",
+                    "q2": "",
+                    "artifact": "ARTEFACT_ARMOR_CLOTH_KEEPER",
+                    "itemValue": 320
+                },
+
+                {
+                    "name": "Fiend Robe",
+                    "value": "ARMOR_CLOTH_HELL",
+                    "recipe1": "CLOTH",
+                    "q1": "16",
+                    "recipe2": "",
+                    "q2": "",
+                    "artifact": "ARTEFACT_ARMOR_CLOTH_HELL",
+                    "itemValue": 448
+                },
+                {
+                    "name": "Cultist Robe",
+                    "value": "ARMOR_CLOTH_MORGANA",
+                    "recipe1": "CLOTH",
+                    "q1": "16",
+                    "recipe2": "",
+                    "q2": "",
+                    "artifact": "ARTEFACT_ARMOR_CLOTH_MORGANA",
+                    "itemValue": 704
+                },
+                {
+                    "name": "Feyscale Robe",
+                    "value": "ARMOR_CLOTH_FEY",
+                    "recipe1": "CLOTH",
+                    "q1": "16",
+                    "recipe2": "",
+                    "q2": "",
+                    "artifact": "ARTEFACT_ARMOR_CLOTH_FEY",
+                    "itemValue": 704
+                },
+                {
+                    "name": "Robe of Purity",
+                    "value": "ARMOR_CLOTH_AVALON",
+                    "recipe1": "CLOTH",
+                    "q1": "16",
+                    "recipe2": "",
+                    "q2": "",
+                    "artifact": "ARTEFACT_ARMOR_CLOTH_AVALON",
+                    "itemValue": 1216
+                }
+            ]
+        },
+        {
+            "category": "plate armor",
+            "items": [
+                {
+                    "name": "Soldier Armor",
+                    "value": "ARMOR_PLATE_SET1",
+                    "recipe1": "METALBAR",
+                    "q1": "16",
+                    "recipe2": "",
+                    "q2": "",
+                    "artifact": "",
+                    "itemValue": 256
+                },
+                {
+                    "name": "Knight Armor",
+                    "value": "ARMOR_PLATE_SET2",
+                    "recipe1": "METALBAR",
+                    "q1": "16",
+                    "recipe2": "",
+                    "q2": "",
+                    "artifact": "",
+                    "itemValue": 256
+                },
+                {
+                    "name": "Guardian Armor",
+                    "value": "ARMOR_PLATE_SET3",
+                    "recipe1": "METALBAR",
+                    "q1": "16",
+                    "recipe2": "",
+                    "q2": "",
+                    "artifact": "",
+                    "itemValue": 256
+                },
+                {
+                    "name": "Royal Armor",
+                    "value": "ARMOR_PLATE_ROYAL",
+                    "recipe1": "METALBAR",
+                    "q1": "16",
+                    "recipe2": "",
+                    "q2": "",
+                    "artifact": "QUESTITEM_TOKEN_ROYAL",
+                    "itemValue": 320
+                },
+                {
+                    "name": "Graveguard Armor",
+                    "value": "ARMOR_PLATE_UNDEAD",
+                    "recipe1": "METALBAR",
+                    "q1": "16",
+                    "recipe2": "",
+                    "q2": "",
+                    "artifact": "ARTEFACT_ARMOR_PLATE_UNDEAD",
+                    "itemValue": 320
+                },
+                {
+                    "name": "Demon Armor",
+                    "value": "ARMOR_PLATE_HELL",
+                    "recipe1": "METALBAR",
+                    "q1": "16",
+                    "recipe2": "",
+                    "q2": "",
+                    "artifact": "ARTEFACT_ARMOR_PLATE_UNDEAD",
+                    "itemValue": 448
+                },
+                {
+                    "name": "Judicator Armor",
+                    "value": "ARMOR_PLATE_KEEPER",
+                    "recipe1": "METALBAR",
+                    "q1": "16",
+                    "recipe2": "",
+                    "q2": "",
+                    "artifact": "ARTEFACT_ARMOR_PLATE_KEEPER",
+                    "itemValue": 704
+                },
+                {
+                    "name": "Duskweaver Armor",
+                    "value": "ARMOR_PLATE_FEY",
+                    "recipe1": "METALBAR",
+                    "q1": "16",
+                    "recipe2": "",
+                    "q2": "",
+                    "artifact": "ARTEFACT_ARMOR_PLATE_FEY",
+                    "itemValue": 704
+                },
+                {
+                    "name": "Armor of Valor",
+                    "value": "ARMOR_PLATE_AVALON",
+                    "recipe1": "METALBAR",
+                    "q1": "16",
+                    "recipe2": "",
+                    "q2": "",
+                    "artifact": "RTEFACT_ARMOR_PLATE_AVALON",
+                    "itemValue": 1216
+                }
+            ]
+        },
+        {
+            "category": "leather hood",
+            "value": "HEAD",
+            "items": [
+                {
+                    "name": "Mercenary Hood",
+                    "value": "HEAD_LEATHER_SET1",
+                    "recipe1": "LEATHER",
+                    "q1": "16",
+                    "recipe2": "",
+                    "q2": "",
+                    "artifact": "",
+                    "itemValue": 128
                 },
                 {
                     "name": "Hunter Jacket",
                     "value": "LEATHER_SET2",
                     "recipe1": "LEATHER",
-                    "q1": "16"
+                    "q1": "16",
+                    "recipe2": "",
+                    "q2": "",
+                    "artifact": "",
+                    "itemValue": 256
                 },
                 {
                     "name": "Assasin Jacket",
                     "value": "LEATHER_SET3",
                     "recipe1": "LEATHER",
-                    "q1": "16"
+                    "q1": "16",
+                    "recipe2": "",
+                    "q2": "",
+                    "artifact": "",
+                    "itemValue": 256
                 },
                 {
                     "name": "Royal Jacket",
                     "value": "LEATHER_ROYAL",
                     "recipe1": "LEATHER",
-                    "q1": "16"
+                    "q1": "16",
+                    "recipe2": "",
+                    "q2": "",
+                    "artifact": "QUESTITEM_TOKEN_ROYAL",
+                    "itemValue": 320
                 },
                 {
                     "name": "Stalker Jacket",
                     "value": "LEATHER_MORGANA",
                     "recipe1": "LEATHER",
-                    "q1": "16"
+                    "q1": "16",
+                    "recipe2": "",
+                    "q2": "",
+                    "artifact": "ARTEFACT_ARMOR_LEATHER_MORGANA",
+                    "itemValue": 320
+                },
+                {
+                    "name": "Hellion Jacket",
+                    "value": "LEATHER_HELL",
+                    "recipe1": "LEATHER",
+                    "q1": "16",
+                    "recipe2": "",
+                    "q2": "",
+                    "artifact": "ARTEFACT_ARMOR_LEATHER_HELL",
+                    "itemValue": 448
                 },
                 {
                     "name": "Specter Jacket",
                     "value": "LEATHER_UNDEAD",
                     "recipe1": "LEATHER",
-                    "q1": "16"
+                    "q1": "16",
+                    "recipe2": "",
+                    "q2": "",
+                    "artifact": "ARTEFACT_ARMOR_LEATHER_UNDEAD",
+                    "itemValue": 704
+                },
+                {
+                    "name": "Mistwalker Jacket",
+                    "value": "LEATHER_FEY",
+                    "recipe1": "LEATHER",
+                    "q1": "16",
+                    "recipe2": "",
+                    "q2": "",
+                    "artifact": "ARTEFACT_ARMOR_LEATHER_FEY",
+                    "itemValue": 704
                 },
                 {
                     "name": "Jacket Of Tenacity",
                     "value": "LEATHER_AVALON",
                     "recipe1": "LEATHER",
-                    "q1": "16"
-                }
-            ]
-        },
-        {
-            "category": "cloth",
-            "items": [
-                {
-                    "name": "Scholar Robe",
-                    "value": "CLOTH_SET1"
-                },
-                {
-                    "name": "Cleric Robe",
-                    "value": "CLOTH_SET2"
-                },
-                {
-                    "name": "Mage Robe",
-                    "value": "CLOTH_SET3"
-                },
-                {
-                    "name": "Druid Robe",
-                    "value": "CLOTH_KEEPER"
-                },
-                {
-                    "name": "Fiend Robe",
-                    "value": "CLOTH_HELL"
-                },
-                {
-                    "name": "Royal Robe",
-                    "value": "CLOTH_ROYAL"
-                },
-                {
-                    "name": "Robe of Purity",
-                    "value": "CLOTH_AVALON"
-                }
-            ]
-        },
-        {
-            "category": "plate",
-            "items": [
-                {
-                    "name": "Soldier Armor",
-                    "value": "PLATE_SET1"
-                },
-                {
-                    "name": "Knight Armor",
-                    "value": "PLATE_SET2"
-                },
-                {
-                    "name": "Guardian Armor",
-                    "value": "PLATE_SET3"
-                },
-                {
-                    "name": "Graveguard Armor",
-                    "value": "PLATE_UNDEAD"
-                },
-                {
-                    "name": "Demon Armor",
-                    "value": "PLATE_HELL"
-                },
-                {
-                    "name": "Royal Armor",
-                    "value": "PLATE_ROYAL"
-                },
-                {
-                    "name": "Armor of Valor",
-                    "value": "PLATE_AVALON"
-                }
-            ]
-        }
-    ],
-    "main": [
-        {
-            "category": "Fire",
-            "items": [
-                {
-                    "name": "Fire Staff",
-                    "value": "LEATHER_SET2",
-                    "recipe1": "LEATHER",
-                    "q1": "16"
-                },
-                {
-                    "name": "Wildfire staff",
-                    "value": "LEATHER_SET3",
-                    "recipe1": "LEATHER",
-                    "q1": "16"
-                }
-            ]
-        },
-        {
-            "category": "Cursed",
-            "items": [
-                {
-                    "name": "Cursed Staff",
-                    "value": "LEATHER_SET2",
-                    "recipe1": "LEATHER",
-                    "q1": "16"
-                },
-                {
-                    "name": "Arcane staff",
-                    "value": "LEATHER_SET3",
-                    "recipe1": "LEATHER",
-                    "q1": "16"
+                    "q1": "16",
+                    "recipe2": "",
+                    "q2": "",
+                    "artifact": "ARTEFACT_ARMOR_LEATHER_AVALON",
+                    "itemValue": 1216
                 }
             ]
         }
     ]
 }
+ ]
