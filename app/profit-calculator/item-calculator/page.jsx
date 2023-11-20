@@ -112,6 +112,7 @@ const handleUsageFee = (e) => {
       setName(selectedItemObj.name); // Update the name state with the selected item's name
       setQ1(selectedItemObj.q1);
       setQ2(selectedItemObj.q2);
+      setQ3(selectedItemObj.q3);
       setRecipe1(selectedItemObj.recipe1);
       setRecipe2(selectedItemObj.recipe2);
       setArtifact(selectedItemObj.artifact);
@@ -120,6 +121,7 @@ const handleUsageFee = (e) => {
       setName(""); // Reset the name if no item is selected
       setQ1("");
       setQ2("");
+      setQ3("");
       setRecipe1("");
       setRecipe2("");
       setArtifact("");
@@ -128,7 +130,7 @@ const handleUsageFee = (e) => {
 
   useEffect(() => {
     // Check if the selected category is either 'armor' or 'head'
-    const isArmorOrHead = ['armor', 'head'].includes(category.toLowerCase());
+    const isArmorOrHead = ['armor', 'head', 'shoes', 'magic', 'melee', 'ranged', "off-hand", "accessories"].includes(category.toLowerCase());
   
     if (isArmorOrHead) {
       const categoryData = items.find(item => item.hasOwnProperty(category.toLowerCase()));
@@ -236,9 +238,19 @@ useEffect(() => {
   }
 
   let recipeImg1;
-  if (selectedItem) {
+  if (selectedItem && ench!== "0") {
+    recipeImg1 = `https://render.albiononline.com/v1/item/${tier}_${recipe1}_LEVEL${ench}`;
+  } else {
     recipeImg1 = `https://render.albiononline.com/v1/item/${tier}_${recipe1}`;
   }
+
+  let recipeImg2;
+  if (selectedItem && ench!== "0") {
+    recipeImg2 = `https://render.albiononline.com/v1/item/${tier}_${recipe2}_LEVEL${ench}`;
+  } else {
+    recipeImg2 = `https://render.albiononline.com/v1/item/${tier}_${recipe2}`;
+  }
+  let matImg3 = `https://render.albiononline.com/v1/item/${q3}`;
   return (
     <div className="min-h-screen pt-20 max-w-[90%] mx-auto">
       <div className="text-2xl font-bold">
@@ -260,8 +272,12 @@ useEffect(() => {
               onChange={handleCategory}
             >
               <option value="empty">Choose Category</option>
+              <option value="ACCESSORIES">Accessories</option>
               <option value="ARMOR">Armor</option>
-              <option value="MAIN">1H Weapon</option>
+              <option value="MAGIC">Magic</option>
+              <option value="MELEE">Melee</option>
+              <option value="OFF-HAND">Off-hand</option>
+              <option value="RANGED">Ranged</option>
             </select>
           </div>
 
@@ -356,7 +372,7 @@ useEffect(() => {
               className="h-8 w-52"
               onChange={handleEnch}
             >
-              <option value="empty">Choose Enchanment</option>
+              <option value="0">Choose Enchanment</option>
               <option value="0">0</option>
               <option value="1">.1</option>
               <option value="2">.2</option>
@@ -452,7 +468,55 @@ useEffect(() => {
                     onChange={handleR1cost}
                   />
                 </div>
+               </div>
+               {q2 && (
+              <div className="flex justify-center items-center gap-4">
+                <div>
+                  <Image
+                    src={recipeImg2}
+                    alt="item-img"
+                    width={50}
+                    height={50}
+                  />
+                </div>
+                <div className="flex">
+                  <p className="text-sm text-white">{q2}</p>
+                  <p className="text-sm ml-2 mr-4 text-white">x</p>
+                  <input
+                    onChange={handleR2cost}
+                    name="r2cost"
+                    id="r2cost"
+                    type="number"
+                    min="0"
+                    className="text-center w-32 mx-auto"
+                  />
+                </div>
               </div>
+              )}
+             {q3 && (
+              <div className="flex justify-center items-center gap-4">
+                <div>
+                  <Image
+                    src={matImg3}
+                    alt="item-img"
+                    width={50}
+                    height={50}
+                  />
+                </div>
+                <div className="flex">
+                  <p className="text-sm text-white">1</p>
+                  <p className="text-sm ml-2 mr-4 text-white">x</p>
+                  <input
+                    onChange={handleR3cost}
+                    name="r2cost"
+                    id="r2cost"
+                    type="number"
+                    min="0"
+                    className="text-center w-32 mx-auto"
+                  />
+                </div>
+              </div>
+              )}
               {artifact && (
               <div className="flex justify-center items-center gap-4">
                 <div>

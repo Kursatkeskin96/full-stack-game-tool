@@ -1,5 +1,159 @@
  [ 
     {
+        "accessories": [
+            {
+                "category": "bag",
+                "value": "accessories",
+                "items": [
+                    {
+                        "name": "Bag",
+                        "value": "BAG",
+                        "recipe1": "CLOTH",
+                        "q1": "8",
+                        "recipe2": "LEATHER",
+                        "q2": "8",
+                        "artifact": "",
+                        "itemValue": 256
+                    },
+                    {
+                        "name": "Satchel of Insight",
+                        "value": "BAG_INSIGHT",
+                        "recipe1": "CLOTH",
+                        "q1": "8",
+                        "recipe2": "LEATHER",
+                        "q2": "8",
+                        "artifact": "SKILLBOOK_STANDARD",
+                        "itemValue": 256
+                    }
+                ]
+            },
+            {
+                "category": "cape",
+                "value": "accessories",
+                "items": [
+                    {
+                        "name": "Cape",
+                        "value": "CAPE",
+                        "recipe1": "CLOTH",
+                        "q1": "4",
+                        "recipe2": "LEATHER",
+                        "q2": "4",
+                        "artifact": "",
+                        "itemValue": 128
+                    },
+                    {
+                        "name": "Bridgewatch Cape",
+                        "value": "CAPEITEM_FW_BRIDGEWATCH",
+                        "recipe1": "CAPE",
+                        "q1": "1",
+                        "recipe2": "CAPEITEM_FW_BRIDGEWATCH_BP",
+                        "q2": "1",
+                        "q3": "T1_FACTION_STEPPE_TOKEN_1",
+                        "itemValue": 160
+                    },
+                    {
+                        "name": "Fort Sterling Cape",
+                        "value": "CAPEITEM_FW_FORTSTERLING",
+                        "recipe1": "CAPE",
+                        "q1": "1",
+                        "recipe2": "CAPEITEM_FW_FORTSTERLING_BP",
+                        "q2": "1",
+                        "q3": "T1_FACTION_MOUNTAIN_TOKEN_1",
+                        "itemValue": 160
+                    },
+                    {
+                        "name": "Lymhurst Cape",
+                        "value": "CAPEITEM_FW_LYMHURST",
+                        "recipe1": "CAPE",
+                        "q1": "1",
+                        "recipe2": "CAPEITEM_FW_LYMHURST_BP",
+                        "q2": "1",
+                        "q3": "/T1_FACTION_FOREST_TOKEN_1",
+                        "itemValue": 160
+                    },
+                    {
+                        "name": "Martlock Cape",
+                        "value": "CAPEITEM_FW_MARTLOCK",
+                        "recipe1": "CAPE",
+                        "q1": "1",
+                        "recipe2": "CAPEITEM_FW_MARTLOCK_BP",
+                        "q2": "1",
+                        "q3": "T1_FACTION_HIGHLAND_TOKEN_1",
+                        "itemValue": 160
+                    },
+                    {
+                        "name": "Thetford Cape",
+                        "value": "CAPEITEM_FW_THETFORD",
+                        "recipe1": "CAPE",
+                        "q1": "1",
+                        "recipe2": "CAPEITEM_FW_THETFORD_BP",
+                        "q2": "1",
+                        "q3": "T1_FACTION_SWAMP_TOKEN_1",
+                        "itemValue": 160
+                    },
+                    {
+                        "name": "Caerleon Cape",
+                        "value": "CAPEITEM_FW_CAERLEON",
+                        "recipe1": "CAPE",
+                        "q1": "1",
+                        "recipe2": "CAPEITEM_FW_CAERLEON_BP",
+                        "q2": "1",
+                        "q3": "T1_FACTION_CAERLEON_TOKEN_1",
+                        "itemValue": 160
+                    },
+                    {
+                        "name": "Heretic Cape",
+                        "value": "CAPEITEM_HERETIC",
+                        "recipe1": "CAPE",
+                        "q1": "1",
+                        "recipe2": "CAPEITEM_HERETIC_BP",
+                        "q2": "1",
+                        "q3": "T1_FACTION_FOREST_TOKEN_1",
+                        "itemValue": 160
+                    },
+                    {
+                        "name": "Undead Cape",
+                        "value": "CAPEITEM_UNDEAD",
+                        "recipe1": "CAPE",
+                        "q1": "1",
+                        "recipe2": "CAPEITEM_FW_FORTSTERLING_BP",
+                        "q2": "1",
+                        "q3": "T1_FACTION_MOUNTAIN_TOKEN_1",
+                        "itemValue": 160
+                    },
+                    {
+                        "name": "Keeper Cape",
+                        "value": "CAPEITEM_KEEPER",
+                        "recipe1": "CAPE",
+                        "q1": "1",
+                        "recipe2": "CAPEITEM_KEEPER_BP",
+                        "q2": "1",
+                        "q3": "T1_FACTION_HIGHLAND_TOKEN_1",
+                        "itemValue": 160
+                    },
+                    {
+                        "name": "Morgana Cape",
+                        "value": "CAPEITEM_MORGANA",
+                        "recipe1": "CAPE",
+                        "q1": "1",
+                        "recipe2": "CAPEITEM_MORGANA_BP",
+                        "q2": "1",
+                        "q3": "T1_FACTION_SWAMP_TOKEN_1",
+                        "itemValue": 160
+                    },
+                    {
+                        "name": "Demon Cape",
+                        "value": "CAPEITEM_DEMON",
+                        "recipe1": "CAPE",
+                        "q1": "1",
+                        "recipe2": "CAPEITEM_DEMON_BP",
+                        "q2": "1",
+                        "q3": "T1_FACTION_STEPPE_TOKEN_1",
+                        "itemValue": 160
+                    }
+                ]
+            }
+        ],
     "armor": [
         {
             "category": "leather armor",
@@ -94,6 +248,198 @@
                     "q2": "",
                     "artifact": "ARTEFACT_ARMOR_LEATHER_AVALON",
                     "itemValue": 1216
+                }
+            ]
+        },
+        {
+            "category": "leather helmet",
+            "value": "HEAD",
+            "items": [
+                {
+                    "name": "Mercenary Hood",
+                    "value": "HEAD_LEATHER_SET1",
+                    "recipe1": "LEATHER",
+                    "q1": "8",
+                    "recipe2": "",
+                    "q2": "",
+                    "artifact": "",
+                    "itemValue": 128
+                },
+                {
+                    "name": "Hunter Hood",
+                    "value": "HEAD_LEATHER_SET2",
+                    "recipe1": "LEATHER",
+                    "q1": "8",
+                    "recipe2": "",
+                    "q2": "",
+                    "artifact": "",
+                    "itemValue": 128
+                },
+                {
+                    "name": "Assasin Hood",
+                    "value": "HEAD_LEATHER_SET3",
+                    "recipe1": "LEATHER",
+                    "q1": "8",
+                    "recipe2": "",
+                    "q2": "",
+                    "artifact": "",
+                    "itemValue": 128
+                },
+                {
+                    "name": "Royal Hood",
+                    "value": "HEAD_LEATHER_ROYAL",
+                    "recipe1": "LEATHER",
+                    "q1": "8",
+                    "recipe2": "",
+                    "q2": "",
+                    "artifact": "QUESTITEM_TOKEN_ROYAL",
+                    "itemValue": 160
+                },
+                {
+                    "name": "Stalker Hood",
+                    "value": "HEAD_LEATHER_MORGANA",
+                    "recipe1": "LEATHER",
+                    "q1": "8",
+                    "recipe2": "",
+                    "q2": "",
+                    "artifact": "ARTEFACT_HEAD_LEATHER_MORGANA",
+                    "itemValue": 160
+                },
+                {
+                    "name": "Hellion Hood",
+                    "value": "HEAD_LEATHER_HELL",
+                    "recipe1": "LEATHER",
+                    "q1": "8",
+                    "recipe2": "",
+                    "q2": "",
+                    "artifact": "ARTEFACT_HEAD_LEATHER_HELL",
+                    "itemValue": 224
+                },
+                {
+                    "name": "Specter Hood",
+                    "value": "HEAD_LEATHER_UNDEAD",
+                    "recipe1": "LEATHER",
+                    "q1": "8",
+                    "recipe2": "",
+                    "q2": "",
+                    "artifact": "ARTEFACT_HEAD_LEATHER_UNDEAD",
+                    "itemValue": 352
+                },
+                {
+                    "name": "Mistwalker Hood",
+                    "value": "HEAD_LEATHER_FEY",
+                    "recipe1": "LEATHER",
+                    "q1": "8",
+                    "recipe2": "",
+                    "q2": "",
+                    "artifact": "ARTEFACT_HEAD_LEATHER_FEY",
+                    "itemValue": 352
+                },
+                {
+                    "name": "Hood Of Tenacity",
+                    "value": "HEAD_LEATHER_AVALON",
+                    "recipe1": "LEATHER",
+                    "q1": "8",
+                    "recipe2": "",
+                    "q2": "",
+                    "artifact": "ARTEFACT_HEAD_LEATHER_AVALON",
+                    "itemValue": 608
+                }
+            ]
+        },
+        {
+            "category": "leather shoes",
+            "value": "SHOES",
+            "items": [
+                {
+                    "name": "Mercenary Shoes",
+                    "value": "SHOES_LEATHER_SET1",
+                    "recipe1": "LEATHER",
+                    "q1": "8",
+                    "recipe2": "",
+                    "q2": "",
+                    "artifact": "",
+                    "itemValue": 128
+                },
+                {
+                    "name": "Hunter Shoes",
+                    "value": "SHOES_LEATHER_SET2",
+                    "recipe1": "LEATHER",
+                    "q1": "8",
+                    "recipe2": "",
+                    "q2": "",
+                    "artifact": "",
+                    "itemValue": 128
+                },
+                {
+                    "name": "Assasin Shoes",
+                    "value": "SHOES_LEATHER_SET3",
+                    "recipe1": "LEATHER",
+                    "q1": "8",
+                    "recipe2": "",
+                    "q2": "",
+                    "artifact": "",
+                    "itemValue": 128
+                },
+                {
+                    "name": "Royal Shoes",
+                    "value": "SHOES_LEATHER_ROYAL",
+                    "recipe1": "LEATHER",
+                    "q1": "8",
+                    "recipe2": "",
+                    "q2": "",
+                    "artifact": "QUESTITEM_TOKEN_ROYAL",
+                    "itemValue": 160
+                },
+                {
+                    "name": "Stalker Shoes",
+                    "value": "SHOES_LEATHER_MORGANA",
+                    "recipe1": "LEATHER",
+                    "q1": "8",
+                    "recipe2": "",
+                    "q2": "",
+                    "artifact": "ARTEFACT_SHOES_LEATHER_MORGANA",
+                    "itemValue": 160
+                },
+                {
+                    "name": "Hellion Shoes",
+                    "value": "SHOES_LEATHER_HELL",
+                    "recipe1": "LEATHER",
+                    "q1": "8",
+                    "recipe2": "",
+                    "q2": "",
+                    "artifact": "ARTEFACT_SHOES_LEATHER_HELL",
+                    "itemValue": 224
+                },
+                {
+                    "name": "Specter Shoes",
+                    "value": "SHOES_LEATHER_UNDEAD",
+                    "recipe1": "LEATHER",
+                    "q1": "8",
+                    "recipe2": "",
+                    "q2": "",
+                    "artifact": "ARTEFACT_SHOES_LEATHER_UNDEAD",
+                    "itemValue": 352
+                },
+                {
+                    "name": "Mistwalker Shoes",
+                    "value": "SHOES_LEATHER_FEY",
+                    "recipe1": "LEATHER",
+                    "q1": "8",
+                    "recipe2": "",
+                    "q2": "",
+                    "artifact": "ARTEFACT_SHOES_LEATHER_FEY",
+                    "itemValue": 352
+                },
+                {
+                    "name": "Hood Of Tenacity",
+                    "value": "SHOES_LEATHER_AVALON",
+                    "recipe1": "LEATHER",
+                    "q1": "8",
+                    "recipe2": "",
+                    "q2": "",
+                    "artifact": "ARTEFACT_SHOES_LEATHER_AVALON",
+                    "itemValue": 608
                 }
             ]
         },
@@ -194,6 +540,198 @@
             ]
         },
         {
+            "category": "cloh helmet",
+            "items": [
+                {
+                    "name": "Scholar Cowl",
+                    "value": "HEAD_CLOTH_SET1",
+                    "recipe1": "CLOTH",
+                    "q1": "8",
+                    "recipe2": "",
+                    "q2": "",
+                    "artifact": "",
+                    "itemValue": 128
+                },
+                {
+                    "name": "Cleric Cowl",
+                    "value": "HEAD_CLOTH_SET2",
+                    "recipe1": "CLOTH",
+                    "q1": "8",
+                    "recipe2": "",
+                    "q2": "",
+                    "artifact": "",
+                    "itemValue": 128
+                },
+                {
+                    "name": "Mage Cowl",
+                    "value": "HEAD_CLOTH_SET3",
+                    "recipe1": "CLOTH",
+                    "q1": "8",
+                    "recipe2": "",
+                    "q2": "",
+                    "artifact": "",
+                    "itemValue": 128
+                },
+                {
+                    "name": "Royal Cowl",
+                    "value": "HEAD_CLOTH_ROYAL",
+                    "recipe1": "CLOTH",
+                    "q1": "8",
+                    "recipe2": "",
+                    "q2": "",
+                    "artifact": "QUESTITEM_TOKEN_ROYAL",
+                    "itemValue": 160
+                },
+                {
+                    "name": "Druid Cowl",
+                    "value": "HEAD_CLOTH_KEEPER",
+                    "recipe1": "CLOTH",
+                    "q1": "8",
+                    "recipe2": "",
+                    "q2": "",
+                    "artifact": "ARTEFACT_HEAD_CLOTH_KEEPER",
+                    "itemValue": 160
+                },
+
+                {
+                    "name": "Fiend Cowl",
+                    "value": "HEAD_CLOTH_HELL",
+                    "recipe1": "CLOTH",
+                    "q1": "8",
+                    "recipe2": "",
+                    "q2": "",
+                    "artifact": "ARTEFACT_HEAD_CLOTH_HELL",
+                    "itemValue": 224
+                },
+                {
+                    "name": "Cultist Cowl",
+                    "value": "HEAD_CLOTH_MORGANA",
+                    "recipe1": "CLOTH",
+                    "q1": "8",
+                    "recipe2": "",
+                    "q2": "",
+                    "artifact": "ARTEFACT_HEAD_CLOTH_MORGANA",
+                    "itemValue": 352
+                },
+                {
+                    "name": "Feyscale Hat",
+                    "value": "HEAD_CLOTH_FEY",
+                    "recipe1": "CLOTH",
+                    "q1": "8",
+                    "recipe2": "",
+                    "q2": "",
+                    "artifact": "ARTEFACT_HEAD_CLOTH_FEY",
+                    "itemValue": 352
+                },
+                {
+                    "name": "Cowl of Purity",
+                    "value": "HEAD_CLOTH_AVALON",
+                    "recipe1": "CLOTH",
+                    "q1": "8",
+                    "recipe2": "",
+                    "q2": "",
+                    "artifact": "ARTEFACT_HEAD_CLOTH_AVALON",
+                    "itemValue": 608
+                }
+            ]
+        }, 
+        {
+            "category": "cloh shoes",
+            "items": [
+                {
+                    "name": "Scholar Sandals",
+                    "value": "SHOES_CLOTH_SET1",
+                    "recipe1": "CLOTH",
+                    "q1": "8",
+                    "recipe2": "",
+                    "q2": "",
+                    "artifact": "",
+                    "itemValue": 128
+                },
+                {
+                    "name": "Cleric Sandals",
+                    "value": "SHOES_CLOTH_SET2",
+                    "recipe1": "CLOTH",
+                    "q1": "8",
+                    "recipe2": "",
+                    "q2": "",
+                    "artifact": "",
+                    "itemValue": 128
+                },
+                {
+                    "name": "Mage Sandals",
+                    "value": "SHOES_CLOTH_SET3",
+                    "recipe1": "CLOTH",
+                    "q1": "8",
+                    "recipe2": "",
+                    "q2": "",
+                    "artifact": "",
+                    "itemValue": 128
+                },
+                {
+                    "name": "Royal Sandals",
+                    "value": "SHOES_CLOTH_ROYAL",
+                    "recipe1": "CLOTH",
+                    "q1": "8",
+                    "recipe2": "",
+                    "q2": "",
+                    "artifact": "QUESTITEM_TOKEN_ROYAL",
+                    "itemValue": 160
+                },
+                {
+                    "name": "Druid Sandals",
+                    "value": "SHOES_CLOTH_KEEPER",
+                    "recipe1": "CLOTH",
+                    "q1": "8",
+                    "recipe2": "",
+                    "q2": "",
+                    "artifact": "ARTEFACT_SHOES_CLOTH_KEEPER",
+                    "itemValue": 160
+                },
+
+                {
+                    "name": "Fiend Sandals",
+                    "value": "SHOES_CLOTH_HELL",
+                    "recipe1": "CLOTH",
+                    "q1": "8",
+                    "recipe2": "",
+                    "q2": "",
+                    "artifact": "ARTEFACT_SHOES_CLOTH_HELL",
+                    "itemValue": 224
+                },
+                {
+                    "name": "Cultist Sandals",
+                    "value": "SHOES_CLOTH_MORGANA",
+                    "recipe1": "CLOTH",
+                    "q1": "8",
+                    "recipe2": "",
+                    "q2": "",
+                    "artifact": "ARTEFACT_SHOES_CLOTH_MORGANA",
+                    "itemValue": 352
+                },
+                {
+                    "name": "Feyscale Sandals",
+                    "value": "SHOES_CLOTH_FEY",
+                    "recipe1": "CLOTH",
+                    "q1": "8",
+                    "recipe2": "",
+                    "q2": "",
+                    "artifact": "ARTEFACT_SHOES_CLOTH_FEY",
+                    "itemValue": 352
+                },
+                {
+                    "name": "Sandals of Purity",
+                    "value": "SHOES_CLOTH_AVALON",
+                    "recipe1": "CLOTH",
+                    "q1": "8",
+                    "recipe2": "",
+                    "q2": "",
+                    "artifact": "ARTEFACT_SHOES_CLOTH_AVALON",
+                    "itemValue": 608
+                }
+            ]
+        },
+        {
             "category": "plate armor",
             "items": [
                 {
@@ -289,98 +827,1584 @@
             ]
         },
         {
-            "category": "leather hood",
-            "value": "HEAD",
+            "category": "plate helmet",
             "items": [
                 {
-                    "name": "Mercenary Hood",
-                    "value": "HEAD_LEATHER_SET1",
-                    "recipe1": "LEATHER",
-                    "q1": "16",
+                    "name": "Soldier Helmet",
+                    "value": "HEAD_PLATE_SET1",
+                    "recipe1": "METALBAR",
+                    "q1": "8",
                     "recipe2": "",
                     "q2": "",
                     "artifact": "",
                     "itemValue": 128
                 },
                 {
-                    "name": "Hunter Jacket",
-                    "value": "LEATHER_SET2",
-                    "recipe1": "LEATHER",
-                    "q1": "16",
+                    "name": "Knight Helmet",
+                    "value": "HEAD_PLATE_SET2",
+                    "recipe1": "METALBAR",
+                    "q1": "8",
                     "recipe2": "",
                     "q2": "",
                     "artifact": "",
-                    "itemValue": 256
+                    "itemValue": 128
                 },
                 {
-                    "name": "Assasin Jacket",
-                    "value": "LEATHER_SET3",
-                    "recipe1": "LEATHER",
-                    "q1": "16",
+                    "name": "Guardian Helmet",
+                    "value": "HEAD_PLATE_SET3",
+                    "recipe1": "METALBAR",
+                    "q1": "8",
                     "recipe2": "",
                     "q2": "",
                     "artifact": "",
-                    "itemValue": 256
+                    "itemValue": 128
                 },
                 {
-                    "name": "Royal Jacket",
-                    "value": "LEATHER_ROYAL",
-                    "recipe1": "LEATHER",
-                    "q1": "16",
+                    "name": "Royal Helmet",
+                    "value": "HEAD_PLATE_ROYAL",
+                    "recipe1": "METALBAR",
+                    "q1": "8",
                     "recipe2": "",
                     "q2": "",
                     "artifact": "QUESTITEM_TOKEN_ROYAL",
-                    "itemValue": 320
+                    "itemValue": 160
                 },
                 {
-                    "name": "Stalker Jacket",
-                    "value": "LEATHER_MORGANA",
-                    "recipe1": "LEATHER",
-                    "q1": "16",
+                    "name": "Graveguard Helmet",
+                    "value": "HEAD_PLATE_UNDEAD",
+                    "recipe1": "METALBAR",
+                    "q1": "8",
                     "recipe2": "",
                     "q2": "",
-                    "artifact": "ARTEFACT_ARMOR_LEATHER_MORGANA",
-                    "itemValue": 320
+                    "artifact": "ARTEFACT_HEAD_PLATE_UNDEAD",
+                    "itemValue": 160
                 },
                 {
-                    "name": "Hellion Jacket",
-                    "value": "LEATHER_HELL",
-                    "recipe1": "LEATHER",
-                    "q1": "16",
+                    "name": "Demon Helmet",
+                    "value": "HEAD_PLATE_HELL",
+                    "recipe1": "METALBAR",
+                    "q1": "8",
                     "recipe2": "",
                     "q2": "",
-                    "artifact": "ARTEFACT_ARMOR_LEATHER_HELL",
-                    "itemValue": 448
+                    "artifact": "ARTEFACT_HEAD_PLATE_UNDEAD",
+                    "itemValue": 224
                 },
                 {
-                    "name": "Specter Jacket",
-                    "value": "LEATHER_UNDEAD",
-                    "recipe1": "LEATHER",
-                    "q1": "16",
+                    "name": "Judicator Helmet",
+                    "value": "HEAD_PLATE_KEEPER",
+                    "recipe1": "METALBAR",
+                    "q1": "8",
                     "recipe2": "",
                     "q2": "",
-                    "artifact": "ARTEFACT_ARMOR_LEATHER_UNDEAD",
-                    "itemValue": 704
+                    "artifact": "ARTEFACT_HEAD_PLATE_KEEPER",
+                    "itemValue": 352
                 },
                 {
-                    "name": "Mistwalker Jacket",
-                    "value": "LEATHER_FEY",
-                    "recipe1": "LEATHER",
-                    "q1": "16",
+                    "name": "Duskweaver Helmet",
+                    "value": "HEAD_PLATE_FEY",
+                    "recipe1": "METALBAR",
+                    "q1": "8",
                     "recipe2": "",
                     "q2": "",
-                    "artifact": "ARTEFACT_ARMOR_LEATHER_FEY",
-                    "itemValue": 704
+                    "artifact": "ARTEFACT_HEAD_PLATE_FEY",
+                    "itemValue": 352
                 },
                 {
-                    "name": "Jacket Of Tenacity",
-                    "value": "LEATHER_AVALON",
-                    "recipe1": "LEATHER",
-                    "q1": "16",
+                    "name": "Helmet of Valor",
+                    "value": "HEAD_PLATE_AVALON",
+                    "recipe1": "METALBAR",
+                    "q1": "8",
                     "recipe2": "",
                     "q2": "",
-                    "artifact": "ARTEFACT_ARMOR_LEATHER_AVALON",
-                    "itemValue": 1216
+                    "artifact": "ARTEFACT_HEAD_PLATE_AVALON",
+                    "itemValue": 608
+                }
+            ]
+        },
+        {
+            "category": "plate shoes",
+            "items": [
+                {
+                    "name": "Soldier Boots",
+                    "value": "SHOES_PLATE_SET1",
+                    "recipe1": "METALBAR",
+                    "q1": "8",
+                    "recipe2": "",
+                    "q2": "",
+                    "artifact": "",
+                    "itemValue": 128
+                },
+                {
+                    "name": "Knight Boots",
+                    "value": "SHOES_PLATE_SET2",
+                    "recipe1": "METALBAR",
+                    "q1": "8",
+                    "recipe2": "",
+                    "q2": "",
+                    "artifact": "",
+                    "itemValue": 128
+                },
+                {
+                    "name": "Guardian Boots",
+                    "value": "SHOES_PLATE_SET3",
+                    "recipe1": "METALBAR",
+                    "q1": "8",
+                    "recipe2": "",
+                    "q2": "",
+                    "artifact": "",
+                    "itemValue": 128
+                },
+                {
+                    "name": "Royal Boots",
+                    "value": "SHOES_PLATE_ROYAL",
+                    "recipe1": "METALBAR",
+                    "q1": "8",
+                    "recipe2": "",
+                    "q2": "",
+                    "artifact": "QUESTITEM_TOKEN_ROYAL",
+                    "itemValue": 160
+                },
+                {
+                    "name": "Graveguard Boots",
+                    "value": "SHOES_PLATE_UNDEAD",
+                    "recipe1": "METALBAR",
+                    "q1": "8",
+                    "recipe2": "",
+                    "q2": "",
+                    "artifact": "ARTEFACT_SHOES_PLATE_UNDEAD",
+                    "itemValue": 160
+                },
+                {
+                    "name": "Demon Boots",
+                    "value": "SHOES_PLATE_HELL",
+                    "recipe1": "METALBAR",
+                    "q1": "8",
+                    "recipe2": "",
+                    "q2": "",
+                    "artifact": "ARTEFACT_SHOES_PLATE_UNDEAD",
+                    "itemValue": 224
+                },
+                {
+                    "name": "Judicator Boots",
+                    "value": "SHOES_PLATE_KEEPER",
+                    "recipe1": "METALBAR",
+                    "q1": "8",
+                    "recipe2": "",
+                    "q2": "",
+                    "artifact": "ARTEFACT_SHOES_PLATE_KEEPER",
+                    "itemValue": 352
+                },
+                {
+                    "name": "Duskweaver Boots",
+                    "value": "SHOES_PLATE_FEY",
+                    "recipe1": "METALBAR",
+                    "q1": "8",
+                    "recipe2": "",
+                    "q2": "",
+                    "artifact": "ARTEFACT_SHOES_PLATE_FEY",
+                    "itemValue": 352
+                },
+                {
+                    "name": "Boots of Valor",
+                    "value": "SHOES_PLATE_AVALON",
+                    "recipe1": "METALBAR",
+                    "q1": "8",
+                    "recipe2": "",
+                    "q2": "",
+                    "artifact": "ARTEFACT_SHOES_PLATE_AVALON",
+                    "itemValue": 608
+                }
+            ]
+        }
+    ],
+    "magic": [
+        {
+            "category": "arcanse staff",
+            "value": "MAGIC",
+            "items": [
+                {
+                    "name": "Arcane Staff",
+                    "value": "MAIN_ARCANESTAFF",
+                    "recipe1": "PLANKS",
+                    "q1": "16",
+                    "recipe2": "METALBAR",
+                    "q2": "8",
+                    "artifact": "",
+                    "itemValue": 384
+                },
+                {
+                    "name": "Great Arcane Staff",
+                    "value": "2H_ARCANESTAFF",
+                    "recipe1": "PLANKS",
+                    "q1": "20",
+                    "recipe2": "METALBAR",
+                    "q2": "12",
+                    "artifact": "",
+                    "itemValue": 512
+                },
+                {
+                    "name": "Enigmatic Staff",
+                    "value": "2H_ENIGMATICSTAFF",
+                    "recipe1": "PLANKS",
+                    "q1": "20",
+                    "recipe2": "METALBAR",
+                    "q2": "12",
+                    "artifact": "",
+                    "itemValue": 512
+                },
+                {
+                    "name": "Witchwork Staff",
+                    "value": "MAIN_ARCANESTAFF_UNDEAD",
+                    "recipe1": "PLANKS",
+                    "q1": "16",
+                    "recipe2": "METALBAR",
+                    "q2": "8",
+                    "artifact": "ARTEFACT_MAIN_ARCANESTAFF_UNDEAD",
+                    "itemValue": 480
+                },
+                {
+                    "name": "Occult Staff",
+                    "value": "2H_ARCANESTAFF_HELL",
+                    "recipe1": "PLANKS",
+                    "q1": "20",
+                    "recipe2": "METALBAR",
+                    "q2": "12",
+                    "artifact": "ARTEFACT_2H_ARCANESTAFF_HELL",
+                    "itemValue": 896
+                },
+                {
+                    "name": "Malevolent Locus",
+                    "value": "2H_ENIGMATICORB_MORGANA",
+                    "recipe1": "PLANKS",
+                    "q1": "20",
+                    "recipe2": "METALBAR",
+                    "q2": "12",
+                    "artifact": "ARTEFACT_2H_ENIGMATICORB_MORGANA",
+                    "itemValue": 1408
+                },
+                {
+                    "name": "Evensong",
+                    "value": "2H_ARCANE_RINGPAIR_AVALON",
+                    "recipe1": "PLANKS",
+                    "q1": "20",
+                    "recipe2": "METALBAR",
+                    "q2": "12",
+                    "artifact": "ARTEFACT_2H_ARCANE_RINGPAIR_AVALON",
+                    "itemValue": 2432
+                }
+            ]
+        },
+        {
+            "category": "cursed staff",
+            "value": "MAGIC",
+            "items": [
+                {
+                    "name": "Cursed Staff",
+                    "value": "MAIN_CURSEDSTAFF",
+                    "recipe1": "PLANKS",
+                    "q1": "16",
+                    "recipe2": "METALBAR",
+                    "q2": "8",
+                    "artifact": "",
+                    "itemValue": 384
+                },
+                {
+                    "name": "Great Cursed Staff",
+                    "value": "2H_CURSEDSTAFF",
+                    "recipe1": "PLANKS",
+                    "q1": "20",
+                    "recipe2": "METALBAR",
+                    "q2": "12",
+                    "artifact": "",
+                    "itemValue": 512
+                },
+                {
+                    "name": "Demonic Staff",
+                    "value": "2H_DEMONICSTAFF",
+                    "recipe1": "PLANKS",
+                    "q1": "20",
+                    "recipe2": "METALBAR",
+                    "q2": "12",
+                    "artifact": "",
+                    "itemValue": 512
+                },
+                {
+                    "name": "Witchwork Staff",
+                    "value": "MAIN_CURSEDSTAFF_UNDEAD",
+                    "recipe1": "PLANKS",
+                    "q1": "16",
+                    "recipe2": "METALBAR",
+                    "q2": "8",
+                    "artifact": "ARTEFACT_MAIN_CURSEDSTAFF_UNDEAD",
+                    "itemValue": 480
+                },
+                {
+                    "name": "Cursed Skull",
+                    "value": "2H_SKULLORB_HELL",
+                    "recipe1": "PLANKS",
+                    "q1": "20",
+                    "recipe2": "METALBAR",
+                    "q2": "12",
+                    "artifact": "ARTEFACT_2H_SKULLORB_HELL",
+                    "itemValue": 896
+                },
+                {
+                    "name": "Damnation Staff",
+                    "value": "2H_CURSEDSTAFF_MORGANA",
+                    "recipe1": "PLANKS",
+                    "q1": "20",
+                    "recipe2": "METALBAR",
+                    "q2": "12",
+                    "artifact": "ARTEFACT_2H_CURSEDSTAFF_MORGANA",
+                    "itemValue": 1408
+                },
+                {
+                    "name": "Shadowcaller",
+                    "value": "MAIN_CURSEDSTAFF_AVALON",
+                    "recipe1": "PLANKS",
+                    "q1": "16",
+                    "recipe2": "METALBAR",
+                    "q2": "8",
+                    "artifact": "ARTEFACT_MAIN_CURSEDSTAFF_AVALON",
+                    "itemValue": 2432
+                }
+            ]
+        },
+        {
+            "category": "fire staff",
+            "value": "MAGIC",
+            "items": [
+                {
+                    "name": "Fire Staff",
+                    "value": "MAIN_FIRESTAFF",
+                    "recipe1": "PLANKS",
+                    "q1": "16",
+                    "recipe2": "METALBAR",
+                    "q2": "8",
+                    "artifact": "",
+                    "itemValue": 384
+                },
+                {
+                    "name": "Great Fire Staff",
+                    "value": "2H_FIRESTAFF",
+                    "recipe1": "PLANKS",
+                    "q1": "20",
+                    "recipe2": "METALBAR",
+                    "q2": "12",
+                    "artifact": "",
+                    "itemValue": 512
+                },
+                {
+                    "name": "Infernal Staff",
+                    "value": "2H_INFERNOSTAFF",
+                    "recipe1": "PLANKS",
+                    "q1": "20",
+                    "recipe2": "METALBAR",
+                    "q2": "12",
+                    "artifact": "",
+                    "itemValue": 512
+                },
+                {
+                    "name": "Wildfire Staff",
+                    "value": "MAIN_FIRESTAFF_KEEPER",
+                    "recipe1": "PLANKS",
+                    "q1": "16",
+                    "recipe2": "METALBAR",
+                    "q2": "8",
+                    "artifact": "ARTEFACT_MAIN_FIRESTAFF_KEEPER",
+                    "itemValue": 480
+                },
+                {
+                    "name": "Brimstone Staff",
+                    "value": "2H_FIRESTAFF_HELL",
+                    "recipe1": "PLANKS",
+                    "q1": "20",
+                    "recipe2": "METALBAR",
+                    "q2": "12",
+                    "artifact": "ARTEFACT_2H_FIRESTAFF_HELL",
+                    "itemValue": 896
+                },
+                {
+                    "name": "Blazing Staff",
+                    "value": "2H_INFERNOSTAFF_MORGANA",
+                    "recipe1": "PLANKS",
+                    "q1": "20",
+                    "recipe2": "METALBAR",
+                    "q2": "12",
+                    "artifact": "ARTEFACT_2H_INFERNOSTAFF_MORGANA",
+                    "itemValue": 1408
+                },
+                {
+                    "name": "Dawnsong",
+                    "value": "2H_FIRE_RINGPAIR_AVALON",
+                    "recipe1": "PLANKS",
+                    "q1": "20",
+                    "recipe2": "METALBAR",
+                    "q2": "12",
+                    "artifact": "ARTEFACT_2H_FIRE_RINGPAIR_AVALON",
+                    "itemValue": 2432
+                }
+            ]
+        },
+        {
+            "category": "frost staff",
+            "value": "MAGIC",
+            "items": [
+                {
+                    "name": "Frost Staff",
+                    "value": "MAIN_FROSTSTAFF",
+                    "recipe1": "PLANKS",
+                    "q1": "16",
+                    "recipe2": "METALBAR",
+                    "q2": "8",
+                    "artifact": "",
+                    "itemValue": 384
+                },
+                {
+                    "name": "Great Frost Staff",
+                    "value": "2H_FROSTSTAFF",
+                    "recipe1": "PLANKS",
+                    "q1": "20",
+                    "recipe2": "METALBAR",
+                    "q2": "12",
+                    "artifact": "",
+                    "itemValue": 512
+                },
+                {
+                    "name": "Glacial Staff",
+                    "value": "2H_GLACIALSTAFF",
+                    "recipe1": "PLANKS",
+                    "q1": "20",
+                    "recipe2": "METALBAR",
+                    "q2": "12",
+                    "artifact": "",
+                    "itemValue": 512
+                },
+                {
+                    "name": "Hoarfrost Staff",
+                    "value": "MAIN_FROSTSTAFF_KEEPER",
+                    "recipe1": "PLANKS",
+                    "q1": "16",
+                    "recipe2": "METALBAR",
+                    "q2": "8",
+                    "artifact": "ARTEFACT_MAIN_FROSTSTAFF_KEEPER",
+                    "itemValue": 480
+                },
+                {
+                    "name": "Icicle Staff",
+                    "value": "2H_ICEGAUNTLETS_HELL",
+                    "recipe1": "PLANKS",
+                    "q1": "20",
+                    "recipe2": "METALBAR",
+                    "q2": "12",
+                    "artifact": "ARTEFACT_2H_ICEGAUNTLETS_HELL",
+                    "itemValue": 896
+                },
+                {
+                    "name": "Permafrost Prism",
+                    "value": "2H_ICECRYSTAL_UNDEAD",
+                    "recipe1": "PLANKS",
+                    "q1": "20",
+                    "recipe2": "METALBAR",
+                    "q2": "12",
+                    "artifact": "ARTEFACT_2H_ICECRYSTAL_UNDEAD",
+                    "itemValue": 1408
+                },
+                {
+                    "name": "Chillhowl Staff",
+                    "value": "MAIN_FROSTSTAFF_AVALON",
+                    "recipe1": "PLANKS",
+                    "q1": "16",
+                    "recipe2": "METALBAR",
+                    "q2": "8",
+                    "artifact": "ARTEFACT_MAIN_FROSTSTAFF_AVALON",
+                    "itemValue": 1824
+                }
+            ]
+        },
+        {
+            "category": "holy staff",
+            "value": "MAGIC",
+            "items": [
+                {
+                    "name": "Holy Staff",
+                    "value": "MAIN_HOLYSTAFF",
+                    "recipe1": "PLANKS",
+                    "q1": "16",
+                    "recipe2": "CLOTH",
+                    "q2": "8",
+                    "artifact": "",
+                    "itemValue": 384
+                },
+                {
+                    "name": "Great Holy Staff",
+                    "value": "2H_HOLYSTAFF",
+                    "recipe1": "PLANKS",
+                    "q1": "20",
+                    "recipe2": "CLOTH",
+                    "q2": "12",
+                    "artifact": "",
+                    "itemValue": 512
+                },
+                {
+                    "name": "Divine Staff",
+                    "value": "2H_DIVINESTAFF",
+                    "recipe1": "PLANKS",
+                    "q1": "20",
+                    "recipe2": "CLOTH",
+                    "q2": "12",
+                    "artifact": "",
+                    "itemValue": 512
+                },
+                {
+                    "name": "Lifetouch Staff",
+                    "value": "MAIN_HOLYSTAFF_MORGANA",
+                    "recipe1": "PLANKS",
+                    "q1": "16",
+                    "recipe2": "CLOTH",
+                    "q2": "8",
+                    "artifact": "ARTEFACT_MAIN_HOLYSTAFF_MORGANA",
+                    "itemValue": 480
+                },
+                {
+                    "name": "Fallen Staff",
+                    "value": "2H_HOLYSTAFF_HELL",
+                    "recipe1": "PLANKS",
+                    "q1": "20",
+                    "recipe2": "CLOTH",
+                    "q2": "12",
+                    "artifact": "ARTEFACT_2H_HOLYSTAFF_HELL",
+                    "itemValue": 896
+                },
+                {
+                    "name": "Redemption Staff",
+                    "value": "2H_HOLYSTAFF_UNDEAD",
+                    "recipe1": "PLANKS",
+                    "q1": "20",
+                    "recipe2": "CLOTH",
+                    "q2": "12",
+                    "artifact": "ARTEFACT_2H_HOLYSTAFF_UNDEAD",
+                    "itemValue": 1408
+                },
+                {
+                    "name": "Hallowfall",
+                    "value": "MAIN_HOLYSTAFF_AVALON",
+                    "recipe1": "PLANKS",
+                    "q1": "16",
+                    "recipe2": "CLOTH",
+                    "q2": "8",
+                    "artifact": "ARTEFACT_MAIN_HOLYSTAFF_AVALON",
+                    "itemValue": 1824
+                }
+            ]
+        },
+        {
+            "category": "nature staff",
+            "value": "MAGIC",
+            "items": [
+                {
+                    "name": "Nature Staff",
+                    "value": "MAIN_NATURESTAFF",
+                    "recipe1": "PLANKS",
+                    "q1": "16",
+                    "recipe2": "CLOTH",
+                    "q2": "8",
+                    "artifact": "",
+                    "itemValue": 384
+                },
+                {
+                    "name": "Great Nature Staff",
+                    "value": "2H_HOLYSTAFF",
+                    "recipe1": "PLANKS",
+                    "q1": "20",
+                    "recipe2": "CLOTH",
+                    "q2": "12",
+                    "artifact": "",
+                    "itemValue": 512
+                },
+                {
+                    "name": "Wild Staff",
+                    "value": "2H_WILDSTAFF",
+                    "recipe1": "PLANKS",
+                    "q1": "20",
+                    "recipe2": "CLOTH",
+                    "q2": "12",
+                    "artifact": "",
+                    "itemValue": 512
+                },
+                {
+                    "name": "Druidic Staff",
+                    "value": "MAIN_NATURESTAFF_KEEPER",
+                    "recipe1": "PLANKS",
+                    "q1": "16",
+                    "recipe2": "CLOTH",
+                    "q2": "8",
+                    "artifact": "ARTEFACT_MAIN_NATURESTAFF_KEEPER",
+                    "itemValue": 480
+                },
+                {
+                    "name": "Blight Staff",
+                    "value": "2H_NATURESTAFF_HELL",
+                    "recipe1": "PLANKS",
+                    "q1": "20",
+                    "recipe2": "CLOTH",
+                    "q2": "12",
+                    "artifact": "ARTEFACT_2H_NATURESTAFF_HELL",
+                    "itemValue": 896
+                },
+                {
+                    "name": "Rampant Staff",
+                    "value": "2H_NATURESTAFF_KEEPER",
+                    "recipe1": "PLANKS",
+                    "q1": "20",
+                    "recipe2": "CLOTH",
+                    "q2": "12",
+                    "artifact": "ARTEFACT_2H_NATURESTAFF_KEEPER",
+                    "itemValue": 1408
+                },
+                {
+                    "name": "Ironroot Staff",
+                    "value": "MAIN_NATURESTAFF_AVALON",
+                    "recipe1": "PLANKS",
+                    "q1": "16",
+                    "recipe2": "CLOTH",
+                    "q2": "8",
+                    "artifact": "ARTEFACT_MAIN_NATURESTAFF_AVALON",
+                    "itemValue": 1824
+                }
+            ]
+        }
+    ], 
+    "melee": [
+  {
+            "category": "axe",
+            "value": "MELEE",
+            "items": [
+                {
+                    "name": "Battleaxe",
+                    "value": "MAIN_AXE",
+                    "recipe1": "PLANKS",
+                    "q1": "8",
+                    "recipe2": "METALBAR",
+                    "q2": "16",
+                    "artifact": "",
+                    "itemValue": 384
+                },
+                {
+                    "name": "Greataxe",
+                    "value": "2H_AXE",
+                    "recipe1": "PLANKS",
+                    "q1": "12",
+                    "recipe2": "METALBAR",
+                    "q2": "20",
+                    "artifact": "",
+                    "itemValue": 512
+                },
+                {
+                    "name": "Halberd",
+                    "value": "2H_HALBERD",
+                    "recipe1": "PLANKS",
+                    "q1": "20",
+                    "recipe2": "METALBAR",
+                    "q2": "12",
+                    "artifact": "",
+                    "itemValue": 512
+                },
+                {
+                    "name": "Carrioncaller",
+                    "value": "2H_HALBERD_MORGANA",
+                    "recipe1": "PLANKS",
+                    "q1": "20",
+                    "recipe2": "METALBAR",
+                    "q2": "12",
+                    "artifact": "ARTEFACT_2H_HALBERD_MORGANA",
+                    "itemValue": 640
+                },
+                {
+                    "name": "Infernal Scythe",
+                    "value": "2H_SCYTHE_HELL",
+                    "recipe1": "PLANKS",
+                    "q1": "12",
+                    "recipe2": "METALBAR",
+                    "q2": "20",
+                    "artifact": "ARTEFACT_2H_SCYTHE_HELL",
+                    "itemValue": 896
+                },
+                {
+                    "name": "Bear Paws",
+                    "value": "2H_DUALAXE_KEEPER",
+                    "recipe1": "PLANKS",
+                    "q1": "12",
+                    "recipe2": "METALBAR",
+                    "q2": "20",
+                    "artifact": "ARTEFACT_2H_DUALAXE_KEEPER",
+                    "itemValue": 1408
+                },
+                {
+                    "name": "Realmbreaker",
+                    "value": "2H_AXE_AVALON",
+                    "recipe1": "PLANKS",
+                    "q1": "12",
+                    "recipe2": "METALBAR",
+                    "q2": "20",
+                    "artifact": "ARTEFACT_2H_AXE_AVALON",
+                    "itemValue": 2432
+                }
+            ]
+        },
+        {
+            "category": "dagger",
+            "value": "MELEE",
+            "items": [
+                {
+                    "name": "Dagger",
+                    "value": "MAIN_DAGGER",
+                    "recipe1": "METALBAR",
+                    "q1": "12",
+                    "recipe2": "LEATHER",
+                    "q2": "12",
+                    "artifact": "",
+                    "itemValue": 384
+                },
+                {
+                    "name": "Dagger Pair",
+                    "value": "2H_DAGGERPAIR",
+                    "recipe1": "METALBAR",
+                    "q1": "16",
+                    "recipe2": "LEATHER",
+                    "q2": "16",
+                    "artifact": "",
+                    "itemValue": 512
+                },
+                {
+                    "name": "Claws",
+                    "value": "2H_CLAWPAIR",
+                    "recipe1": "METALBAR",
+                    "q1": "12",
+                    "recipe2": "LEATHER",
+                    "q2": "20",
+                    "artifact": "",
+                    "itemValue": 512
+                },
+                {
+                    "name": "Bloodletter",
+                    "value": "MAIN_RAPIER_MORGANA",
+                    "recipe1": "METALBAR",
+                    "q1": "16",
+                    "recipe2": "LEATHER",
+                    "q2": "8",
+                    "artifact": "ARTEFACT_MAIN_RAPIER_MORGANA",
+                    "itemValue": 480
+                },
+                {
+                    "name": "Demonfang",
+                    "value": "MAIN_DAGGER_HELL",
+                    "recipe1": "METALBAR",
+                    "q1": "12",
+                    "recipe2": "LEATHER",
+                    "q2": "12",
+                    "artifact": "ARTEFACT_MAIN_DAGGER_HELL",
+                    "itemValue": 672
+                },
+                {
+                    "name": "Deathgivers",
+                    "value": "2H_DUALSICKLE_UNDEAD",
+                    "recipe1": "METALBAR",
+                    "q1": "16",
+                    "recipe2": "LEATHER",
+                    "q2": "16",
+                    "artifact": "ARTEFACT_2H_DUALSICKLE_UNDEAD",
+                    "itemValue": 1408
+                },
+                {
+                    "name": "Bridled Fury",
+                    "value": "2H_DAGGER_KATAR_AVALON",
+                    "recipe1": "METALBAR",
+                    "q1": "12",
+                    "recipe2": "LEATHER",
+                    "q2": "20",
+                    "artifact": "ARTEFACT_2H_DAGGER_KATAR_AVALON",
+                    "itemValue": 2432
+                }
+            ]
+        },
+        {
+            "category": "hammer",
+            "value": "MELEE",
+            "items": [
+                {
+                    "name": "Hammer",
+                    "value": "MAIN_HAMMER",
+                    "recipe1": "METALBAR",
+                    "q1": "24",
+                    "recipe2": "",
+                    "q2": "",
+                    "artifact": "",
+                    "itemValue": 384
+                },
+                {
+                    "name": "Polehammer",
+                    "value": "2H_POLEHAMMER",
+                    "recipe1": "METALBAR",
+                    "q1": "20",
+                    "recipe2": "CLOTH",
+                    "q2": "12",
+                    "artifact": "",
+                    "itemValue": 512
+                },
+                {
+                    "name": "Great Hammer",
+                    "value": "2H_HAMMER",
+                    "recipe1": "METALBAR",
+                    "q1": "20",
+                    "recipe2": "CLOTH",
+                    "q2": "12",
+                    "artifact": "",
+                    "itemValue": 512
+                },
+                {
+                    "name": "Tombhammer",
+                    "value": "2H_HAMMER_UNDEAD",
+                    "recipe1": "METALBAR",
+                    "q1": "20",
+                    "recipe2": "CLOTH",
+                    "q2": "12",
+                    "artifact": "ARTEFACT_2H_HAMMER_UNDEAD",
+                    "itemValue": 640
+                },
+                {
+                    "name": "Forge Hammers",
+                    "value": "2H_DUALHAMMER_HELL",
+                    "recipe1": "METALBAR",
+                    "q1": "20",
+                    "recipe2": "CLOTH",
+                    "q2": "12",
+                    "artifact": "ARTEFACT_2H_DUALHAMMER_HELL",
+                    "itemValue": 896
+                },
+                {
+                    "name": "Grovekeeper",
+                    "value": "2H_RAM_KEEPER",
+                    "recipe1": "METALBAR",
+                    "q1": "20",
+                    "recipe2": "CLOTH",
+                    "q2": "12",
+                    "artifact": "ARTEFACT_2H_RAM_KEEPER",
+                    "itemValue": 1408
+                },
+                {
+                    "name": "Hand of Justice",
+                    "value": "2H_HAMMER_AVALON",
+                    "recipe1": "METALBAR",
+                    "q1": "20",
+                    "recipe2": "CLOTH",
+                    "q2": "12",
+                    "artifact": "ARTEFACT_2H_HAMMER_AVALON",
+                    "itemValue": 2432
+                }
+            ]
+        },
+        {
+            "category": "war gloves",
+            "value": "MELEE",
+            "items": [
+                {
+                    "name": "Brawler Gloves",
+                    "value": "2H_KNUCKLES_SET1",
+                    "recipe1": "METALBAR",
+                    "q1": "12",
+                    "recipe2": "LEATHER",
+                    "q2": "20",
+                    "artifact": "",
+                    "itemValue": 384
+                },
+                {
+                    "name": "Battle Bracers",
+                    "value": "2H_KNUCKLES_SET2",
+                    "recipe1": "METALBAR",
+                    "q1": "12",
+                    "recipe2": "LEATHER",
+                    "q2": "20",
+                    "artifact": "",
+                    "itemValue": 512
+                },
+                {
+                    "name": "Spiked Gaunlets",
+                    "value": "2H_KNUCKLES_SET3",
+                    "recipe1": "METALBAR",
+                    "q1": "12",
+                    "recipe2": "LEATHER",
+                    "q2": "20",
+                    "artifact": "",
+                    "itemValue": 512
+                },
+                {
+                    "name": "Ursine Maulers",
+                    "value": "2H_KNUCKLES_KEEPER",
+                    "recipe1": "METALBAR",
+                    "q1": "12",
+                    "recipe2": "LEATHER",
+                    "q2": "20",
+                    "artifact": "ARTEFACT_2H_KNUCKLES_KEEPER",
+                    "itemValue": 640
+                },
+                {
+                    "name": "Hellfire Hands",
+                    "value": "2H_KNUCKLES_HELL",
+                    "recipe1": "METALBAR",
+                    "q1": "12",
+                    "recipe2": "LEATHER",
+                    "q2": "20",
+                    "artifact": "ARTEFACT_2H_KNUCKLES_HELL",
+                    "itemValue": 896
+                },
+                {
+                    "name": "Ravenstrike Cestus",
+                    "value": "2H_KNUCKLES_MORGANA",
+                    "recipe1": "METALBAR",
+                    "q1": "12",
+                    "recipe2": "LEATHER",
+                    "q2": "20",
+                    "artifact": "ARTEFACT_2H_KNUCKLES_MORGANA",
+                    "itemValue": 1408
+                },
+                {
+                    "name": "Fists of Avalon",
+                    "value": "2H_KNUCKLES_AVALON",
+                    "recipe1": "METALBAR",
+                    "q1": "20",
+                    "recipe2": "CLOTH",
+                    "q2": "12",
+                    "artifact": "ARTEFACT_2H_KNUCKLES_AVALON",
+                    "itemValue": 2432
+                }
+            ]
+        },
+        {
+            "category": "mace",
+            "value": "MELEE",
+            "items": [
+                {
+                    "name": "Mace",
+                    "value": "MAIN_MACE",
+                    "recipe1": "METALBAR",
+                    "q1": "16",
+                    "recipe2": "CLOTH",
+                    "q2": "8",
+                    "artifact": "",
+                    "itemValue": 384
+                },
+                {
+                    "name": "Heavy Mace",
+                    "value": "2H_MACE",
+                    "recipe1": "METALBAR",
+                    "q1": "20",
+                    "recipe2": "CLOTH",
+                    "q2": "12",
+                    "artifact": "",
+                    "itemValue": 512
+                },
+                {
+                    "name": "Morning Star",
+                    "value": "2H_FLAIL",
+                    "recipe1": "METALBAR",
+                    "q1": "20",
+                    "recipe2": "CLOTH",
+                    "q2": "12",
+                    "artifact": "",
+                    "itemValue": 512
+                },
+                {
+                    "name": "Bedrock Mace",
+                    "value": "MAIN_ROCKMACE_KEEPER",
+                    "recipe1": "METALBAR",
+                    "q1": "20",
+                    "recipe2": "CLOTH",
+                    "q2": "12",
+                    "artifact": "ARTEFACT_MAIN_ROCKMACE_KEEPER",
+                    "itemValue": 480
+                },
+                {
+                    "name": "Incubus Mace",
+                    "value": "MAIN_MACE_HELL",
+                    "recipe1": "METALBAR",
+                    "q1": "16",
+                    "recipe2": "CLOTH",
+                    "q2": "8",
+                    "artifact": "ARTEFACT_MAIN_MACE_HELL",
+                    "itemValue": 672
+                },
+                {
+                    "name": "Camlann Mace",
+                    "value": "2H_MACE_MORGANA",
+                    "recipe1": "METALBAR",
+                    "q1": "20",
+                    "recipe2": "CLOTH",
+                    "q2": "12",
+                    "artifact": "ARTEFACT_2H_MACE_MORGANA",
+                    "itemValue": 1408
+                },
+                {
+                    "name": "Oathkeepers",
+                    "value": "2H_DUALMACE_AVALON",
+                    "recipe1": "METALBAR",
+                    "q1": "20",
+                    "recipe2": "CLOTH",
+                    "q2": "12",
+                    "artifact": "ARTEFACT_2H_DUALMACE_AVALON",
+                    "itemValue": 2432
+                }
+            ]
+        },
+        {
+            "category": "quarterstaff",
+            "value": "MELEE",
+            "items": [
+                {
+                    "name": "Quarterstaff",
+                    "value": "2H_QUARTERSTAFF",
+                    "recipe1": "METALBAR",
+                    "q1": "12",
+                    "recipe2": "LEATHER",
+                    "q2": "20",
+                    "artifact": "",
+                    "itemValue": 512
+                },
+                {
+                    "name": "Iron-Clad Staff",
+                    "value": "2H_IRONCLADEDSTAFF",
+                    "recipe1": "METALBAR",
+                    "q1": "12",
+                    "recipe2": "LEATHER",
+                    "q2": "20",
+                    "artifact": "",
+                    "itemValue": 512
+                },
+                {
+                    "name": "Double Bladed Staff",
+                    "value": "2H_DOUBLEBLADEDSTAFF",
+                    "recipe1": "METALBAR",
+                    "q1": "12",
+                    "recipe2": "LEATHER",
+                    "q2": "20",
+                    "artifact": "",
+                    "itemValue": 512
+                },
+                {
+                    "name": "Black Monk Stave",
+                    "value": "2H_COMBATSTAFF_MORGANA",
+                    "recipe1": "METALBAR",
+                    "q1": "12",
+                    "recipe2": "LEATHER",
+                    "q2": "20",
+                    "artifact": "ARTEFACT_2H_COMBATSTAFF_MORGANA",
+                    "itemValue": 640
+                },
+                {
+                    "name": "Soulscythe",
+                    "value": "2H_TWINSCYTHE_HELL",
+                    "recipe1": "METALBAR",
+                    "q1": "12",
+                    "recipe2": "LEATHER",
+                    "q2": "20",
+                    "artifact": "ARTEFACT_2H_TWINSCYTHE_HELL",
+                    "itemValue": 896
+                },
+                {
+                    "name": "Staff of Balance",
+                    "value": "2H_ROCKSTAFF_KEEPER",
+                    "recipe1": "METALBAR",
+                    "q1": "12",
+                    "recipe2": "LEATHER",
+                    "q2": "20",
+                    "artifact": "ARTEFACT_2H_ROCKSTAFF_KEEPER",
+                    "itemValue": 1408
+                },
+                {
+                    "name": "Grailseeker",
+                    "value": "2H_QUARTERSTAFF_AVALON",
+                    "recipe1": "METALBAR",
+                    "q1": "20",
+                    "recipe2": "CLOTH",
+                    "q2": "12",
+                    "artifact": "ARTEFACT_2H_QUARTERSTAFF_AVALON",
+                    "itemValue": 2432
+                }
+            ]
+        },
+        {
+            "category": "spear",
+            "value": "MELEE",
+            "items": [
+                {
+                    "name": "Spear",
+                    "value": "MAIN_SPEAR",
+                    "recipe1": "PLANKS",
+                    "q1": "16",
+                    "recipe2": "METALBAR",
+                    "q2": "8",
+                    "artifact": "",
+                    "itemValue": 384
+                },
+                {
+                    "name": "Pike",
+                    "value": "2H_SPEAR",
+                    "recipe1": "PLANKS",
+                    "q1": "20",
+                    "recipe2": "METALBAR",
+                    "q2": "12",
+                    "artifact": "",
+                    "itemValue": 512
+                },
+                {
+                    "name": "Glaive",
+                    "value": "2H_GLAIVE",
+                    "recipe1": "PLANKS",
+                    "q1": "20",
+                    "recipe2": "METALBAR",
+                    "q2": "12",
+                    "artifact": "",
+                    "itemValue": 512
+                },
+                {
+                    "name": "Heron Spear",
+                    "value": "MAIN_SPEAR_KEEPER",
+                    "recipe1": "PLANKS",
+                    "q1": "20",
+                    "recipe2": "METALBAR",
+                    "q2": "12",
+                    "artifact": "ARTEFACT_MAIN_SPEAR_KEEPER",
+                    "itemValue": 480
+                },
+                {
+                    "name": "Spirithunter",
+                    "value": "2H_HARPOON_HELL",
+                    "recipe1": "PLANKS",
+                    "q1": "20",
+                    "recipe2": "METALBAR",
+                    "q2": "12",
+                    "artifact": "ARTEFACT_2H_HARPOON_HELL",
+                    "itemValue": 896
+                },
+                {
+                    "name": "Trinity Spear",
+                    "value": "2H_TRIDENT_UNDEAD",
+                    "recipe1": "PLANKS",
+                    "q1": "20",
+                    "recipe2": "METALBAR",
+                    "q2": "12",
+                    "artifact": "ARTEFACT_2H_TRIDENT_UNDEAD",
+                    "itemValue": 1408
+                },
+                {
+                    "name": "Daybreaker",
+                    "value": "MAIN_SPEAR_LANCE_AVALON",
+                    "recipe1": "METALBAR",
+                    "q1": "20",
+                    "recipe2": "CLOTH",
+                    "q2": "12",
+                    "artifact": "ARTEFACT_MAIN_SPEAR_LANCE_AVALON",
+                    "itemValue": 1824
+                }
+            ]
+        },
+        {
+            "category": "sword",
+            "value": "MELEE",
+            "items": [
+                {
+                    "name": "Broadsword",
+                    "value": "MAIN_SWORD",
+                    "recipe1": "METALBAR",
+                    "q1": "16",
+                    "recipe2": "LEATHER",
+                    "q2": "8",
+                    "artifact": "",
+                    "itemValue": 384
+                },
+                {
+                    "name": "Claymore",
+                    "value": "2H_CLAYMORE",
+                    "recipe1": "METALBAR",
+                    "q1": "20",
+                    "recipe2": "LEATHER",
+                    "q2": "12",
+                    "artifact": "",
+                    "itemValue": 512
+                },
+                {
+                    "name": "Dual Swords",
+                    "value": "2H_DUALSWORD",
+                    "recipe1": "METALBAR",
+                    "q1": "20",
+                    "recipe2": "LEATHER",
+                    "q2": "12",
+                    "artifact": "",
+                    "itemValue": 512
+                },
+                {
+                    "name": "Clarent Blade",
+                    "value": "MAIN_SCIMITAR_MORGANA",
+                    "recipe1": "METALBAR",
+                    "q1": "16",
+                    "recipe2": "LEATHER",
+                    "q2": "8",
+                    "artifact": "",
+                    "itemValue": 480
+                },
+                {
+                    "name": "Carving Sword",
+                    "value": "2H_CLEAVER_HELL",
+                    "recipe1": "METALBAR",
+                    "q1": "20",
+                    "recipe2": "LEATHER",
+                    "q2": "12",
+                    "artifact": "ARTEFACT_2H_CLEAVER_HELL",
+                    "itemValue": 896
+                },
+                {
+                    "name": "Galatine Pair",
+                    "value": "2H_DUALSCIMITAR_UNDEAD",
+                    "recipe1": "METALBAR",
+                    "q1": "20",
+                    "recipe2": "LEATHER",
+                    "q2": "12",
+                    "artifact": "ARTEFACT_2H_DUALSCIMITAR_UNDEAD",
+                    "itemValue": 1408
+                },
+                {
+                    "name": "Kingmaker",
+                    "value": "2H_CLAYMORE_AVALON",
+                    "recipe1": "METALBAR",
+                    "q1": "20",
+                    "recipe2": "LEATHER",
+                    "q2": "12",
+                    "artifact": "ARTEFACT_2H_CLAYMORE_AVALON",
+                    "itemValue": 2432
+                }
+            ]
+        }
+    ],
+    "off-hand": [
+        {
+            "category": "shield crafter",
+            "value": "off-hand",
+            "items": [
+                {
+                    "name": "Shield",
+                    "value": "OFF_SHIELD",
+                    "recipe1": "PLANKS",
+                    "q1": "4",
+                    "recipe2": "METALBAR",
+                    "q2": "4",
+                    "artifact": "",
+                    "itemValue": 128
+                },
+                {
+                    "name": "Sarcophagus",
+                    "value": "OFF_TOWERSHIELD_UNDEAD",
+                    "recipe1": "PLANKS",
+                    "q1": "4",
+                    "recipe2": "METALBAR",
+                    "q2": "4",
+                    "artifact": "ARTEFACT_OFF_TOWERSHIELD_UNDEAD",
+                    "itemValue": 160
+                },
+                {
+                    "name": "Caitiff Shield",
+                    "value": "OFF_SHIELD_HELL",
+                    "recipe1": "PLANKS",
+                    "q1": "4",
+                    "recipe2": "METALBAR",
+                    "q2": "4",
+                    "artifact": "ARTEFACT_OFF_SHIELD_HELL",
+                    "itemValue": 224
+                },
+                {
+                    "name": "Facebreaker",
+                    "value": "OFF_SPIKEDSHIELD_MORGANA",
+                    "recipe1": "PLANKS",
+                    "q1": "4",
+                    "recipe2": "METALBAR",
+                    "q2": "4",
+                    "artifact": "ARTEFACT_OFF_SPIKEDSHIELD_MORGANA",
+                    "itemValue": 352
+                },
+                {
+                    "name": "Astral Aegis",
+                    "value": "OFF_SHIELD_AVALON",
+                    "recipe1": "PLANKS",
+                    "q1": "4",
+                    "recipe2": "METALBAR",
+                    "q2": "4",
+                    "artifact": "ARTEFACT_OFF_SHIELD_AVALON",
+                    "itemValue": 608
+                }
+            ]
+        },
+        {
+            "category": "torch crafter",
+            "value": "off-hand",
+            "items": [
+                {
+                    "name": "Torch",
+                    "value": "OFF_TORCH",
+                    "recipe1": "PLANKS",
+                    "q1": "4",
+                    "recipe2": "CLOTH",
+                    "q2": "4",
+                    "artifact": "",
+                    "itemValue": 128
+                },
+                {
+                    "name": "Mistcaller",
+                    "value": "OFF_HORN_KEEPER",
+                    "recipe1": "PLANKS",
+                    "q1": "4",
+                    "recipe2": "CLOTH",
+                    "q2": "4",
+                    "artifact": "ARTEFACT_OFF_HORN_KEEPER",
+                    "itemValue": 160
+                },
+                {
+                    "name": "Leering Cane",
+                    "value": "OFF_JESTERCANE_HELL",
+                    "recipe1": "PLANKS",
+                    "q1": "4",
+                    "recipe2": "CLOTH",
+                    "q2": "4",
+                    "artifact": "ARTEFACT_OFF_JESTERCANE_HELL",
+                    "itemValue": 224
+                },
+                {
+                    "name": "Cryptcandle",
+                    "value": "OFF_LAMP_UNDEAD",
+                    "recipe1": "PLANKS",
+                    "q1": "4",
+                    "recipe2": "CLOTH",
+                    "q2": "4",
+                    "artifact": "ARTEFACT_OFF_LAMP_UNDEAD",
+                    "itemValue": 352
+                },
+                {
+                    "name": "Sacred Scepter",
+                    "value": "OFF_TALISMAN_AVALON",
+                    "recipe1": "PLANKS",
+                    "q1": "4",
+                    "recipe2": "CLOTH",
+                    "q2": "4",
+                    "artifact": "ARTEFACT_OFF_TALISMAN_AVALON",
+                    "itemValue": 608
+                }
+            ]
+        },
+        {
+            "category": "tome crafter",
+            "value": "off-hand",
+            "items": [
+                {
+                    "name": "Tome of Spells",
+                    "value": "OFF_BOOK",
+                    "recipe1": "CLOTH",
+                    "q1": "4",
+                    "recipe2": "LEATHER",
+                    "q2": "4",
+                    "artifact": "",
+                    "itemValue": 128
+                },
+                {
+                    "name": "Eye of Secrets",
+                    "value": "OFF_ORB_MORGANA",
+                    "recipe1": "CLOTH",
+                    "q1": "4",
+                    "recipe2": "LEATHER",
+                    "q2": "4",
+                    "artifact": "ARTEFACT_OFF_ORB_MORGANA",
+                    "itemValue": 160
+                },
+                {
+                    "name": "Muisak",
+                    "value": "OFF_DEMONSKULL_HELL",
+                    "recipe1": "CLOTH",
+                    "q1": "4",
+                    "recipe2": "LEATHER",
+                    "q2": "4",
+                    "artifact": "ARTEFACT_OFF_DEMONSKULL_HELL",
+                    "itemValue": 224
+                },
+                {
+                    "name": "Taproot",
+                    "value": "OFF_TOTEM_KEEPER",
+                    "recipe1": "CLOTH",
+                    "q1": "4",
+                    "recipe2": "LEATHER",
+                    "q2": "4",
+                    "artifact": "ARTEFACT_OFF_TOTEM_KEEPER",
+                    "itemValue": 352
+                },
+                {
+                    "name": "Celestial Censer",
+                    "value": "OFF_CENSER_AVALON",
+                    "recipe1": "CLOTH",
+                    "q1": "4",
+                    "recipe2": "LEATHER",
+                    "q2": "4",
+                    "artifact": "ARTEFACT_OFF_CENSER_AVALON",
+                    "itemValue": 608
+                }
+            ]
+        }
+    ],
+    "ranged": [
+        {
+            "category": "bow",
+            "value": "ranged",
+            "items": [
+                {
+                    "name": "Bow",
+                    "value": "2H_BOW",
+                    "recipe1": "PLANKS",
+                    "q1": "32",
+                    "recipe2": "",
+                    "q2": "",
+                    "artifact": "",
+                    "itemValue": 512
+                },
+                {
+                    "name": "Warbow",
+                    "value": "2H_WARBOW",
+                    "recipe1": "PLANKS",
+                    "q1": "32",
+                    "recipe2": "",
+                    "q2": "",
+                    "artifact": "",
+                    "itemValue": 512
+                },
+                {
+                    "name": "Longbow",
+                    "value": "2H_LONGBOW",
+                    "recipe1": "PLANKS",
+                    "q1": "32",
+                    "recipe2": "",
+                    "q2": "",
+                    "artifact": "",
+                    "itemValue": 512
+                },
+                {
+                    "name": "Whispering Bow",
+                    "value": "2H_LONGBOW_UNDEAD",
+                    "recipe1": "PLANKS",
+                    "q1": "32",
+                    "recipe2": "",
+                    "q2": "",
+                    "artifact": "ARTEFACT_2H_LONGBOW_UNDEAD",
+                    "itemValue": 640
+                },
+                {
+                    "name": "Wailing Bow",
+                    "value": "2H_BOW_HELL",
+                    "recipe1": "PLANKS",
+                    "q1": "32",
+                    "recipe2": "",
+                    "q2": "",
+                    "artifact": "ARTEFACT_2H_BOW_HELL",
+                    "itemValue": 896
+                },
+                {
+                    "name": "Bow of Badon",
+                    "value": "2H_BOW_KEEPER",
+                    "recipe1": "PLANKS",
+                    "q1": "32",
+                    "recipe2": "",
+                    "q2": "",
+                    "artifact": "ARTEFACT_2H_BOW_KEEPER",
+                    "itemValue": 1408
+                },
+                {
+                    "name": "Mistpiercer",
+                    "value": "2H_BOW_AVALON",
+                    "recipe1": "PLANKS",
+                    "q1": "32",
+                    "recipe2": "",
+                    "q2": "",
+                    "artifact": "ARTEFACT_2H_BOW_AVALON",
+                    "itemValue": 2432
+                }
+            ]
+        },
+        {
+            "category": "crossbow",
+            "value": "ranged",
+            "items": [
+                {
+                    "name": "Crossbow",
+                    "value": "2H_CROSSBOW",
+                    "recipe1": "PLANKS",
+                    "q1": "20",
+                    "recipe2": "METALBAR",
+                    "q2": "12",
+                    "artifact": "",
+                    "itemValue": 512
+                },
+                {
+                    "name": "Heavy Crossbow",
+                    "value": "2H_CROSSBOWLARGE",
+                    "recipe1": "PLANKS",
+                    "q1": "20",
+                    "recipe2": "METALBAR",
+                    "q2": "12",
+                    "artifact": "",
+                    "itemValue": 512
+                },
+                {
+                    "name": "Light Crossbow",
+                    "value": "MAIN_1HCROSSBOW",
+                    "recipe1": "PLANKS",
+                    "q1": "16",
+                    "recipe2": "METALBAR",
+                    "q2": "8",
+                    "artifact": "",
+                    "itemValue": 384
+                },
+                {
+                    "name": "Weeping Repeater",
+                    "value": "2H_REPEATINGCROSSBOW_UNDEAD",
+                    "recipe1": "PLANKS",
+                    "q1": "20",
+                    "recipe2": "METALBAR",
+                    "q2": "12",
+                    "artifact": "ARTEFACT_2H_REPEATINGCROSSBOW_UNDEAD",
+                    "itemValue": 640
+                },
+                {
+                    "name": "Boltcaster",
+                    "value": "2H_DUALCROSSBOW_HELL",
+                    "recipe1": "PLANKS",
+                    "q1": "20",
+                    "recipe2": "METALBAR",
+                    "q2": "12",
+                    "artifact": "ARTEFACT_2H_DUALCROSSBOW_HELL",
+                    "itemValue": 896
+                },
+                {
+                    "name": "Siegebow",
+                    "value": "2H_CROSSBOWLARGE_MORGANA",
+                    "recipe1": "PLANKS",
+                    "q1": "20",
+                    "recipe2": "METALBAR",
+                    "q2": "12",
+                    "artifact": "ARTEFACT_2H_CROSSBOWLARGE_MORGANA",
+                    "itemValue": 1408
+                },
+                {
+                    "name": "Energy Shaper",
+                    "value": "2H_CROSSBOW_CANNON_AVALON",
+                    "recipe1": "PLANKS",
+                    "q1": "20",
+                    "recipe2": "METALBAR",
+                    "q2": "12",
+                    "artifact": "ARTEFACT_2H_CROSSBOW_CANNON_AVALON",
+                    "itemValue": 2432
                 }
             ]
         }
