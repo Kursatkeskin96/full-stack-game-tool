@@ -4,7 +4,9 @@ import Featured from '@/components/Featured'
 import Menu from '@/components/Menu'
 import React from 'react'
 
-export default function Guides() {
+export default function Guides({searchParams}) {
+const page = parseInt(searchParams.page) || 1
+
   return (
     <div className='pt-20 max-w-[80%] mx-auto'>
          <div className='text-2xl font-bold'>Albion Online Guides</div>
@@ -13,7 +15,7 @@ export default function Guides() {
         <Featured />
         <CategoryList />
         <div className='flex gap-12 flex-wrap lg:flex-nowrap'>
-          <CardList />
+          <CardList page={page}/>
           <Menu />
         </div>
     </div>

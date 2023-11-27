@@ -172,12 +172,8 @@ const handleUsageFee = (e) => {
           linkValue = matchedSubCategory.value;
       }
   }
-  
-  console.log(linkValue); // This should log the value of the matched subcategory
-  ; // This should log the specific value you're looking for
-  
 
-  
+
   const handleItemValue = () => {
     const tierNumber = parseInt(tier.substring(1)); // Convert "T4" to 4, "T5" to 5, etc.
     const enchNumber = parseInt(ench); // Convert enchantment to a number
@@ -214,7 +210,6 @@ useEffect(() => {
 
   const isProfit = roundedReturnedResources + parseInt(itemPrice) - parseInt(roundedTotalCost)
   const roundedIsProfit = Math.round(isProfit)
-  console.log(roundedIsProfit)
   const withoutFocusReturnedResources = roundedResourceCost * withoutFocus / 100
   const roundedWithoutFocusReturnedResources = Math.round(withoutFocusReturnedResources)
   const withoutFocusIsProfit = roundedWithoutFocusReturnedResources + parseInt(itemPrice) - parseInt(roundedTotalCost)

@@ -3,9 +3,169 @@
 @tailwind utilities;
 
 .ql-container {
-    font-size: 28px !important;
+  font-size: 28px !important;
 }
 
 .quill > .ql-container > .ql-editor.ql-blank::before {
-    color: #b3b3b1;
+  color: #b3b3b1;
 }
+
+.pvp {
+  background-color: #a1ccd1;
+  cursor: pointer;
+  color: white;
+  font-weight: 700;
+  width: 128px;
+  height: 48px;
+  border-radius: 8px;
+  display: flex;
+  gap: 0.25rem;
+  justify-content: center;
+  align-items: center;
+  border-color: #9ca3af;
+  text-align: center;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  border-color: 1px;
+}
+
+.pve {
+  display: flex;
+  gap: 0.25rem;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0.5rem;
+  border-color: #9ca3af;
+  width: 8rem;
+  height: 3rem;
+  font-weight: 700;
+  text-align: center;
+  color: #ffffff;
+  cursor: pointer;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  background: #dedcc9;
+  border-color: 1px;
+}
+
+.gather {
+  display: flex;
+  gap: 0.25rem;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0.5rem;
+  border-color: #9ca3af;
+  width: 8rem;
+  height: 3rem;
+  font-weight: 700;
+  text-align: center;
+  color: #ffffff;
+  cursor: pointer;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  background: #e9b384;
+  border-color: 1px;
+}
+
+.refine {
+  display: flex;
+  gap: 0.25rem;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0.5rem;
+  border-color: #9ca3af;
+  width: 8rem;
+  height: 3rem;
+  font-weight: 700;
+  text-align: center;
+  color: #ffffff;
+  cursor: pointer;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  background: #7c9d96;
+  border-color: 1px;
+}
+
+.craft {
+  display: flex;
+  gap: 0.25rem;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0.5rem;
+  border-color: #9ca3af;
+  width: 8rem;
+  height: 3rem;
+  font-weight: 700;
+  text-align: center;
+  color: #ffffff;
+  cursor: pointer;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  background: #bce29e;
+  border-color: 1px;
+}
+
+.economy {
+  display: flex;
+  gap: 0.25rem;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0.5rem;
+  border-color: #9ca3af;
+  width: 8rem;
+  height: 3rem;
+  font-weight: 700;
+  text-align: center;
+  color: #ffffff;
+  cursor: pointer;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  background: #9cb274;
+  border-color: 1px;
+}
+
+.ql-align-center {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.ql-align-left {
+  text-align: left;
+}
+
+.ql-align-right {
+  text-align: right;
+}
+
+h1 {
+   font-weight: bold;
+   font-size: xx-large;
+}
+
+.market-bg{
+  background-image:linear-gradient(rgba(0, 0, 0, 0.327),rgba(0, 0, 0, 0.8)) , url(../images/market3.png);
+  background-size: 100% 100%;
+  height: 600px;
+}
+
+.hero-bg{
+  background-image:linear-gradient(rgba(0, 0, 0, 0.327),rgba(0, 0, 0, 0.8)) , url(../images/hero3.png);
+  background-size: 100% 100%;
+  height: 600px;
+}
+
+@media (max-width: 576px) {
+  .hero-bg{
+    background-image:linear-gradient(rgba(0, 0, 0, 0.327),rgba(0, 0, 0, 0.8)) , url(../images/hero3.png);
+    background-size: 100% 100%;
+    height: 400px;
+  }
+  .market-bg{
+    background-image:linear-gradient(rgba(0, 0, 0, 0.327),rgba(0, 0, 0, 0.8)) , url(../images/market3.png);
+    background-size: 100% 100%;
+    height: 400px;
+  }
+  
+ }

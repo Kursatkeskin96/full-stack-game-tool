@@ -1,18 +1,21 @@
+'use client'
 import React from 'react'
-import Image from 'next/image'
-import pic1 from '@/images/pic1.png'
+import { Typewriter } from 'react-simple-typewriter'
+import { signIn, signOut, useSession } from "next-auth/react";
 
 export default function HeroSection() {
+  const { data: session } = useSession();
   return (
-    <div className='flex justify-center items-center h-screen lg:gap-20 lg:max-w-[80%] max-w-[90%] mx-auto flex-wrap'>
-        <div className='mt-20 mb-20 lg:mb-0 md:mb-0 lg:mt-0 md:mt-0'>
-        <Image src={pic1} alt='pic1' width={300} className='rounded-md' />
-        </div>
-        <div className='lg:w-1/2 text-center flex flex-col justify-around h-96'>
-            <div><h1 className='text-4xl font-bold text-[#EFAE71]'>From guides to profit calculators. Everything you need...</h1></div>
-            <div><h5 className='my-10'>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, </h5></div>
-            <div><button className='bg-[#EFAE71] text-white w-40 p-1 rounded-md'>LOGIN</button></div>
-        </div>
+    <div>
+  <div className='hero-bg flex flex-col items-center'>
+    <div className="m-auto flex flex-col items-center">
+    <h1 className="background-h lg:text-7xl text-xl w-fit mx-auto px-4 text-gray-200">Albion Journey</h1>
+    <p className=" background-p lg:text-2xl text-lg lg:mt-4 mt-2 w-fit mx-auto px-4 text-gray-300">W<Typewriter   typeSpeed={70} deleteSpeed={0} delaySpeed={1000} words={["here Every Path Leads To Adventure..."]} loop={0} /></p>
+    {!session && (
+    <button className='mb-16 bg-orange-600 text-white w-32 h-8 rounded-md mt-4'>Log In</button>
+  )}
+  </div>
+  </div>
     </div>
   )
 }

@@ -1,18 +1,73 @@
 "use client";
 
 import Link from "next/link";
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
 import tr from "@/images/tr.png";
 import us from "@/images/us.png";
 import Image from "next/image";
+import { signIn, signOut, useSession } from "next-auth/react";
 
 function Navbar() {
+  const { data: session } = useSession();
   const [nav, setNav] = useState(false);
+  const [dropdown, setDropdown] = useState(false);
+  const [dropdown2, setDropdown2] = useState(false);
+  const dropdownRef = useRef(null);
+  const dropdownRefCalculator = useRef(null);
 
   const handleNav = () => {
     setNav(!nav);
   };
+
+  // Function to handle the dropdown toggle
+  const handleDropDown = () => {
+    setDropdown(!dropdown);
+  };
+  const handleDropDown2 = () => {
+    setDropdown2(!dropdown2);
+  };
+
+  // Close dropdown when clicked outside
+  useEffect(() => {
+    const pageClickEvent = (e) => {
+      if (
+        dropdownRef.current !== null &&
+        !dropdownRef.current.contains(e.target)
+      ) {
+        setDropdown(!dropdown);
+      }
+    };
+
+    // If the item is active (ie open) then listen for clicks
+    if (dropdown) {
+      window.addEventListener("click", pageClickEvent);
+    }
+
+    return () => {
+      window.removeEventListener("click", pageClickEvent);
+    };
+  }, [dropdown]);
+
+  // Handle outside click for calculator dropdown
+  useEffect(() => {
+    const pageClickEvent = (e) => {
+      if (
+        dropdownRefCalculator.current !== null &&
+        !dropdownRefCalculator.current.contains(e.target)
+      ) {
+        setDropdown2(false);
+      }
+    };
+
+    if (dropdown2) {
+      window.addEventListener("click", pageClickEvent);
+    }
+
+    return () => {
+      window.removeEventListener("click", pageClickEvent);
+    };
+  }, [dropdown2]);
 
   return (
     <>
@@ -20,11 +75,11 @@ function Navbar() {
         <div className="flex justify-between items-center w-full h-full pt-1 px-2 2xl:px-16">
           <Link href="/">
             <span className="font text-md ml-5 hover:border-b text-white hover:border-[#FFAA00]">
-              albionprofit.com
+              albionjourney.com
             </span>
           </Link>
           <div>
-            <ul className="hidden md:flex">
+            <ul className="hidden md:flex h-full">
               <Link href="/">
                 <li className="ml-10 text-sm hover:border-b hover:border-[#FFAA00] text-white">
                   Home
@@ -35,30 +90,85 @@ function Navbar() {
                   Guides
                 </li>
               </Link>
-              <Link href="/profit-calculator/item-calculator">
-                <li className="ml-10  mr-5 text-sm text-white hover:border-b hover:border-[#FFAA00]">
-                  Profit Calculator
+              <li
+                ref={dropdownRefCalculator}
+                className="relative cursor-pointer ml-10 text-sm hover:border-b hover:border-[#FFAA00] text-white"
+              >
+                <span onClick={handleDropDown2}>Profit Calculators</span>
+                {dropdown2 && (
+                  <div className="absolute bg-white rounded-md h-20 shadow w-28 mt-2">
+                    <ul className="text-sm text-gray-700 ">
+                      <li
+                        onClick={() => setDropdown2(false)}
+                        className="block px-4 py-2 text-center hover:bg-gray-100"
+                      >
+                        <Link href="/profit-calculator/item-calculator">
+                          Item
+                        </Link>
+                      </li>
+                      <li
+                        onClick={() => setDropdown2(false)}
+                        className="block px-4 py-2 text-center hover:bg-gray-100 "
+                      >
+                        <Link href="/profit-calculator/refine-calculator">
+                          Refine
+                        </Link>
+                      </li>
+                    </ul>
+                  </div>
+                )}
+              </li>
+              <Link href="/market">
+                <li className="ml-10 text-sm hover:border-b hover:border-[#FFAA00] text-white">
+                  Market
                 </li>
               </Link>
-
-              <div className="flex justify-start items-center mt-2 lg:mt-0">
-                <div className="lg:ml-2 ml-0 mr-2">
+              {session && (
+                <div className="relative ml-8 cursor-pointer flex mr-5 text-sm text-white">
                   <Image
-                    src={us}
+                    className="rounded-[50%]"
+                    src={session?.user?.image}
+                    alt=""
                     width={20}
-                    alt="en"
-                    style={{ cursor: "pointer" }}
+                    height={20}
                   />
+                  <div
+                    onClick={handleDropDown}
+                    ref={dropdownRef}
+                    className="ml-1"
+                  >
+                    {session?.user?.name}
+                    {dropdown && (
+                      <div className="absolute bg-white rounded-md h-20 shadow w-20 mt-2">
+                        <ul className="text-sm text-gray-700 ">
+                          <li
+                            onClick={() => setDropdown(false)}
+                            className="block px-4 py-2 hover:bg-gray-100"
+                          >
+                            <a href="#">Profile</a>
+                          </li>
+                          <li
+                            onClick={() => setDropdown(false)}
+                            className="block px-4 py-2 hover:bg-gray-100 "
+                          >
+                            <button onClick={() => signOut()}>Logout</button>
+                          </li>
+                        </ul>
+                      </div>
+                    )}
+                  </div>
                 </div>
-                <div className="">
-                  <Image
-                    src={tr}
-                    width={20}
-                    alt="tr"
-                    style={{ cursor: "pointer" }}
-                  />
-                </div>
-              </div>
+              )}
+              {!session && (
+                <li className="ml-10 mr-5 text-sm text-white">
+                  <button
+                    onClick={() => signIn("discord")}
+                    className="bg-orange-600 px-4 rounded-md"
+                  >
+                    Login
+                  </button>
+                </li>
+              )}
             </ul>
 
             <div className="flex justify-between items-center gap-6">
@@ -124,7 +234,6 @@ function Navbar() {
                     Profit Calculator
                   </li>
                 </Link>
-
               </ul>
             </div>
           </div>

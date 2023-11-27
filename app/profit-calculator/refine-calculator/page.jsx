@@ -21,7 +21,7 @@ const [itemValue, setItemValue] = useState('')
 const [returnRate, setReturnRate] = useState('')
 const [fee, setFee] = useState('')
 const [sellPrice, setSellPrice] = useState('')
-const [t4mastery, setT4mastery] = useState(0)
+const [t4mastery, setT4mastery] = useState(1)
 const [t5mastery, setT5mastery] = useState(0)
 const [t6mastery, setT6mastery] = useState(0)
 const [t7mastery, setT7mastery] = useState(0)
@@ -237,7 +237,6 @@ useEffect(() => {
   
   useEffect(() => {
     calculateSpecEfficiency();
-    console.log(updatedFocusCost)
 }, [tier, ench, t4mastery, t5mastery, t6mastery, t7mastery, t8mastery]);
 
 const calculateFocusCost = () => {
