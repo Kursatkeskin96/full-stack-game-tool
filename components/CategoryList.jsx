@@ -23,7 +23,7 @@ export default async function CategoryList() {
         <div className='flex justify-center items-center mb-4 gap-12 flex-wrap'>
          {data?.map(item=> ( 
           <div key={item.id}>
-         <Link href="" >
+         <Link href={`/guides/categories?cat=${item.slug}`}>
          <div className={`uppercase ${item.slug}`}>{item.title}</div>
          </Link>
          </div>

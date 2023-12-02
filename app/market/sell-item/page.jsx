@@ -2,27 +2,61 @@
 import React, { useState, useEffect } from "react";
 import items from "@/items.json";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { useSession } from "next-auth/react";
+
+
 
 export default function SellItem() {
+  const {data: session} = useSession()
+  const router = useRouter()
   const [category, setCategory] = useState("");
   const [subCategories, setSubCategories] = useState([]);
   const [selectedSubCategory, setSelectedSubCategory] = useState("");
   const [displayItems, setDisplayItems] = useState([]);
   const [selectedItem, setSelectedItem] = useState("");
   const [name, setName] = useState("");
-  const [usageFee, setUsageFee] = useState("");
   const [tier, setTier] = useState("");
   const [ench, setEnch] = useState("");
   const [selectedItemObj, setSelectedItemObj] = useState(null);
   const [choose, setChoose] = useState("")
+  const [q1, setQ1] = useState("");
+  const [q2, setQ2] = useState("");
+  const [q3, setQ3] = useState('')
+  const [recipe1, setRecipe1] = useState("");
+  const [recipe2, setRecipe2] = useState("");
+  const [artifact, setArtifact] = useState("");
+  const [itemValue, setItemValue] = useState('')
+  const [calculatedItemValue, setCalculatedItemValue] = useState(0);
+  const [quality, setQuality] = useState("")
+  const [price, setPrice] = useState("")
+  const [resource, setResource] = useState("")
+  const [quantity, setQuantity] = useState("")
+  const [discordId, setDiscordId] = useState("")
 
   const handleTier = (e) => {
     setTier(e.target.value);
   };
 
+  const handleQuantity = (e) => {
+    setQuantity(e.target.value)
+  }
+
+  const handleResource = (e) => {
+    setResource(e.target.value)
+  }
+
   const handleRadioChange = (e) => {
     setChoose(e.target.value);
   };
+
+  const handleQuality = (e) => {
+    setQuality(e.target.value)
+  }
+
+  const handlePrice = (e) => {
+    setPrice(e.target.value)
+  }
 
   const handleEnch = (e) => {
     setEnch(e.target.value);
@@ -48,7 +82,7 @@ export default function SellItem() {
     );
     setSelectedItemObj(selectedItemObj);
     if (selectedItemObj) {
-      setName(selectedItemObj.name); // Update the name state with the selected item's name
+      setName(selectedItemObj.name);
       setQ1(selectedItemObj.q1);
       setQ2(selectedItemObj.q2);
       setQ3(selectedItemObj.q3);
@@ -115,7 +149,65 @@ export default function SellItem() {
     imageurl = `https://render.albiononline.com/v1/item/${tier}_${selectedItem}`;
   }
 
+  let resourceImg;
+
+if (ench !== "0") {
+    resourceImg = `https://render.albiononline.com/v1/item/T${tier}_${resource}_LEVEL${ench}`;
+} else {
+    resourceImg = `https://render.albiononline.com/v1/item/T${tier}_${resource}`;
+}
+
+const handleSubmit = async () => {
+  const res = await fetch("http://localhost:3000/api/items", {
+    method: "POST",
+    body: JSON.stringify({
+      title: name || resource,
+      tier,
+      ench,
+      quality,
+      resource,
+      price,
+      quantity,
+      discordId,
+      seller: session?.user?.name,
+      img: imageurl,
+      resourceImg: resourceImg,
+    }),
+  });
+  if (res.status === 200) {
+    const data = await res.json();
+    router.push(`/market`);
+  } else if (res.status === 400) {
+    // Display an error message to the user specifically for the 400 status
+    alert("You have already 10 items on listed. You can either delete them or wait for 24h.");
+  } else {
+    // Handle other non-200, non-400 cases (like 500 errors, etc.)
+    alert("An error occurred. Please try again later.");
+  }}
+
+const handleDiscordId = () => {
+  if (session?.user?.discordId) {
+    setDiscordId(session.user.discordId);
+  }
+};
+
+useEffect(() => {
+  handleDiscordId();
+}, [session]); 
+
+
   return (
+    <>
+     <div className="market-bg flex flex-col items-center">
+        <div className="m-auto flex flex-col items-center">
+          <h1 className="background-h lg:text-5xl text-xl w-fit mx-auto px-4 text-gray-200">
+            Albion Journey Market{" "}
+          </h1>
+          <p className="background-p lg:text-3xl text-lg lg:mt-4 mt-2 w-fit mx-auto px-4 text-gray-300">
+            List Your Items
+          </p>
+        </div>
+      </div>
     <div className="min-h-screen pt-20 max-w-[90%] mx-auto">
     <div className="text-2xl font-bold">
       Albion Online Item Profit Calculator
@@ -252,7 +344,7 @@ export default function SellItem() {
                   name="quality"
                   id="quality"
                   className="h-8 w-52"
-                  onChange={handleEnch}
+                  onChange={handleQuality}
                 >
                   <option value="0">Choose Quality</option>
                   <option value="normal">Normal</option>
@@ -273,11 +365,12 @@ export default function SellItem() {
                   type="text"
                   className="h-8 w-52 pl-2"
                   placeholder="1.000.000"
+                  onChange={handlePrice}
                 />
               </div>
               </div>
               <div className="flex justify-center items-center">
-              <button className="bg-orange-600 w-60 py-2 font-bold rounded-md mx-auto mt-10 text-white">Sell Item</button>
+              <button type="button" onClick={handleSubmit} className="bg-orange-600 w-60 py-2 font-bold rounded-md mx-auto mt-10 text-white">Sell Item</button>
               </div>
               </>
         )}
@@ -292,6 +385,7 @@ export default function SellItem() {
               name="category"
               id="category"
               className="h-8 w-52"
+              onChange={handleResource}
             >
               <option value="empty">Choose Category</option>
               <option value="LEATHER">Leather</option>
@@ -314,6 +408,7 @@ export default function SellItem() {
               name="category"
               id="category"
               className="h-8 w-28"
+              onChange={handleTier}
             >
               <option value="">Tier</option>
               <option value={4}>T4</option>
@@ -331,6 +426,7 @@ export default function SellItem() {
               name="category"
               id="category"
               className="h-8 w-28"
+              onChange={handleEnch}
             >
               <option value="empty">Enchanment</option>
               <option value="0">0</option>
@@ -342,19 +438,20 @@ export default function SellItem() {
           </div>
           <div className="flex flex-col">
           <label name="q" className="text-white text-sm text-left mb-1">Quantity</label>
-            <input id="q" name="q" type="text" placeholder="999" className="h-8 w-28" />
+            <input onChange={handleQuantity} id="q" name="q" type="text" placeholder="999" className="h-8 w-28" />
           </div>
           <div className="flex flex-col">
           <label name="fee" className="text-white text-sm text-left mb-1">Sell Price</label>
-            <input id="fee" name="fee" type="text" placeholder="300.000" className="h-8 w-28" />
+            <input onChange={handlePrice} id="fee" name="fee" type="text" placeholder="300.000" className="h-8 w-28" />
           </div>
           </div>
           <div className="flex justify-center items-center">
-              <button className="bg-orange-600 w-60 py-2 font-bold rounded-md mx-auto mt-10 text-white">Sell Item</button>
+              <button onClick={handleSubmit} className="bg-orange-600 w-60 py-2 font-bold rounded-md mx-auto mt-10 text-white">Sell Item</button>
               </div>
           </>
         )}
     </div>
   </div>
+  </>
 );
 }

@@ -24,7 +24,6 @@ const CardList = async ({ page, cat }) => {
 
   const hasPrev = POST_PER_PAGE * (page - 1) > 0;
   const hasNext = POST_PER_PAGE * (page - 1) + POST_PER_PAGE < count;
-
   return (
     <div className='lg:w-4/6 w-full'>
         <h1 className='mt-12 mb-6 text-2xl font-bold'>Recent Posts</h1>

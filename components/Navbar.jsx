@@ -7,6 +7,9 @@ import tr from "@/images/tr.png";
 import us from "@/images/us.png";
 import Image from "next/image";
 import { signIn, signOut, useSession } from "next-auth/react";
+import { IoIosArrowDropdown } from "react-icons/io";
+
+
 
 function Navbar() {
   const { data: session } = useSession();
@@ -19,6 +22,8 @@ function Navbar() {
   const handleNav = () => {
     setNav(!nav);
   };
+  console.log(session)
+  const slug = session?.user?.name ? session.user.name : '';
 
   // Function to handle the dropdown toggle
   const handleDropDown = () => {
@@ -124,7 +129,8 @@ function Navbar() {
                 </li>
               </Link>
               {session && (
-                <div className="relative ml-8 cursor-pointer flex mr-5 text-sm text-white">
+                <div  onMouseEnter={() => setDropdown(true)}
+                onMouseLeave={() => setDropdown(false)} className="relative ml-8 cursor-pointer flex mr-5 text-sm text-white">
                   <Image
                     className="rounded-[50%]"
                     src={session?.user?.image}
@@ -135,17 +141,18 @@ function Navbar() {
                   <div
                     onClick={handleDropDown}
                     ref={dropdownRef}
-                    className="ml-1"
+                    className="ml-1 flex"
                   >
-                    {session?.user?.name}
+                    {session?.user?.name} <span className="pt-1 pl-1"><IoIosArrowDropdown />
+</span>
                     {dropdown && (
-                      <div className="absolute bg-white rounded-md h-20 shadow w-20 mt-2">
+                      <div className="absolute bg-white rounded-md h-20 shadow w-20 mt-5">
                         <ul className="text-sm text-gray-700 ">
                           <li
                             onClick={() => setDropdown(false)}
                             className="block px-4 py-2 hover:bg-gray-100"
                           >
-                            <a href="#">Profile</a>
+                            <Link href={`/profile/${slug}`}>Profile</Link>
                           </li>
                           <li
                             onClick={() => setDropdown(false)}
