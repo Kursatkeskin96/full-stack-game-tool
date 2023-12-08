@@ -46,7 +46,7 @@ export const POST = async (req) => {
   try {
     const body = await req.json();
     const post = await prisma.post.create({
-      data: { ...body, discordId: session.user.discordId },
+      data: { ...body, userName: session.user.name },
     });
 
     return new NextResponse(JSON.stringify(post, { status: 200 }));

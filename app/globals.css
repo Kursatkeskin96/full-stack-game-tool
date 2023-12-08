@@ -10,7 +10,7 @@
   color: #b3b3b1;
 }
 
-.pvp {
+.general {
   background-color: #a1ccd1;
   cursor: pointer;
   color: white;
@@ -29,7 +29,7 @@
   border-color: 1px;
 }
 
-.pve {
+.pvp-pve {
   display: flex;
   gap: 0.25rem;
   justify-content: center;

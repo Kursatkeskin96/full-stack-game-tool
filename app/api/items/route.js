@@ -78,3 +78,43 @@ export const POST = async (req) => {
  });
   }
 };
+
+
+
+export const DELETE = async (req) => {
+  const session = await getAuthSession(req);
+
+  if (!session) {
+    return new NextResponse(JSON.stringify({ message: "Not Authenticated!" }), {
+      status: 401,
+    });
+  }
+
+  try {
+    const body = await req.json();
+    const itemId = body.itemId; // Assuming the item ID is passed in the request body
+
+    const item = await prisma.item.findUnique({ where: { id: itemId } });
+
+    if (item && item.seller === session.user.name) {
+      await prisma.item.delete({ where: { id: itemId } });
+      return new NextResponse(
+        JSON.stringify({ message: "Item removed successfully" }),
+        { status: 200 }
+      );
+    } else {
+      return new NextResponse(
+        JSON.stringify({
+          message: "Item not found or not authorized to delete",
+        }),
+        { status: 404 }
+      );
+    }
+  } catch (err) {
+    console.log(err);
+    return new NextResponse(
+      JSON.stringify({ message: "Something went wrong!" }),
+      { status: 500 }
+    );
+  }
+};

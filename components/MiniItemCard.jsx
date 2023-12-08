@@ -1,3 +1,4 @@
+'use client'
 import React from 'react'
 import Image from 'next/image'
 import { TbCoins } from "react-icons/tb";
@@ -13,6 +14,28 @@ export default function MiniItemCard({item}) {
         return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     }
     const formattedSellPrice = formatNumberWithCommas(item.price)
+  
+    const handleDelete = async (itemId) => {
+      try {
+        const response = await fetch('http://localhost:3000/api/items', {
+          method: 'DELETE',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ itemId })
+        });
+    
+        if (response.ok) {
+          alert("Item successfully deleted.");
+          window.location.reload();
+          props.removeItemFromList(itemId); // Update parent component's state
+        } else {
+          alert("Failed to delete the item.");
+        }
+      } catch (error) {
+        console.error('Failed to delete the item:', error);
+      }
+    };
   return (
     <div className='w-32 mt-5 shadow-lg rounded-md'>
 {
@@ -47,7 +70,12 @@ export default function MiniItemCard({item}) {
 )}
 
         <div className='flex justify-center items-center'>
-        <Link className='bg-red-600 mb-4 w-24 text-white mx-auto text-center rounded-md mt-4' href={`https://discord.com/users/${item.discordId}`}>Remove</Link>
+        <button
+          className='bg-red-600 mb-4 w-24 text-white mx-auto text-center rounded-md mt-4'
+          onClick={() => handleDelete(item.id)}
+        >
+          Remove
+        </button>
         </div>
     </div>
   )

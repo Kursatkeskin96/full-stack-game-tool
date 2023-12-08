@@ -2,6 +2,9 @@
 import React, { useState, useEffect } from "react";
 import items from "@/items.json";
 import Image from "next/image";
+import { TbCoins } from "react-icons/tb";
+import { set } from "mongoose";
+import Link from "next/link";
 
 export default function ItemCalculator() {
   const [category, setCategory] = useState("");
@@ -10,14 +13,14 @@ export default function ItemCalculator() {
   const [displayItems, setDisplayItems] = useState([]);
   const [selectedItem, setSelectedItem] = useState("");
   const [name, setName] = useState("");
-  const [usageFee, setUsageFee] = useState("");
+  const [usageFee, setUsageFee] = useState(400);
   const [tier, setTier] = useState("");
   const [ench, setEnch] = useState("");
-  const [withFocus, setWithFocus] = useState("");
-  const [withoutFocus, setWithoutFocus] = useState("");
+  const [withFocus, setWithFocus] = useState(48);
+  const [withoutFocus, setWithoutFocus] = useState(24);
   const [q1, setQ1] = useState("");
   const [q2, setQ2] = useState("");
-  const [q3, setQ3] = useState('')
+  const [q3, setQ3] = useState("")
   const [recipe1, setRecipe1] = useState("");
   const [recipe2, setRecipe2] = useState("");
   const [r1cost, setR1cost] = useState(0)
@@ -28,6 +31,7 @@ export default function ItemCalculator() {
   const [itemValue, setItemValue] = useState('')
   const [calculatedItemValue, setCalculatedItemValue] = useState(0);
   const [itemPrice, setItemPrice] = useState('')
+  
 
   const handleItemPrice = (e) => {
     // Convert the input value to an integer
@@ -56,12 +60,7 @@ const handleR2cost = (e) => {
 }
 
 const handleR3cost = (e) => {
-  const r3Value = parseInt(e.target.value, 10)
-  if (!isNaN(r3Value)) {
-    setR3cost(r3Value);
-} else {
-    setR3cost(0); // Set to 0 or any other default value in case of invalid input
-}
+setR3cost(e.target.value)
 }
 
 const handleUsageFee = (e) => {
@@ -73,13 +72,13 @@ const handleUsageFee = (e) => {
     }
 };
 
-  const handleTier = (e) => {
-    setTier(e.target.value);
-  };
+const handleTierChange = (newTier) => {
+  setTier(newTier);
+};
 
-  const handleEnch = (e) => {
-    setEnch(e.target.value);
-  };
+const handleEnchChange = (newEnch) => {
+  setEnch(newEnch);
+};
 
   const handleWithFocus = (e) => {
     setWithFocus(e.target.value);
@@ -192,11 +191,14 @@ useEffect(() => {
     handleItemValue()
   }, [tier, ench, category, subCategories, selectedItem])
 
+  function formatNumberWithCommas(number) {
+    return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
   const nutritionFee = calculatedItemValue*0.1125
   const calculateUsageFee = nutritionFee*(usageFee/100) 
   const roundedCalculateFee = Math.round(calculateUsageFee)
 
-  const resourceCost = q1 * r1cost
+  const resourceCost = (q1 * r1cost) + (q2 * r2cost) 
   const roundedResourceCost = Math.round(resourceCost);
 
   const returnedResources = roundedResourceCost * withFocus / 100
@@ -205,15 +207,19 @@ useEffect(() => {
   const sellOrder = itemPrice * 0.065
   const roundedSellOrder = Math.round(sellOrder)
 
-  const totalCost = roundedResourceCost + roundedSellOrder + roundedCalculateFee + r3cost
+  const totalCost = roundedResourceCost + roundedSellOrder + roundedCalculateFee + (1 * r3cost)
   const roundedTotalCost = Math.round(totalCost)
 
   const isProfit = roundedReturnedResources + parseInt(itemPrice) - parseInt(roundedTotalCost)
   const roundedIsProfit = Math.round(isProfit)
-  const withoutFocusReturnedResources = roundedResourceCost * withoutFocus / 100
-  const roundedWithoutFocusReturnedResources = Math.round(withoutFocusReturnedResources)
-  const withoutFocusIsProfit = roundedWithoutFocusReturnedResources + parseInt(itemPrice) - parseInt(roundedTotalCost)
-  const roundedWithoutFocusProfit = Math.round(withoutFocusIsProfit)
+
+  const formattedProfit = formatNumberWithCommas(roundedIsProfit);
+  const formattedItemPrice = formatNumberWithCommas(itemPrice)
+  const formattedReturnedResource = formatNumberWithCommas(roundedReturnedResources)
+  const formattedResourceCost = formatNumberWithCommas(roundedResourceCost)
+  const formattedSellOrder = formatNumberWithCommas(roundedSellOrder)
+  const formattedUsageFee = formatNumberWithCommas(roundedCalculateFee)
+  const isProfitNegative = roundedIsProfit < 0; 
 
   // Item Images
   let imageurl;
@@ -231,6 +237,9 @@ useEffect(() => {
   if (selectedItemObj && selectedItemObj.name.includes("Royal")) {
     artifactImg = `https://render.albiononline.com/v1/item/${artifact}_${tier}`;
   }
+  if (selectedItemObj && selectedItemObj.name.includes("Satchel")) {
+    artifactImg = `https://render.albiononline.com/v1/item/T4_SKILLBOOK_STANDARD`;
+  }
 
   let recipeImg1;
   if (selectedItem && ench!== "0") {
@@ -246,18 +255,22 @@ useEffect(() => {
     recipeImg2 = `https://render.albiononline.com/v1/item/${tier}_${recipe2}`;
   }
   let matImg3 = `https://render.albiononline.com/v1/item/${q3}`;
+
   return (
     <div className="min-h-screen pt-20 max-w-[90%] mx-auto">
       <div className="text-2xl font-bold">
         Albion Online Item Profit Calculator
       </div>
       <hr className="my-2"></hr>
-      <div>Home / Calculator / Item Profit Calculator</div>
+      <div className="flex gap-2">
+  <Link href="/" className="font-bold">Home</Link>
+  <Link href="/profit-calculator/item-calculator"> / Item Calculator</Link>
+      </div>
 
       <div className="bg-[rgb(55,62,77)] min-h-fit pb-10 mt-10">
-        <div className="flex justify-evenly items-center pt-20 flex-wrap">
+        <div className="flex justify-evenly items-center pt-10 flex-wrap">
           <div className="flex flex-col">
-            <label name="category" className="text-white mb-1">
+            <label name="category" className="text-white  mb-1">
               Choose Item Category
             </label>
             <select
@@ -277,7 +290,7 @@ useEffect(() => {
           </div>
 
           <div className="flex flex-col">
-            <label htmlFor="subcategory" className="text-white mb-1">
+            <label htmlFor="subcategory" className="text-white  mb-1">
               Choose Subcategory
             </label>
             <select
@@ -330,84 +343,120 @@ useEffect(() => {
             <input
               onChange={handleUsageFee}
               name="fee"
+              value={usageFee}
               id="fee"
               type="num"
               placeholder="400"
-              className="pl-2 h-8 w-52 text-black"
+              className="pl-2 h-8 w-28 text-black"
             />
-          </div>
-        </div>
-        <div className="flex justify-evenly items-center pt-10 flex-wrap">
-          <div className="flex flex-col">
-            <label name="tier" className="text-white mb-1">
-              Tier
-            </label>
-            <select
-              name="tier"
-              id="tier"
-              className="h-8 w-52"
-              onChange={handleTier}
-            >
-              <option value="empty">Choose Tier</option>
-              <option value="T4">T4</option>
-              <option value="T5">T5</option>
-              <option value="T6">T6</option>
-              <option value="T7">T7</option>
-              <option value="T8">T8</option>
-            </select>
-          </div>
-
-          <div className="flex flex-col">
-            <label name="enchanment" className="text-white mb-1">
-              Enchanment
-            </label>
-            <select
-              name="enchanment"
-              id="enchanment"
-              className="h-8 w-52"
-              onChange={handleEnch}
-            >
-              <option value="0">Choose Enchanment</option>
-              <option value="0">0</option>
-              <option value="1">.1</option>
-              <option value="2">.2</option>
-              <option value="3">.3</option>
-              <option value="4">.4</option>
-            </select>
           </div>
 
           <div className="flex flex-col">
             <label name="wfocus" className="text-white mb-1">
-              Return rate with Focus %
+              Return Rate %
             </label>
             <input
               onChange={handleWithFocus}
               name="wfocus"
+              value={withFocus}
               id="wfocus"
               type="text"
-              className="h-8 w-52 pl-2"
+              className="h-8 w-28 pl-2"
               placeholder="48"
             />
           </div>
 
-          <div className="flex flex-col">
-            <label name="wofocus" className="text-white mb-1">
-              Return rate without focus %
-            </label>
-            <input
-              onChange={handleWithoutFocus}
-              name="wofocus"
-              id="wofocus"
-              type="text"
-              className="h-8 w-52 pl-2"
-              placeholder="24"
-            />
-          </div>
+          
         </div>
+        <div className="flex justify-center gap-20 items-start  mt-5 lg:ml-10 flex-wrap">
+          <div className="flex flex-col">
+             <div> 
+              <p className="text-gray-300 mb-2 lg: underline lg:text-left text-center">
+                Tier
+                </p> 
+                </div>
+             <div className="flex flex-wrap justify-center items-center gap-4">
+             <button
+ onClick={() => handleTierChange('T4')}
+ className={`bg-[#356079] text-white w-10  rounded-md shadowl-lg ${tier === 'T4' ? 'underline' : ''}`}
+              >
+                T4
+              </button>
+              <button
+ onClick={() => handleTierChange('T5')}
+                className={`bg-[#76221A] text-white w-10 rounded-md shadowl-lg ${tier === 'T5' ? 'underline' : ''}`}
+              >
+                T5
+              </button>
+              <button
+ onClick={() => handleTierChange('T6')}
+                className={`bg-[#C06B29] text-white w-10 rounded-md shadowl-lg ${tier === 'T6' ? 'underline' : ''}`}
+              >
+                T6
+              </button>
+              <button
+ onClick={() => handleTierChange('T7')}
+                className={`bg-[#D1B045]  text-white w-10 rounded-md shadowl-lg ${tier === 'T7' ? 'underline' : ''}`}
+              >
+                T7
+              </button>
+              <button
+ onClick={() => handleTierChange('T8')}
+                className={`bg-white text-black w-10 rounded-md shadowl-lg ${tier === 'T8' ? 'underline' : ''}`}
+              >
+                T8
+              </button>
+              </div>
+              
+             </div>
+             <div className="flex flex-col">
+             <div> 
+              <p className="text-gray-300 mb-2 lg:underline lg:text-left text-center">
+                Enchanment
+                </p> 
+                </div>
+                <div className="flex flex-wrap  justify-center items-center gap-4">
+              <button
+ onClick={() => handleEnchChange('0')}
+                
+                className={`w-10 bg-white rounded-md shadow-lg text-black ${ench === '0' ? 'underline' : ''}`}
+              >
+                0
+              </button>
+              <button
+ onClick={() => handleEnchChange('1')}
+                className={`w-10  bg-[#61D984] rounded-md shadow-lg text-black ${ench === '1' ? 'underline' : ''}`}
+              >
+                .1
+              </button>
+              <button
+ onClick={() => handleEnchChange('2')}
+                className={`w-10 bg-[#47D8E5] rounded-md shadow-lg text-black ${ench === '2' ? 'underline' : ''}`}
+              >
+                .2
+              </button>
+              <button
+ onClick={() => handleEnchChange('3')}
+                className={`w-10  bg-[#A87DE2] rounded-md shadow-lg text-black ${ench === '3' ? 'underline' : ''}`}
+              >
+                .3
+              </button>
+              <button
+ onClick={() => handleEnchChange('4')}
+               
+                className={`w-10 bg-[#F6E169] rounded-md shadow-lg text-black ${ench === '4' ? 'underline' : ''}`}
+              >
+               .4
+              </button>
+            </div>
+              
+             </div>
+            </div>
+          
         {selectedItem && selectedSubCategory && category && tier && ench && (
         <div className="flex justify-evenly items-center pt-20 flex-wrap">
           <div className="flex flex-wrap justify-center items-center gap-10 bg-slate-600 p-2 mb-10 rounded-md shadow-lg">
-            <div className="pt-4">
+          <div className="flex flex-col items-center">
               {selectedItem && (
                 <Image src={imageurl} alt="item-img" width={130} height={130} />
               )}
@@ -429,10 +478,12 @@ useEffect(() => {
                   name="itemprice"
                   id="itemprice"
                   type="number"
+                  placeholder="Type Unit Price"
                   min="0"
                   className="text-center w-32 mx-auto"
                 />
               </div>
+              
             </div>
 
             <div className="ml-32">
@@ -459,6 +510,7 @@ useEffect(() => {
                     id="r1cost"
                     type="number"
                     min="0"
+                    placeholder="Type Unit Price"
                     className="text-center w-32 mx-auto"
                     onChange={handleR1cost}
                   />
@@ -482,30 +534,7 @@ useEffect(() => {
                     name="r2cost"
                     id="r2cost"
                     type="number"
-                    min="0"
-                    className="text-center w-32 mx-auto"
-                  />
-                </div>
-              </div>
-              )}
-             {q3 && (
-              <div className="flex justify-center items-center gap-4">
-                <div>
-                  <Image
-                    src={matImg3}
-                    alt="item-img"
-                    width={50}
-                    height={50}
-                  />
-                </div>
-                <div className="flex">
-                  <p className="text-sm text-white">1</p>
-                  <p className="text-sm ml-2 mr-4 text-white">x</p>
-                  <input
-                    onChange={handleR3cost}
-                    name="r2cost"
-                    id="r2cost"
-                    type="number"
+                    placeholder="Type Unit Price"
                     min="0"
                     className="text-center w-32 mx-auto"
                   />
@@ -530,6 +559,7 @@ useEffect(() => {
                     name="r3cost"
                     id="r3cost"
                     type="number"
+                    placeholder="Type Unit Price"
                     min="0"
                     className="text-center w-32 mx-auto"
                   />
@@ -537,10 +567,67 @@ useEffect(() => {
               </div>
               )}
             </div>
+            
           </div>
+          
         </div>
+        
          )}
+               {category && tier && ench && selectedItem && r1cost && itemPrice &&(
+        <div className="flex justify-center items-center flex-wrap">
+            {roundedIsProfit < 0 ? (
+                <div className="bg-red-500 text-white min-h-32 w-1/3 flex justfiy-start items-start mb-10">
+                <div className="mx-auto">
+                    <h5 className="underline font-bold">PROFITABILITY WITH %{withFocus} RETURN RATE</h5>
+                 <div className="flex justify-evenly items-center pb-2 mt-4 text-sm">
+                 <div className="font-bold">
+                    <p>Item Price</p>
+                    <p>Returned Resource</p>
+                    <p>- Material Cost</p>
+                    <p>- Sell Order Tax %6.5</p>
+                    <p>- Usage Fee</p>
+                    <p>Total = </p>
+                    </div>
+                    <div>
+                      <p>{formattedItemPrice}</p>
+                    <p>{formattedReturnedResource}</p>
+                    <p>{formattedResourceCost}</p>
+                    <p>{formattedUsageFee}</p>
+                    <p>{formattedUsageFee}</p>
+                    <p>{formattedProfit} </p>
+                    </div>
+                    </div>
+                </div>
+                </div>
+            ) : (
+                <div className="bg-green-500 text-white min-h-32 w-1/3 flex justfiy-start items-start mb-10">
+                <div className="mx-auto">
+                    <h5 className="underline font-bold">PROFITABILITY WITH % RETURN RATE</h5>
+                 <div className="flex justify-evenly items-center mt-4 pb-2 text-sm">
+                    <div className="font-bold">
+                    <p>Item Price</p>
+                    <p>Returned Resource</p>
+                    <p>- Material Cost</p>
+                    <p>- Sell Order Tax %6.5</p>
+                    <p>- Usage Fee</p>
+                    <p>Total = </p>
+                    </div>
+                    <div>
+                      <p>{formattedItemPrice}</p>
+                    <p>{formattedReturnedResource}</p>
+                    <p>{formattedResourceCost}</p>
+                    <p>{formattedUsageFee}</p>
+                    <p>{formattedUsageFee}</p>
+                    <p>{formattedProfit} </p>
+                    </div>
+                    </div>
+                </div>
+                </div>
+            )}
+        </div>
+        )}
       </div>
+
     </div>
   );
 }

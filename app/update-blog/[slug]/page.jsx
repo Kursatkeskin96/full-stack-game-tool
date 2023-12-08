@@ -20,9 +20,10 @@ import { ImageFormats } from "@xeger/quill-image-formats";
 Quill.register("modules/imageActions", ImageActions);
 Quill.register("modules/imageFormats", ImageFormats);
 
-export default function CreateBlog() {
-  const { status } = useSession()
+export default function UpdaateBlog({params}) {
+  const { status, session } = useSession()
   const router = useRouter()
+  const { slug } = params;
 
   const [open, setOpen] = useState(false);
   const [value, setValue] = useState("")
@@ -38,6 +39,8 @@ export default function CreateBlog() {
       const storageRef = ref(storage, name);
 
       const uploadTask = uploadBytesResumable(storageRef, file);
+
+
 
       uploadTask.on(
         "state_changed",
@@ -66,6 +69,32 @@ export default function CreateBlog() {
     file && upload();
   }, [file]);
 
+  useEffect(() => {
+    if (slug) {
+      // Fetch the post data when the slug is available
+      const fetchPostData = async () => {
+        try {
+          const response = await fetch(`http://localhost:3000/api/posts/${slug}`);
+          if (!response.ok) {
+            throw new Error('Failed to fetch post data');
+          }
+          const postData = await response.json();
+          // Populate the form fields with the fetched data
+          setTitle(postData.post.title);
+          setValue(postData.post.desc);
+          setMedia(postData.post.img);
+          setCatSlug(postData.post.catSlug);
+          // ... set other fields as needed
+        } catch (error) {
+          console.error('Error fetching post data:', error);
+          // Handle error appropriately
+        }
+      };
+
+      fetchPostData();
+    }
+  }, [slug]); // Run the effect when the slug changes
+
   if(status === "unauthenticated"){
     router.push("/");
   } 
@@ -77,23 +106,24 @@ export default function CreateBlog() {
     .replace(/[^\w\s-]/g, "")
     .replace(/[\s_-]+/g, "-")
     .replace(/^-+|-+$/g, "");
-
-  const handleSubmit = async () => {
-    const res = await fetch("http://localhost:3000/api/posts", {
-      method: "POST",
-      body: JSON.stringify({
-        title,
-        desc: value,
-        img: media,
-        slug: slugify(title),
-            catSlug: catSlug || "general", 
-      }),
-    });
+    const handleSubmit = async () => {
+      // Send a PUT request instead of a POST request
+      const res = await fetch(`http://localhost:3000/api/posts/${slug}`, {
+        method: "PUT",
+        body: JSON.stringify({
+          title,
+          desc: value,
+          img: media,
+          // Don't need to update slug here as it's used as identifier
+          catSlug,
+        }),
+      });
     if (res.status === 200) {
       const data = await res.json();
       router.push(`/guides/posts/${data.slug}`);
     }
-  };
+  }
+  
   const formats = ["align",
   "background",
   "blockquote",
@@ -129,10 +159,9 @@ export default function CreateBlog() {
       ['link', 'image', 'video']                         // link and image, video
     ]
   };
-
   return (
     <div className="pt-20 w-[80%] mx-auto flex justify-center flex-col">
-      <input type="text" placeholder="Title" className="p-6 w-[70%] mx-auto text-4xl bg-transparent bg-gray-100" onChange={e=>setTitle(e.target.value)} />
+      <input type="text" placeholder="Title" className="p-6 w-[70%] mx-auto text-4xl bg-transparent bg-gray-100" value={title} onChange={e=>setTitle(e.target.value)} />
       <select className="w-32 mb-10" onChange={(e) => setCatSlug(e.target.value)}>
         <option value="general">general</option>
         <option value="pvp-pve">pvp-pve</option>
@@ -147,7 +176,7 @@ export default function CreateBlog() {
         </button>
         {open && (
           <div className="mt-12 flex flex-col gap-5 absolute z-[999] w-full">
-            <input type="file" id="image" onChange={e=>setFile(e.target.files[0])} style={{ display: "none"}} />
+            <input type="file" id="image" onChange={e=>setFile(e.target.files[0])} style={{ display: "none"}}></input>
             <button className="w-8 h-8 rounded-[50%] bg-transparent border-[1px] border-black flex justify-center items-center cursor-pointer">
             <label htmlFor="image">
               <Image className="cursor-pointer" src={image} alt="plus" width={16} height={16} />
@@ -163,11 +192,10 @@ export default function CreateBlog() {
   onChange={setValue} 
   modules={modules}
   placeholder="Tell Your Story" 
-  formats={formats}
-/>
+  formats={formats} />
 </div>
       </div>
       <button onClick={handleSubmit} className="mx-auto w-60 px-1 py-3 bg-green-400 text-white cursor-pointer rounded-md mt-20">Submit</button>
-    </div>
+      </div>
   );
 }

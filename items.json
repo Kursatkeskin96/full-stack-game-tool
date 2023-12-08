@@ -22,6 +22,7 @@
                         "q1": "8",
                         "recipe2": "LEATHER",
                         "q2": "8",
+                        "q3": "1",
                         "artifact": "SKILLBOOK_STANDARD",
                         "itemValue": 256
                     }
@@ -166,6 +167,7 @@
                     "q1": "16",
                     "recipe2": "",
                     "q2": "",
+                    "q3": "1",
                     "artifact": "",
                     "itemValue": 256
                 },
@@ -176,6 +178,7 @@
                     "q1": "16",
                     "recipe2": "",
                     "q2": "",
+                    "q3": "1",
                     "artifact": "",
                     "itemValue": 256
                 },
@@ -196,6 +199,7 @@
                     "q1": "16",
                     "recipe2": "",
                     "q2": "",
+                    "q3": "1",
                     "artifact": "QUESTITEM_TOKEN_ROYAL",
                     "itemValue": 320
                 },
@@ -1547,6 +1551,7 @@
                     "q1": "12",
                     "recipe2": "METALBAR",
                     "q2": "20",
+                    "q3": "1",
                     "artifact": "ARTEFACT_2H_AXE_AVALON",
                     "itemValue": 2432
                 }

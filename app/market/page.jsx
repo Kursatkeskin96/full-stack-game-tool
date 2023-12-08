@@ -4,9 +4,6 @@ import items from "@/items.json";
 import Link from "next/link";
 import ItemCardList from "@/components/ItemCardList";
 import { useRouter, useSearchParams, usePathname } from "next/navigation";
-import SearchComponent from "@/components/Search";
-import { FaFilterCircleXmark } from "react-icons/fa6";
-
 
 export default function Market({searchParams}) {
   const router = useRouter();

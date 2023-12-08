@@ -73,7 +73,7 @@ model Post {
   title String 
   desc String
   img String?
-  catSlug String
+catSlug String
   cat Category @relation( fields: [catSlug], references: [slug])
   userName String
   user User @relation( fields: [userName], references: [name])

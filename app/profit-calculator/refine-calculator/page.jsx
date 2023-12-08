@@ -1,7 +1,8 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
-
+import { TbCoins } from "react-icons/tb";
+import Link from "next/link";
 
 export default function Refinealculator() {
 const [category, setCategory] = useState('LEATHER')
@@ -18,8 +19,8 @@ const [r1cost, setR1cost] = useState('')
 const [r2cost, setR2cost] = useState('')
 const [r3cost, setR3cost] = useState('')
 const [itemValue, setItemValue] = useState('')
-const [returnRate, setReturnRate] = useState('')
-const [fee, setFee] = useState('')
+const [returnRate, setReturnRate] = useState(53.9)
+const [fee, setFee] = useState(300)
 const [sellPrice, setSellPrice] = useState('')
 const [t4mastery, setT4mastery] = useState(1)
 const [t5mastery, setT5mastery] = useState(0)
@@ -386,7 +387,10 @@ useEffect(() => {
         Albion Online Item Profit Calculator
       </div>
       <hr className="my-2"></hr>
-      <div>Home / Calculator / Item Profit Calculator</div>
+      <div className="flex gap-2">
+  <Link href="/" className="font-bold">Home</Link>
+  <Link href="/profit-calculator/refine-calculator"> / Refine Calculator</Link>
+      </div>
 
       <div className="bg-[rgb(55,62,77)] min-h-96 mt-10">
         <h3 className="pt-10 text-lg text-white ml-10">Mastery Levels</h3>
@@ -471,11 +475,11 @@ useEffect(() => {
           </div>
           <div className="flex flex-col">
           <label name="fee" className="text-white text-sm text-left mb-1">Usage Fee</label>
-            <input onChange={handleFee} id="fee" name="fee" type="text" placeholder="Type Fee" className="h-8 w-28" />
+            <input value={fee} onChange={handleFee} id="fee" name="fee" type="text" placeholder="Type Fee" className="h-8 w-28" />
           </div>
           <div className="flex flex-col">
           <label name="returnrate" className="text-white text-sm text-left mb-1">% Return Rate</label>
-        <input onChange={handleRRR} id="returnrate" name="returnrate" type="text" placeholder="53.9"  className="h-8 w-28" />
+        <input value={returnRate} onChange={handleRRR} id="returnrate" name="returnrate" type="text" placeholder="53.9"  className="h-8 w-28" />
           </div>
         </div>
 
@@ -487,7 +491,7 @@ useEffect(() => {
                 <Image src={resourceImg} alt="item-img" width={130} height={130} />
                 <div className="flex flex-col">
                 <label name="mainresource" className="text-white text-sm text-left mb-1">Selling Price</label>
-                <input onChange={handleSellPrice} id="mainresource" name="mainresource" type="text" placeholder="Type Price" className="pl-1 h-6 w-32" />
+                <input onChange={handleSellPrice} id="mainresource" name="mainresource" type="text" placeholder="Type Unit Price" className="pl-1 h-6 w-32" />
                 </div>
                 </div>
      
@@ -496,7 +500,7 @@ useEffect(() => {
                 <Image src={matImg1} alt="item-img" width={65} height={65} />
                 <div className="flex flex-col">
                 <label name="resource1" className="text-white text-sm text-left mb-1">Resource Price</label>
-                <input onChange={handleR1cost} id="resource1" name="resource1" type="text" placeholder="Type Price" className="pl-1 h-6 w-32" />
+                <input onChange={handleR1cost} id="resource1" name="resource1" type="text" placeholder="Type Unit Price" className="pl-1 h-6 w-32" />
                 </div>
                 </div>
                 {tier == 4 && ench >= 0 ? (
@@ -505,7 +509,7 @@ useEffect(() => {
                     <Image src="https://render.albiononline.com/v1/item/T3_LEATHER" alt="item-img" width={65} height={130} />
                     <div className="flex flex-col">
                 <label name="resource2" className="text-white text-sm text-left mb-1">Resource Price</label>
-                <input onChange={handleR2cost} id="resource2" name="resource2" type="text" placeholder="Refined Price" className="pl-1 h-6 w-32" />
+                <input onChange={handleR2cost} id="resource2" name="resource2" type="text" placeholder="Type Unit Price" className="pl-1 h-6 w-32" />
                 </div>
                 </div>
                 ) : (
@@ -514,7 +518,7 @@ useEffect(() => {
                     <Image src={matImg2} alt="item-img" width={65} height={130} />
                     <div className="flex flex-col">
                 <label name="resource2" className="text-white text-sm text-left mb-1">Resource Price</label>
-                <input onChange={handleR2cost} id="resource2" name="resource2" type="text" placeholder="Type Price" className="pl-1 h-6 w-32" />
+                <input onChange={handleR2cost} id="resource2" name="resource2" type="text" placeholder="Type Unit Price" className="pl-1 h-6 w-32" />
                 </div>
                 </div>
                 )}
@@ -524,7 +528,7 @@ useEffect(() => {
                     <Image src={matImg3} alt="item-img" width={65} height={130} />
                     <div className="flex flex-col">
                 <label name="resource3" className="text-white text-sm text-left mb-1">Heart Price</label>
-                <input onChange={handleR3cost} id="resource3" name="resource3" type="text" placeholder="Type Price" className="pl-1 h-6 w-32" />
+                <input onChange={handleR3cost} id="resource3" name="resource3" type="text" placeholder="Type Unit Price" className="pl-1 h-6 w-32" />
                 </div>
                 </div>
                 )}
@@ -536,34 +540,9 @@ useEffect(() => {
             {roundedIsProfit < 0 ? (
                 <div className="bg-red-500 text-white min-h-32 w-1/3 flex justfiy-start items-start mb-10">
                 <div className="mx-auto">
-                    <h5 className="">PROFITABILITY WITH %{returnRate} RETURN RATE</h5>
-                 <div className="flex justify-evenly items-center mt-4 text-sm">
-                    <div>
-                    <p>Item Price</p>
-                    <p>Returned Resource</p>
-                    <p>- Material Cost</p>
-                    <p>- Sell Order Tax %6.5</p>
-                    <p>- Usage Fee</p>
-                    <p>Total = </p>
-                    </div>
-                    <div>
-                    <p>{sellPrice}</p>
-                    <p>{roundedReturnedResource}</p>
-                    <p>{roundedResourceCost}</p>
-                    <p>{roundedCalculateTax}</p>
-                    <p>{roundedCalculateFee}</p>
-                    <p>{roundedIsProfit} </p>
-                    <p>{fullFocusprofit}</p>
-                    </div>
-                    </div>
-                </div>
-                </div>
-            ) : (
-                <div className="bg-green-500 text-white min-h-32 w-1/3 flex justfiy-start items-start mb-10">
-                <div className="mx-auto">
-                    <h5 className="">PROFITABILITY WITH %{returnRate} RETURN RATE</h5>
-                 <div className="flex justify-evenly items-center mt-4 text-sm">
-                    <div>
+                    <h5 className="underline font-bold">PROFITABILITY WITH %{returnRate} RETURN RATE</h5>
+                 <div className="flex justify-evenly items-center pb-2 mt-4 text-sm">
+                    <div className="font-bold">
                     <p>Item Price</p>
                     <p>Returned Resource</p>
                     <p>- Material Cost</p>
@@ -581,7 +560,35 @@ useEffect(() => {
                     <p>{formattedFee}</p>
                     <p>{formattedProfit} </p>
                     <p>{focusCostValue}</p> 
-                    <p>{fullFocusprofit}</p>
+                    <p className="flex gap-1 underline">{fullFocusprofit}  <TbCoins className="mt-1" /></p>
+                    </div>
+                    </div>
+                </div>
+                </div>
+            ) : (
+                <div className="bg-green-500 shadow-xl rounded-md text-white min-h-32 w-1/3 flex justfiy-start items-start mb-10">
+                <div className="mx-auto">
+                    <h5 className="underline font-bold">PROFITABILITY WITH %{returnRate} RETURN RATE</h5>
+                 <div className="flex justify-evenly items-center mt-4 pb-2 text-sm">
+                    <div className="font-bold">
+                    <p>Item Price</p>
+                    <p>Returned Resource</p>
+                    <p>- Material Cost</p>
+                    <p>- Sell Order Tax %6.5</p>
+                    <p>- Usage Fee</p>
+                    <p>Total = </p>
+                    <p>Focus Cost =</p>
+                    <p>30K Focus Profit =</p>
+                    </div>
+                    <div>
+                    <p>{formattedSellPrice}</p>
+                    <p>{formattedReturnedResource}</p>
+                    <p>{formattedResourceCost}</p>
+                    <p>{formattedTax}</p>
+                    <p>{formattedFee}</p>
+                    <p>{formattedProfit} </p>
+                    <p>{focusCostValue}</p> 
+                    <p className="underline flex gap-1">{fullFocusprofit}  <TbCoins className="mt-1" /></p>
                     </div>
                     </div>
                 </div>

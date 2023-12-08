@@ -9,21 +9,20 @@ import Image from "next/image";
 import { signIn, signOut, useSession } from "next-auth/react";
 import { IoIosArrowDropdown } from "react-icons/io";
 
-
-
 function Navbar() {
   const { data: session } = useSession();
   const [nav, setNav] = useState(false);
   const [dropdown, setDropdown] = useState(false);
   const [dropdown2, setDropdown2] = useState(false);
+  const [dropdown3, setDropdown3] = useState(false);
   const dropdownRef = useRef(null);
   const dropdownRefCalculator = useRef(null);
+  const dropDownRefMarket = useRef(null);
 
   const handleNav = () => {
     setNav(!nav);
   };
-  console.log(session)
-  const slug = session?.user?.name ? session.user.name : '';
+  const slug = session?.user?.name ? session.user.name : "";
 
   // Function to handle the dropdown toggle
   const handleDropDown = () => {
@@ -31,6 +30,9 @@ function Navbar() {
   };
   const handleDropDown2 = () => {
     setDropdown2(!dropdown2);
+  };
+  const handleDropDown3 = () => {
+    setDropdown3(!dropdown3);
   };
 
   // Close dropdown when clicked outside
@@ -53,6 +55,27 @@ function Navbar() {
       window.removeEventListener("click", pageClickEvent);
     };
   }, [dropdown]);
+
+  // Close dropdown when clicked outside
+  useEffect(() => {
+    const pageClickEvent = (e) => {
+      if (
+        dropDownRefMarket.current !== null &&
+        !dropDownRefMarket.current.contains(e.target)
+      ) {
+        setDropdown3(!dropdown3);
+      }
+    };
+
+    // If the item is active (ie open) then listen for clicks
+    if (dropdown3) {
+      window.addEventListener("click", pageClickEvent);
+    }
+
+    return () => {
+      window.removeEventListener("click", pageClickEvent);
+    };
+  }, [dropdown3]);
 
   // Handle outside click for calculator dropdown
   useEffect(() => {
@@ -95,42 +118,70 @@ function Navbar() {
                   Guides
                 </li>
               </Link>
-              <li
-                ref={dropdownRefCalculator}
-                className="relative cursor-pointer ml-10 text-sm hover:border-b hover:border-[#FFAA00] text-white"
-              >
-                <span onClick={handleDropDown2}>Profit Calculators</span>
-                {dropdown2 && (
-                  <div className="absolute bg-white rounded-md h-20 shadow w-28 mt-2">
-                    <ul className="text-sm text-gray-700 ">
-                      <li
-                        onClick={() => setDropdown2(false)}
-                        className="block px-4 py-2 text-center hover:bg-gray-100"
-                      >
-                        <Link href="/profit-calculator/item-calculator">
-                          Item
-                        </Link>
-                      </li>
-                      <li
-                        onClick={() => setDropdown2(false)}
-                        className="block px-4 py-2 text-center hover:bg-gray-100 "
-                      >
-                        <Link href="/profit-calculator/refine-calculator">
-                          Refine
-                        </Link>
-                      </li>
-                    </ul>
-                  </div>
-                )}
-              </li>
-              <Link href="/market">
-                <li className="ml-10 text-sm hover:border-b hover:border-[#FFAA00] text-white">
-                  Market
-                </li>
-              </Link>
+              <div className="relative ml-8 cursor-pointer flex text-sm text-white">
+                <div
+                  onMouseEnter={() => setDropdown2(true)}
+                  onMouseLeave={() => setDropdown2(false)}
+                  ref={dropDownRefMarket}
+                  className="ml-1 flex"
+                >
+                  <div>Profit Calculators</div>
+                  <span className="pt-1 pl-1">
+                    <IoIosArrowDropdown />
+                  </span>
+                  {dropdown2 && (
+                    <div className="absolute bg-[#14213D] rounded-md shadow text-center w-full mt-5 p-1">
+                      <ul className="text-sm text-white ">
+                        <li
+                          onClick={() => setDropdown2(false)}
+                          className="block py-2 hover:bg-[#1b2c52]"
+                        >
+                          <Link href="/profit-calculator/item-calculator">Craft Calculator</Link>
+                        </li>                        <li
+                          onClick={() => setDropdown2(false)}
+                          className="block py-2 hover:bg-[#1b2c52]"
+                        >
+                          <Link href="/profit-calculator/refine-calculator">Refine Calculator</Link>
+                        </li>
+                      </ul>
+                    </div>
+                  )}
+                </div>
+              </div>
+              <div className="relative ml-8 cursor-pointer flex text-sm text-white">
+                <div
+                  onMouseEnter={() => setDropdown3(true)}
+                  onMouseLeave={() => setDropdown3(false)}
+                  ref={dropDownRefMarket}
+                  className="ml-1 flex "
+                >
+                  <Link href="/market">Market</Link>{" "}
+                  <span className="pt-1 pl-1">
+                    <IoIosArrowDropdown />
+                  </span>
+                  {dropdown3 && (
+                    <div className="absolute bg-[#14213D] rounded-md shadow text-center mt-5 p-1">
+                      <ul className="text-sm w-20 text-white ">
+                        <li
+                          onClick={() => setDropdown3(false)}
+                          className="block py-2 hover:bg-[#1b2c52]"
+                        >
+                          <Link href="/market/sell-item">Sell Item</Link>
+                        </li>
+                      </ul>
+                    </div>
+                  )}
+                </div>
+              </div>
               {session && (
-                <div  onMouseEnter={() => setDropdown(true)}
-                onMouseLeave={() => setDropdown(false)} className="relative ml-8 cursor-pointer flex mr-5 text-sm text-white">
+                  <>
+               
+                <div
+                  onMouseEnter={() => setDropdown(true)}
+                  onMouseLeave={() => setDropdown(false)}
+                  className="relative ml-8 cursor-pointer flex mr-5 text-sm text-white"
+                >
+         
                   <Image
                     className="rounded-[50%]"
                     src={session?.user?.image}
@@ -138,34 +189,41 @@ function Navbar() {
                     width={20}
                     height={20}
                   />
+ 
                   <div
                     onClick={handleDropDown}
                     ref={dropdownRef}
                     className="ml-1 flex"
                   >
-                    {session?.user?.name} <span className="pt-1 pl-1"><IoIosArrowDropdown />
-</span>
+                    
+                    {session?.user?.name}{" "}                                                
+                    <span className="pt-1 pl-1">
+                      <IoIosArrowDropdown />
+                    </span>
+
                     {dropdown && (
-                      <div className="absolute bg-white rounded-md h-20 shadow w-20 mt-5">
-                        <ul className="text-sm text-gray-700 ">
+                      <div className="absolute bg-[#14213D] rounded-md h-20 shadow text-center w-full mt-5">
+                        <ul className="text-sm text-white ">
                           <li
                             onClick={() => setDropdown(false)}
-                            className="block px-4 py-2 hover:bg-gray-100"
+                            className="block py-2 hover:bg-[#1b2c52]"
                           >
                             <Link href={`/profile/${slug}`}>Profile</Link>
                           </li>
                           <li
                             onClick={() => setDropdown(false)}
-                            className="block px-4 py-2 hover:bg-gray-100 "
+                            className="block py-2 hover:bg-[#1b2c52]"
                           >
                             <button onClick={() => signOut()}>Logout</button>
                           </li>
                         </ul>
                       </div>
                     )}
-                  </div>
+                          </div>
                 </div>
+                </>
               )}
+     
               {!session && (
                 <li className="ml-10 mr-5 text-sm text-white">
                   <button

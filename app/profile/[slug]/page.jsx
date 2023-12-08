@@ -1,66 +1,86 @@
-import MiniItemCard from '@/components/MiniItemCard';
-import React from 'react'
+'use client'
+import ItemCard from '@/components/ItemCard';
+import React, { useState, useEffect } from 'react';
 
+// Asynchronous function to get user data
 const getData = async (slug) => {
-  const res = await fetch(
-    `http://localhost:3000/api/users/${slug}`,
-    {
-      cache: "no-store",
-    }
-  );
+  const res = await fetch(`http://localhost:3000/api/users/${slug}`, {
+    cache: "no-store",
+  });
 
   if (!res.ok) {
-    throw new Error("Failed");
+    throw new Error("Failed to fetch user data");
   }
 
   return res.json();
 };
 
+// Asynchronous function to get items data
 const getItem = async (slug) => {
-  const res = await fetch(
-    `http://localhost:3000/api/items/${slug}`,
-    {
-      cache: "no-store",
-    }
-  );
+  const res = await fetch(`http://localhost:3000/api/items/${slug}`, {
+    cache: "no-store",
+  });
 
   if (!res.ok) {
-    throw new Error("Failed");
+    throw new Error("Failed to fetch items");
   }
 
   return res.json();
 };
 
-
-export default async function Profile({params}) {
+export default function Profile({ params }) {
   const { slug } = params;
-  const data = await getData(slug);
-  const itemdata = await getItem(slug)
-  
+  const [user, setUser] = useState(null);
+  const [items, setItems] = useState([]);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    // Fetch user data
+    getData(slug)
+      .then(data => {
+        setUser(data.user);
+      })
+      .catch(error => {
+        setError(error.message);
+        console.error("Error fetching user data:", error);
+      });
+
+    // Fetch items data
+    getItem(slug)
+      .then(data => {
+        setItems(data.item);
+      })
+      .catch(error => {
+        setError(error.message);
+        console.error("Error fetching items:", error);
+      });
+  }, [slug]);
+
+  if (error) {
+    return <div>Error loading data: {error}</div>;
+  }
+
   return (
-    <>  <div className="profile-bg flex flex-col items-center">
-    <div className="m-auto flex flex-col items-center">
-      <h1 className="background-h lg:text-5xl text-xl w-fit mx-auto px-4 text-gray-200">
-        Welcome, {data.user.name}!
-      </h1>
-      <p className="background-p lg:text-2xl text-lg lg:mt-4 mt-2 w-fit mx-auto px-4 text-gray-300">
-      Your journey has just started...
-      </p>
-    </div>
-  </div>
-    <div className='pt-10 min-h-screen max-w-[80%] mx-auto'>
-         <div className="text-2xl mt-5 font-bold ml-4 first-letter:uppercase">Your items on sale</div>
-      <hr className="my-2" />
-      {data ? (
-        <div className='flex justify-center flex-wrap items-center gap-10'>
-          {itemdata.item && itemdata.item.map((item) => (
-                <MiniItemCard key={item.id} item={item} />
-              ))}
+    <>
+      <div className="profile-bg flex flex-col items-center">
+        <div className="m-auto flex flex-col items-center">
+          <h1 className="background-h lg:text-5xl text-xl w-fit mx-auto px-4 text-gray-200">
+            Welcome, {user ? user.name : 'Loading...'}!
+          </h1>
+          <p className="background-p lg:text-2xl text-lg lg:mt-4 mt-2 w-fit mx-auto px-4 text-gray-300">
+            Your journey has just started...
+          </p>
         </div>
-      ) : (
-        <div></div>
-      )}
+      </div>
+      <div className='pt-10 min-h-screen max-w-[80%] mx-auto'>
+        <div className="text-2xl mt-5 font-bold ml-4 first-letter:uppercase">Your items on sale</div>
+        <hr className="my-2" />
+        <div className="flex mt-10 justify-center items-center flex-wrap mx-auto gap-10">
+    {items.map(item => (
+          <ItemCard key={item.id} item={item} />
+        ))}
     </div>
+      </div>
     </>
-  )
+  );
 }
