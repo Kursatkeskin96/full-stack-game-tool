@@ -16,8 +16,15 @@ export default function MiniItemCard({item}) {
     const formattedSellPrice = formatNumberWithCommas(item.price)
   
     const handleDelete = async (itemId) => {
+      if (typeof window !== 'undefined') {
+        var currentURL = window.location.href;
+        var urlParts = currentURL.split("/");
+        var domain = urlParts[1];
+      }
+    
+      const api = domain;
       try {
-        const response = await fetch('http://localhost:3000/api/items', {
+        const response = await fetch(`${api}api/items`, {
           method: 'DELETE',
           headers: {
             'Content-Type': 'application/json'

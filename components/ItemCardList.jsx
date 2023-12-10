@@ -1,3 +1,4 @@
+'use client'
 import React from "react";
 import Pagination from "@/components/Pagination";
 import ItemCard from "@/components/ItemCard";
@@ -14,7 +15,14 @@ const getData = async (page, tier, ench, quality, search) => {
   if (search) queryParams.search = search
   // Construct the query string
   const queryString = new URLSearchParams(queryParams).toString();
-  const url = `http://localhost:3000/api/items?${queryString}`;
+  if (typeof window !== 'undefined') {
+    var currentURL = window.location.href;
+    var urlParts = currentURL.split("/");
+    var domain = urlParts[1];
+  }
+
+  const api = domain;
+  const url = `${api}api/items?${queryString}`;
 
   const res = await fetch(url, { cache: "no-store" });
 

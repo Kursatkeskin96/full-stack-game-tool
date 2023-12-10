@@ -3,11 +3,12 @@
 import Link from "next/link";
 import React, { useState, useRef, useEffect } from "react";
 import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
-import tr from "@/images/tr.png";
-import us from "@/images/us.png";
 import Image from "next/image";
 import { signIn, signOut, useSession } from "next-auth/react";
-import { IoIosArrowDropdown } from "react-icons/io";
+import { IoIosArrowDown } from "react-icons/io";
+import { FaDiscord } from "react-icons/fa";
+
+
 
 function Navbar() {
   const { data: session } = useSession();
@@ -127,7 +128,7 @@ function Navbar() {
                 >
                   <div>Profit Calculators</div>
                   <span className="pt-1 pl-1">
-                    <IoIosArrowDropdown />
+                    <IoIosArrowDown />
                   </span>
                   {dropdown2 && (
                     <div className="absolute bg-[#14213D] rounded-md shadow text-center w-full mt-5 p-1">
@@ -157,7 +158,7 @@ function Navbar() {
                 >
                   <Link href="/market">Market</Link>{" "}
                   <span className="pt-1 pl-1">
-                    <IoIosArrowDropdown />
+                    <IoIosArrowDown />
                   </span>
                   {dropdown3 && (
                     <div className="absolute bg-[#14213D] rounded-md shadow text-center mt-5 p-1">
@@ -198,7 +199,7 @@ function Navbar() {
                     
                     {session?.user?.name}{" "}                                                
                     <span className="pt-1 pl-1">
-                      <IoIosArrowDropdown />
+                      <IoIosArrowDown />
                     </span>
 
                     {dropdown && (
@@ -263,7 +264,7 @@ function Navbar() {
           >
             <div>
               <div className="flex  items-center justify-between">
-                <span className="font text-black">albionprofit.com</span>
+               <Link href='/'> <span className="font text-black">albionprofit.com</span></Link>
                 <div
                   onClick={handleNav}
                   className="rounded-full shadow-lg bg-[#14213D] shadow-gray-400 p-3 cursor-pointer"
@@ -275,7 +276,7 @@ function Navbar() {
             </div>
             <div className="flex flex-col">
               <ul className="">
-                <Link href="#home">
+                <Link href="/">
                   <li
                     onClick={() => setNav(false)}
                     className="py-4 text-sm text-black"
@@ -291,12 +292,75 @@ function Navbar() {
                     Guides
                   </li>
                 </Link>
-                <Link href="#skills">
+                <Link href="/profit-calculator/item-calculator">
                   <li
                     onClick={() => setNav(false)}
                     className="py-4 text-sm text-black"
                   >
-                    Profit Calculator
+                    Item Craft Calculator
+                  </li>
+                </Link>
+                <Link href="/profit-calculator/refine-calculator">
+                  <li
+                    onClick={() => setNav(false)}
+                    className="py-4 text-sm text-black"
+                  >
+                   Refine Calculator
+                  </li>
+                </Link>
+                <Link href="/market">
+                  <li
+                    onClick={() => setNav(false)}
+                    className="py-4 text-sm text-black"
+                  >
+                   Market
+                  </li>
+                </Link>
+                <Link href="/market/sell-item">
+                  <li
+                    onClick={() => setNav(false)}
+                    className="py-4 text-sm text-black"
+                  >
+                   Sell Item
+                  </li>
+                </Link>
+                {session && (
+                  <>
+                <Link href={`/profile/${slug}`}>
+                <li
+                  onClick={() => setNav(false)}
+                  className="py-4 text-sm text-black"
+                >
+                 Profile
+                </li>
+              </Link>
+              <li className="text-sm text-white">
+                  <button
+                    onClick={() => signOut("discord")}
+                    className="bg-orange-600 px-4 rounded-md"
+                  >
+                    Logout
+                  </button>
+                </li>
+              </>
+              )}
+                {!session && (
+                <li className="text-sm text-white">
+                  <button
+                    onClick={() => signIn("discord")}
+                    className="bg-orange-600 px-4 rounded-md"
+                  >
+                    Login
+                  </button>
+                </li>
+              )}
+              <hr  className="mt-4"/>
+                              <Link href="/">
+                  <li
+                    onClick={() => setNav(false)}
+                    className="py-4 text-sm text-black flex gap-4 justify-center items-center"
+                  >
+                <span><FaDiscord /></span>  <span>Join Our Discord </span>
                   </li>
                 </Link>
               </ul>

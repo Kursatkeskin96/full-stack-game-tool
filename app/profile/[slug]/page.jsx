@@ -4,7 +4,14 @@ import React, { useState, useEffect } from 'react';
 
 // Asynchronous function to get user data
 const getData = async (slug) => {
-  const res = await fetch(`http://localhost:3000/api/users/${slug}`, {
+  if (typeof window !== 'undefined') {
+    var currentURL = window.location.href;
+    var urlParts = currentURL.split("/");
+    var domain = urlParts[1];
+  }
+
+  const api = domain;
+  const res = await fetch(`${api}/api/users/${slug}`, {
     cache: "no-store",
   });
 
@@ -17,7 +24,14 @@ const getData = async (slug) => {
 
 // Asynchronous function to get items data
 const getItem = async (slug) => {
-  const res = await fetch(`http://localhost:3000/api/items/${slug}`, {
+  if (typeof window !== 'undefined') {
+    var currentURL = window.location.href;
+    var urlParts = currentURL.split("/");
+    var domain = urlParts[1];
+  }
+
+  const api = domain;
+  const res = await fetch(`${api}/api/items/${slug}`, {
     cache: "no-store",
   });
 

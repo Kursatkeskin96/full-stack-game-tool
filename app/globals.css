@@ -1,6 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Bitter&family=Dancing+Script:wght@500&family=EB+Garamond&family=Open+Sans:ital,wght@0,400;1,300&display=swap');
+
+body {
+  font-family: 'Bitter', serif;
+}
 
 .ql-container {
   font-size: 28px !important;
@@ -29,6 +34,13 @@
   border-color: 1px;
 }
 
+.generaltext{
+  color: #a1ccd1;
+}
+.pvp-pvetext { 
+  color: #dedcc9;
+}
+
 .pvp-pve {
   display: flex;
   gap: 0.25rem;
@@ -48,7 +60,12 @@
   border-color: 1px;
 }
 
+.gathertext {
+ color: #e9b384; 
+}
+
 .gather {
+  background: #e9b384;
   display: flex;
   gap: 0.25rem;
   justify-content: center;
@@ -63,11 +80,15 @@
   cursor: pointer;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
     0 2px 4px -1px rgba(0, 0, 0, 0.06);
-  background: #e9b384;
   border-color: 1px;
+}
+
+.refinetext{
+  color: #7c9d96;
 }
 
 .refine {
+  background: #7c9d96;
   display: flex;
   gap: 0.25rem;
   justify-content: center;
@@ -82,11 +103,15 @@
   cursor: pointer;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
     0 2px 4px -1px rgba(0, 0, 0, 0.06);
-  background: #7c9d96;
+
   border-color: 1px;
 }
 
+.crafttext{
+  color: #bce29e;
+}
 .craft {
+  background: #bce29e;
   display: flex;
   gap: 0.25rem;
   justify-content: center;
@@ -105,7 +130,12 @@
   border-color: 1px;
 }
 
+.economytext {
+  color: #9cb274;
+}
+
 .economy {
+  background: #9cb274;
   display: flex;
   gap: 0.25rem;
   justify-content: center;
@@ -185,6 +215,11 @@ h1 {
     background-image:linear-gradient(rgba(0, 0, 0, 0.327),rgba(0, 0, 0, 0.8)) , url(../images/market3.png);
     background-size: 100% 100%;
     height: 400px;
+  }
+  .profile-bg{
+    background-image:linear-gradient(rgba(0, 0, 0, 0.327),rgba(0, 0, 0, 0.8)) , url(../images/profile5.png);
+    background-size: 100% 100%;
+    height: 370px;
   }
   
  }

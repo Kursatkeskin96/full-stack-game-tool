@@ -158,7 +158,14 @@ if (ench !== "0") {
 }
 
 const handleSubmit = async () => {
-  const res = await fetch("http://localhost:3000/api/items", {
+  if (typeof window !== 'undefined') {
+    var currentURL = window.location.href;
+    var urlParts = currentURL.split("/");
+    var domain = urlParts[1];
+  }
+
+  const api = domain;
+  const res = await fetch(`${api}/api/items`, {
     method: "POST",
     body: JSON.stringify({
       title: name || resource,

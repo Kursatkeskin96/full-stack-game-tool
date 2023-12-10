@@ -257,18 +257,18 @@ useEffect(() => {
   let matImg3 = `https://render.albiononline.com/v1/item/${q3}`;
 
   return (
-    <div className="min-h-screen pt-20 max-w-[90%] mx-auto">
-      <div className="text-2xl font-bold">
+    <div className="min-h-screen pt-20 mx-auto">
+      <div className="text-2xl px-2 font-bold">
         Albion Online Item Profit Calculator
       </div>
-      <hr className="my-2"></hr>
-      <div className="flex gap-2">
+      <hr className="my-2 px-2"></hr>
+      <div className="flex gap-2 px-2">
   <Link href="/" className="font-bold">Home</Link>
   <Link href="/profit-calculator/item-calculator"> / Item Calculator</Link>
       </div>
 
       <div className="bg-[rgb(55,62,77)] min-h-fit pb-10 mt-10">
-        <div className="flex justify-evenly items-center pt-10 flex-wrap">
+        <div className="flex justify-center lg:gap-0 gap-4 lg:justify-evenly items-center pt-10 flex-wrap">
           <div className="flex flex-col">
             <label name="category" className="text-white  mb-1">
               Choose Item Category
@@ -276,7 +276,7 @@ useEffect(() => {
             <select
               name="category"
               id="category"
-              className="h-8 w-52"
+              className="h-8 lg:w-52 w-60"
               onChange={handleCategory}
             >
               <option value="empty">Choose Category</option>
@@ -296,7 +296,7 @@ useEffect(() => {
             <select
               name="subcategory"
               id="subcategory"
-              className="h-8 w-52"
+              className="h-8 lg:w-52 w-60"
               onChange={handleSubCategory}
             >
               <option value="empty">Choose Sub Category</option>
@@ -321,7 +321,7 @@ useEffect(() => {
               onChange={handleSelectedItem}
               name="item"
               id="item"
-              className="h-8 w-52"
+              className="h-8 lg:w-52 w-60"
             >
               <option value="">Choose Item</option>
               {displayItems.length > 0 && (
@@ -347,7 +347,7 @@ useEffect(() => {
               id="fee"
               type="num"
               placeholder="400"
-              className="pl-2 h-8 w-28 text-black"
+              className="pl-2 h-8 w-60 lg:w-28 text-black"
             />
           </div>
 
@@ -361,14 +361,14 @@ useEffect(() => {
               value={withFocus}
               id="wfocus"
               type="text"
-              className="h-8 w-28 pl-2"
+              className="h-8 w-60 lg:w-28 pl-2"
               placeholder="48"
             />
           </div>
 
           
         </div>
-        <div className="flex justify-center gap-20 items-start  mt-5 lg:ml-10 flex-wrap">
+        <div className="flex justify-center lg:gap-20 gap-10 items-start mt-10 lg:mt-5 lg:ml-10 flex-wrap">
           <div className="flex flex-col">
              <div> 
               <p className="text-gray-300 mb-2 lg: underline lg:text-left text-center">
@@ -455,14 +455,14 @@ useEffect(() => {
           
         {selectedItem && selectedSubCategory && category && tier && ench && (
         <div className="flex justify-evenly items-center pt-20 flex-wrap">
-          <div className="flex flex-wrap justify-center items-center gap-10 bg-slate-600 p-2 mb-10 rounded-md shadow-lg">
+          <div className="flex flex-wrap justify-center items-center flex-col md:gap-7 md:flex-row lg:flex-row w-[90%] lg:gap-10 bg-slate-600 p-2 mb-10 rounded-md shadow-lg">
           <div className="flex flex-col items-center">
               {selectedItem && (
                 <Image src={imageurl} alt="item-img" width={130} height={130} />
               )}
             </div>
-
-            <div className="flex flex-col pt-4">
+                
+            <div className="flex flex-col">
               {selectedItem && (
                 <div>
                   <h3 className="text-white text-2xl my-2">{name}</h3>
@@ -486,7 +486,7 @@ useEffect(() => {
               
             </div>
 
-            <div className="ml-32">
+            <div className="lg:ml-32 mt-4 lg:mt-0">
               <h3 className="text-center text-xl text-white">
                 Crafting Requirements
               </h3>
@@ -576,7 +576,7 @@ useEffect(() => {
                {category && tier && ench && selectedItem && r1cost && itemPrice &&(
         <div className="flex justify-center items-center flex-wrap">
             {roundedIsProfit < 0 ? (
-                <div className="bg-red-500 text-white min-h-32 w-1/3 flex justfiy-start items-start mb-10">
+                <div className="bg-red-500 text-white min-h-32 lg:w-1/3 w-[90%] mt-10 flex justfiy-start items-start mb-10">
                 <div className="mx-auto">
                     <h5 className="underline font-bold">PROFITABILITY WITH %{withFocus} RETURN RATE</h5>
                  <div className="flex justify-evenly items-center pb-2 mt-4 text-sm">
@@ -600,7 +600,7 @@ useEffect(() => {
                 </div>
                 </div>
             ) : (
-                <div className="bg-green-500 text-white min-h-32 w-1/3 flex justfiy-start items-start mb-10">
+                <div className="bg-green-500 text-white min-h-32 lg:w-1/3 w-[90%] mt-10 flex justfiy-start items-start mb-10">
                 <div className="mx-auto">
                     <h5 className="underline font-bold">PROFITABILITY WITH % RETURN RATE</h5>
                  <div className="flex justify-evenly items-center mt-4 pb-2 text-sm">

@@ -4,7 +4,7 @@ import React from 'react'
 
 export default function Categories({searchParams}) {
   const page = parseInt(searchParams.page) || 1
-  const { cat } = searchParams || {}
+  const { cat } = searchParams || {}  
   return (
     <div className='pt-20 max-w-[80%] mx-auto'>
         <h1 className='capitalize'>{cat} Blogs</h1>

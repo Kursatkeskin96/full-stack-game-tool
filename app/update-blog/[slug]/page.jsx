@@ -70,11 +70,18 @@ export default function UpdaateBlog({params}) {
   }, [file]);
 
   useEffect(() => {
+    if (typeof window !== 'undefined') {
+      var currentURL = window.location.href;
+      var urlParts = currentURL.split("/");
+      var domain = urlParts[1];
+    }
+  
+    const api = domain;
     if (slug) {
       // Fetch the post data when the slug is available
       const fetchPostData = async () => {
         try {
-          const response = await fetch(`http://localhost:3000/api/posts/${slug}`);
+          const response = await fetch(`${api}/api/posts/${slug}`);
           if (!response.ok) {
             throw new Error('Failed to fetch post data');
           }
@@ -107,8 +114,15 @@ export default function UpdaateBlog({params}) {
     .replace(/[\s_-]+/g, "-")
     .replace(/^-+|-+$/g, "");
     const handleSubmit = async () => {
+      if (typeof window !== 'undefined') {
+        var currentURL = window.location.href;
+        var urlParts = currentURL.split("/");
+        var domain = urlParts[1];
+      }
+    
+      const api = domain;
       // Send a PUT request instead of a POST request
-      const res = await fetch(`http://localhost:3000/api/posts/${slug}`, {
+      const res = await fetch(`${api}/api/posts/${slug}`, {
         method: "PUT",
         body: JSON.stringify({
           title,

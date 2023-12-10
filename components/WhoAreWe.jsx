@@ -4,7 +4,7 @@ export default function WhoAreWe() {
   return (
     <>
 
-    <div className='py-6 bg-gradient-to-r from-[#777558] to-[#aaa77f] shadow-xl rounded-md w-[90%] lg:w-[80%] mt-20 lg:mt-20 md:mt-0 mx-auto flex flex-col justify-center items-center flex-wrap'>
+    <div className='py-6 bg-gradient-to-r from-[#777558] to-[#aaa77f] shadow-xl rounded-md w-[90%] lg:w-[80%] mt-20 lg:mt-20 md:my-20 mx-auto flex flex-col justify-center items-center flex-wrap'>
         <div className=' w-[90%] ml-4 mt-4 flex flex-col justify-center items-center text-center'>
             <p className='text-gray-300 text-xs'>OUR VISION</p>
             <h2 className='text-white text-4xl font-bold'>Who We Are</h2>

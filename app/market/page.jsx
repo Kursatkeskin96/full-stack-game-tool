@@ -44,14 +44,14 @@ export default function Market({searchParams}) {
         </Link>
       </div>
       <div className=" bg-gray-900 pb-5 mt-10">
-          <div className="flex lg:justify-around justify-center items-center">
-          <div className="flex flex-col justify-center items-start gap-2 mt-5 lg:ml-10 flex-wrap">
+          <div className="flex lg:justify-around justify-center gap-10 lg:gap-0  items-center">
+          <div className="flex flex-col lg:flex-row justify-center items-start mt-5 lg:ml-10 flex-wrap">
              <div> 
-              <p className="text-gray-300 lg: underline lg:text-left text-center">
+              <p className="text-gray-300 mb-2 lg:mb-2 underline lg:text-left text-center">
                 Tier
                 </p> 
-                </div>
-             <div className="flex flex-wrap justify-center items-center gap-4">
+
+             <div className="flex flex-col lg:flex-row  flex-wrap justify-center items-center gap-4">
              <button
  onClick={() => updateQueryParams({ tier: "T4" })}
                 className="bg-[#356079] text-white w-10 rounded-md shadowl-lg"
@@ -83,15 +83,15 @@ export default function Market({searchParams}) {
                 T8
               </button>
              </div>
+             </div>
             </div>
             
-            <div className="flex flex-col justify-center items-start gap-2 mt-5 lg:ml-10 flex-wrap">
+            <div className="flex flex-col lg:flex-row l justify-center items-start gap-2 mt-5 lg:ml-10 flex-wrap">
              <div> 
-              <p className="text-gray-300 underline lg:text-left text-center mb-1 ">
+              <p className="text-gray-300 underline  mb-2 lg:mb-2 lg:text-left text-center ">
                 Enchanment
                 </p> 
-                </div>
-                <div className="flex flex-wrap  justify-center items-center gap-4">
+                <div className="flex flex-col lg:flex-row flex-wrap  justify-center items-center gap-4">
               <button
 onClick={() => updateQueryParams({ ench: "0" })}
                 
@@ -126,15 +126,16 @@ onClick={() => updateQueryParams({ ench: "4" })}
               </button>
             </div>
             </div>
+            </div>
 
 
-            <div className="flex flex-col justify-center items-start gap-2 mt-5 lg:ml-10 flex-wrap">
+            <div className="flex flex-col lg:flex-row  justify-center items-start gap-2 mt-5 lg:ml-10 flex-wrap">
              <div> 
-              <p className="text-gray-300 underline lg:text-left text-center mb-1 ">
+              <p className="text-gray-300 underline  mb-2 lg:mb-2 lg:text-left text-center">
                 Quality
                 </p> 
-                </div>
-                <div className="flex flex-wrap justify-center items-center gap-4">
+
+                <div className="flex flex-col lg:flex-row  flex-wrap justify-center items-center gap-4">
               <button
 onClick={() => updateQueryParams({ quality: "normal" })}
                 className="bg-black w-24 border-2 border-[#969592] text-sm text-white rounded-md"
@@ -167,6 +168,7 @@ onClick={() => updateQueryParams({ quality: "masterpiece" })}
               </button>
             </div>
             </div>
+            </div>  
 
           </div>
           <div className="flex justify-center items-center"><Link href='/market'><button className="bg-red-600 text-white w-32 rounded-md mt-8">Reset Filter</button></Link></div>

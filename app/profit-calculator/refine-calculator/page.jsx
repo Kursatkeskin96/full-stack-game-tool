@@ -5,7 +5,7 @@ import { TbCoins } from "react-icons/tb";
 import Link from "next/link";
 
 export default function Refinealculator() {
-const [category, setCategory] = useState('LEATHER')
+const [category, setCategory] = useState('')
 const [tier, setTier] = useState('')
 const [decreasedTier, setDecreasedTier] = useState('')
 const [ench, setEnch] = useState('')
@@ -113,6 +113,9 @@ const handleEnch = (e) => {
     handleHeart()
     handleItemValue()
 }
+const handleEnchChange = (newEnch) => {
+    setEnch(newEnch);
+  };
 
 
 const handleRecipe = () => {
@@ -159,28 +162,36 @@ const handleQ = () => {
         setQ1("5")
         setQ2("1")
     }
-}
+    if(tier == 8 && ench == 3){
+        setQ1(4)
+        setQ2(1)
+    }}
 
 const handleHeart = () => {
     if(category === "LEATHER" && tier == 8 && ench >= 3){
         setR3("T1_FACTION_STEPPE_TOKEN_1")
         setQ3("1")
+        setQ1('4')
     }
     if(category === "CLOTH" && tier == 8 && ench >= 3){
         setR3("T1_FACTION_SWAMP_TOKEN_1")
         setQ3("1")
+        setQ1('4')
     }
     if(category === "METALBAR" && tier == 8 && ench >= 3){
         setR3("T1_FACTION_MOUNTAIN_TOKEN_1")
         setQ3("1")
+        setQ1('4')
     }
     if(category === "PLANKS" && tier == 8 && ench >= 3){
         setR3("T1_FACTION_FOREST_TOKEN_1")
         setQ3("1")
+        setQ1('4')
     }
     if(category === "STONEBLOCK" && tier == 8 && ench >= 3){
         setR3("T1_FACTION_HIGHLAND_TOKEN_1")
         setQ3("1")
+        setQ1('4')  
     }
 }
 
@@ -308,6 +319,18 @@ const calculateFocusCost = () => {
 
 const focusCostValue = calculateFocusCost();
 
+const handleTierChange = (newTier) => {
+    setTier(newTier);
+    handleQ()
+    handleItemValue()
+
+    // Decrement the value of tier by 1
+    const decreasedTier = parseInt(newTier) - 1;
+    setDecreasedTier(decreasedTier);
+    handleRecipe()
+  };
+  
+
 
 let resourceImg;
 
@@ -392,10 +415,10 @@ useEffect(() => {
   <Link href="/profit-calculator/refine-calculator"> / Refine Calculator</Link>
       </div>
 
-      <div className="bg-[rgb(55,62,77)] min-h-96 mt-10">
-        <h3 className="pt-10 text-lg text-white ml-10">Mastery Levels</h3>
-        <p className="text-md text-gray-200 ml-10">Type your mastery levels to learn your focus cost and profit per 30k focus</p>
-      <div className="flex justify-evenly items-center pt-4 flex-wrap">
+      <div className="bg-[rgb(55,62,77)] min-h-96 mt-10 lg:pb-0 pb-10">
+        <h3 className="pt-10 text-lg text-white text-center lg:text-left lg:ml-10">Mastery Levels</h3>
+        <p className="lg:text-md text-sm text-gray-200 text-center lg:text-left lg:ml-10">Type your mastery levels to learn your focus cost and profit per 30k focus</p>
+      <div className="flex lg:justify-evenly justify-center gap-4 lg:gap-0 items-center pt-4 flex-wrap">
       <div className="flex flex-col">
           <label name="t4mastery" className="text-white text-sm text-center mb-1">T4</label>
             <input value={t4mastery} onChange={handleT4mastery} id="t4mastery" name="t4mastery" type="text" placeholder="0" className="h-8 w-20 text-center" />
@@ -418,71 +441,119 @@ useEffect(() => {
           </div>
       </div>
       <hr className="mt-10 mx-auto w-[90%]"></hr>
-        <div className="flex justify-evenly items-center pt-10 flex-wrap">
-        <div className="flex flex-col">
-            <label name="category" className="text-white mb-1">
+        <div className="flex gap-5 lg:gap-0 justify-evenly items-center pt-10 flex-wrap">
+        <div className="flex flex-col w-full md:w-auto lg:w-auto">
+            <label name="category" className="text-white lg:text-start text-center mb-1">
               Choose Refine Category
             </label>
             <select
               name="category"
               id="category"
-              className="h-8 w-52"
+              className="h-8 w-40 mx-auto text-center"
               onChange={handleCategory}
             >
-              <option value="empty">Choose Category</option>
+              {!category && <option value="empty">Choose Category</option>}
               <option value="LEATHER">Leather</option>
               <option value="CLOTH">Cloth</option>
               <option value="METALBAR">Metal Bar</option>
               <option value="PLANKS">Plank</option>
-              <option value="STONEBLOCK">Stone Block</option>
             </select>
           </div>
-          <div className="flex flex-col">
-            <label name="category" className="text-white mb-1">
-              Choose Tier
-            </label>
-            <select
-              name="category"
-              id="category"
-              className="h-8 w-28"
-              onChange={handleTier}
-            >
-              <option value="">Tier</option>
-              <option value={4}>T4</option>
-              <option value={5}>T5</option>
-              <option value={6}>T6</option>
-              <option value={7}>T7</option>
-              <option value={8}>T8</option>
-            </select>
-          </div>
-          <div className="flex flex-col">
-            <label name="category" className="text-white mb-1">
-              Enchanment
-            </label>
-            <select
-              name="category"
-              id="category"
-              className="h-8 w-28"
-              onChange={handleEnch}
-            >
-              <option value="empty">Enchanment</option>
-              <option value="0">0</option>
-              <option value="1">.1</option>
-              <option value="2">.2</option>
-              <option value="3">.3</option>
-              <option value="4">.4</option>
-            </select>
-          </div>
-          <div className="flex flex-col">
-          <label name="fee" className="text-white text-sm text-left mb-1">Usage Fee</label>
-            <input value={fee} onChange={handleFee} id="fee" name="fee" type="text" placeholder="Type Fee" className="h-8 w-28" />
-          </div>
-          <div className="flex flex-col">
-          <label name="returnrate" className="text-white text-sm text-left mb-1">% Return Rate</label>
-        <input value={returnRate} onChange={handleRRR} id="returnrate" name="returnrate" type="text" placeholder="53.9"  className="h-8 w-28" />
-          </div>
-        </div>
 
+          <div className="flex flex-col w-full md:w-auto lg:w-auto">
+          <label name="fee" className="text-white text-sm lg:text-start text-center lg:mb-1">Usage Fee</label>
+            <input value={fee} onChange={handleFee} id="fee" name="fee" type="text" placeholder="Type Fee" className="h-8 w-40 text-center lg:w-20 mx-auto" />
+          </div>
+          <div className="flex flex-col w-full md:w-auto lg:w-auto">
+          <label name="returnrate" className="text-white text-sm lg:text-start text-center mb-1">% Return Rate</label>
+        <input value={returnRate} onChange={handleRRR} id="returnrate" name="returnrate" type="text" placeholder="53.9"  className="h-8 w-40 lg:w-20 text-center mx-auto" />
+          </div>
+
+          <div className="flex flex-col ">
+             <div> 
+              <p className="text-gray-300 mb-2 lg: underline lg:text-left text-center">
+                Tier
+                </p> 
+                </div>
+             <div className="flex flex-wrap justify-center items-center gap-4">
+             <button
+ onClick={() => handleTierChange('4')}
+ className={`bg-[#356079] text-white w-10  rounded-md shadowl-lg ${tier === 'T4' ? 'underline' : ''}`}
+              >
+                T4
+              </button>
+              <button
+ onClick={() => handleTierChange('5')}
+                className={`bg-[#76221A] text-white w-10 rounded-md shadowl-lg ${tier === 'T5' ? 'underline' : ''}`}
+              >
+                T5
+              </button>
+              <button
+ onClick={() => handleTierChange('6')}
+                className={`bg-[#C06B29] text-white w-10 rounded-md shadowl-lg ${tier === 'T6' ? 'underline' : ''}`}
+              >
+                T6
+              </button>
+              <button
+ onClick={() => handleTierChange('7')}
+                className={`bg-[#D1B045]  text-white w-10 rounded-md shadowl-lg ${tier === 'T7' ? 'underline' : ''}`}
+              >
+                T7
+              </button>
+              <button
+ onClick={() => handleTierChange('8')}
+                className={`bg-white text-black w-10 rounded-md shadowl-lg ${tier === 'T8' ? 'underline' : ''}`}
+              >
+                T8
+              </button>
+              </div>
+              
+             </div>
+             <div className="flex flex-col">
+             <div> 
+              <p className="text-gray-300 mb-2 lg:underline lg:text-left text-center">
+                Enchanment
+                </p> 
+                </div>
+                <div className="flex flex-wrap  justify-center items-center gap-4">
+              <button
+ onClick={() => handleEnchChange('0')}
+                
+                className={`w-10 bg-white rounded-md shadow-lg text-black ${ench === '0' ? 'underline' : ''}`}
+              >
+                0
+              </button>
+              <button
+ onClick={() => handleEnchChange('1')}
+                className={`w-10  bg-[#61D984] rounded-md shadow-lg text-black ${ench === '1' ? 'underline' : ''}`}
+              >
+                .1
+              </button>
+              <button
+ onClick={() => handleEnchChange('2')}
+                className={`w-10 bg-[#47D8E5] rounded-md shadow-lg text-black ${ench === '2' ? 'underline' : ''}`}
+              >
+                .2
+              </button>
+              <button
+ onClick={() => handleEnchChange('3')}
+                className={`w-10  bg-[#A87DE2] rounded-md shadow-lg text-black ${ench === '3' ? 'underline' : ''}`}
+              >
+                .3
+              </button>
+              <button
+ onClick={() => handleEnchChange('4')}
+               
+                className={`w-10 bg-[#F6E169] rounded-md shadow-lg text-black ${ench === '4' ? 'underline' : ''}`}
+              >
+               .4
+              </button>
+            </div>
+            </div>
+        </div>
+       
+
+          
    
         <div className="flex justify-evenly items-center pt-20 flex-wrap">
         {category && tier && ench && (

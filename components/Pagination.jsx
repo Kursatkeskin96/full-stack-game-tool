@@ -1,6 +1,8 @@
 "use client";
 import { useRouter, useSearchParams, usePathname } from "next/navigation";
 import { useCallback } from "react";
+import { FaArrowRight, FaArrowLeft } from "react-icons/fa";
+
 
 export default function Pagination({ cat, tier, page, hasPrev, hasNext }) {
   const router = useRouter();
@@ -23,22 +25,22 @@ export default function Pagination({ cat, tier, page, hasPrev, hasNext }) {
     <div className="flex justify-between">
       <button
         disabled={!hasPrev}
-        className="disabled:bg-gray-400 disabled:cursor-none w-24 p-2 bg-red-800 text-white cursor-pointer"
+        className="disabled:bg-gray-400 flex justify-center items-center disabled:cursor-none w-24 p-2 bg-[#aaa77f] hover:bg-[#b9b58a] text-white cursor-pointer"
         onClick={() => {
           // <pathname>?sort=asc
           router.push(pathname + '?' + createQueryString('page', `${page-1}`))
         }}
       >
-        Previous
+      <span className="mt-[2px] text-sm mr-2"><FaArrowLeft /></span>  Previous
       </button>
       <button
         disabled={!hasNext}
-        className="disabled:bg-gray-400 disabled:cursor-default w-24 p-2 bg-red-800 text-white cursor-pointer"
+        className="disabled:bg-gray-400 flex justify-center items-center disabled:cursor-default w-24 p-2 bg-[#aaa77f] hover:bg-[#b9b58a] text-white cursor-pointer"
         onClick={() => {
           // <pathname>?sort=asc
           router.push(pathname + '?' + createQueryString('page', `${page+1}`))
         }}>
-        Next
+        Next <span className="mt-[2px] text-sm ml-2"><FaArrowRight /></span>
       </button>
     </div>
   );

@@ -20,7 +20,7 @@ function Info() {
             <LiaCoinsSolid className='text-4xl mx-auto' />
             <p className='text-xs text-center mt-1'>You can make tons of silver via using our calculators.</p>
         </div>
-        <div className='w-40'>
+        <div className='w-40 lg:mt-0 mt-5'>
             <GiCrossedSwords className='text-4xl mx-auto' />
             <p className='text-xs text-center mt-1'>You can find the items that you want in the market.</p>
         </div>
@@ -48,7 +48,7 @@ function Info() {
         <div className='mt-6 lg:mt-4'>
         <Image src={trader} alt='pic1' width={350} className='rounded-md' />
     </div>
-    <div className='flex flex-col justify-center items-center my-20 lg:my-0 gap-10 lg:gap-0 lg:max-w-[80%] max-w-[90%] mx-auto flex-wrap'>
+    <div className='flex flex-col justify-center items-center my-20 lg:my-0 gap-2 lg:gap-0 lg:max-w-[80%] max-w-[90%] mx-auto flex-wrap'>
         <h2 className='text-4xl mb-6 font-bold text-black text-center'>Albion Online Profit Market</h2>
         <Image src={market} alt="market" width={500} />
         <p className='mt-10 mb-6'>Explore the bustling marketplace of Albion Online with Albion Journey's comprehensive market section. Designed for players to seamlessly list and discover in-game items, our platform is the ideal trading hub for all your Albion Online needs. Whether you're looking to acquire rare gear or offload valuable loot, our user-friendly market interface connects you to a vast network of Albion Online traders. Navigate through a diverse array of listings, from powerful weapons to essential resources, all at your fingertips. With Albion Journey, buying and selling in Albion Online becomes a streamlined, efficient experience, enhancing your gameplay and connecting you with the community. Step into our market – your next great Albion Online trade is just a click away.</p>
