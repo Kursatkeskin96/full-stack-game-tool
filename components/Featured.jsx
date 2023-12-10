@@ -4,9 +4,7 @@ import Link from "next/link";
 
 
 const getData = async () => {
-  const res = await fetch(`https://albionjourney.vercel.app/api/posts/maximizing-profits-in-albion-online-transmutation`, {
-    cache: "no-store"
-  });
+  const res = await fetch(`https://albionjourney.vercel.app/api/posts/maximizing-profits-in-albion-online-transmutation`);
 
   if(!res.ok){
     throw new Error("Failed")

@@ -12,9 +12,7 @@ const getData = async (slug) => {
   }
 
   const api = domain;
-  const res = await fetch(`${api}/api/users/${slug}`, {
-    cache: "no-store",
-  });
+  const res = await fetch(`${api}/api/users/${slug}`);
 
   if (!res.ok) {
     throw new Error("Failed to fetch user data");
@@ -32,9 +30,7 @@ const getItem = async (slug) => {
   }
 
   const api = domain;
-  const res = await fetch(`${api}/api/items/${slug}`, {
-    cache: "no-store",
-  });
+  const res = await fetch(`${api}/api/items/${slug}`);
 
   if (!res.ok) {
     throw new Error("Failed to fetch items");

@@ -7,9 +7,6 @@ const getData = async (slug) => {
 
   const res = await fetch(
     `https://albionjourney.vercel.app/api/posts/${slug}`,
-    {
-      cache: "no-store",
-    }
   );
 
   if (!res.ok) {

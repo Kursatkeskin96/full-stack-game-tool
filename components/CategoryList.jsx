@@ -3,9 +3,7 @@ import Link from 'next/link'
 
 
 const getData = async () => {
-  const res = await fetch("https://albionjourney.vercel.app/api/categories", {
-    cache: "no-store"
-  });
+  const res = await fetch("https://albionjourney.vercel.app/api/categories");
 
   if(!res.ok){
     throw new Error("Failed")
