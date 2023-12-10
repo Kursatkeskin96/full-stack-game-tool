@@ -2,13 +2,11 @@
 import React, { useState, useEffect } from "react";
 import items from "@/items.json";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { useRouter, redirect } from "next/navigation";
 import { useSession } from "next-auth/react";
 
-
-
 export default function SellItem() {
-  const {data: session} = useSession()
+  const {data: session, status} = useSession()
   const router = useRouter()
   const [category, setCategory] = useState("");
   const [subCategories, setSubCategories] = useState([]);
@@ -100,6 +98,12 @@ export default function SellItem() {
       setArtifact("");
     }
   };
+  useEffect(() => {
+    if (status === "unauthenticated") {
+      redirect("/");
+    }
+  }, [status]);
+
 
   useEffect(() => {
     // Check if the selected category is either 'armor' or 'head'

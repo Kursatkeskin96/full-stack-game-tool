@@ -1,6 +1,7 @@
 'use client'
 import ItemCard from '@/components/ItemCard';
 import React, { useState, useEffect } from 'react';
+import { useSession, status } from 'next-auth/react';
 
 // Asynchronous function to get user data
 const getData = async (slug) => {
@@ -44,6 +45,7 @@ const getItem = async (slug) => {
 
 export default function Profile({ params }) {
   const { slug } = params;
+  const {session, status} = useSession()
   const [user, setUser] = useState(null);
   const [items, setItems] = useState([]);
   const [error, setError] = useState(null);

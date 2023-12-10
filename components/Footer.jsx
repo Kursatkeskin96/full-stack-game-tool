@@ -31,7 +31,7 @@ export default function Footer() {
             </ul>
         </div>
     </div>
-    <div className='flex justify-center items-center  mt-10 text-xs  gap-6 pb-1'><p className='text-centertext-xs'>© 2023 by Shwarzfit</p> <p>|</p> <p className='flex justify-center items-center gap-2 underline'><FaDiscord /> Join Community</p></div>
+    <div className='flex justify-center items-center  mt-10 text-xs  gap-6 pb-1'><p className='text-centertext-xs'>© 2023 by Shwarzfit</p> <p>|</p> <Link href='https://discord.gg/N6Nbts8Z'> <p className='flex justify-center items-center gap-2 underline'><FaDiscord /> Join Community</p> </Link></div>
     </div>
   )
 }
