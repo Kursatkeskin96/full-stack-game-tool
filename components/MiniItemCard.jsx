@@ -24,7 +24,7 @@ export default function MiniItemCard({item}) {
     
       const api = domain;
       try {
-        const response = await fetch(`${api}api/items`, {
+        const response = await fetch(`${api}/api/items`, {
           method: 'DELETE',
           headers: {
             'Content-Type': 'application/json'
