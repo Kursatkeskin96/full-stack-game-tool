@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef, useCallback } from "react";
 import Image from "next/image";
 import plus from "@/images/plus.png";
 import image from "@/images/image.png";
@@ -20,9 +20,22 @@ import { ImageFormats } from "@xeger/quill-image-formats";
 Quill.register("modules/imageActions", ImageActions);
 Quill.register("modules/imageFormats", ImageFormats);
 
+function useIsMounted() {
+  const isMounted = useRef(false)
+  useEffect(() => {
+    isMounted.current = true
+    return () => {
+      isMounted.current = false
+    }
+  }, [])
+
+  return useCallback(() => isMounted.current, [])
+}
+
 export default function CreateBlog() {
   const { status } = useSession()
   const router = useRouter()
+  const isMounted = useIsMounted()
 
   const [open, setOpen] = useState(false);
   const [value, setValue] = useState("")
@@ -163,6 +176,7 @@ export default function CreateBlog() {
           </div>
         )}
 <div className="h-fit w-[100%] mx-auto">
+{isMounted() ?
 <ReactQuill 
   className="w-[100%] mx-auto bg-gray-50 " 
   theme="snow" 
@@ -172,6 +186,7 @@ export default function CreateBlog() {
   placeholder="Tell Your Story" 
   formats={formats}
 />
+: null}
 </div>
       </div>
       <button onClick={handleSubmit} className="mx-auto w-60 px-1 py-3 bg-green-400 text-white cursor-pointer rounded-md mt-20">Submit</button>
