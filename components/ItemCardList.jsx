@@ -22,7 +22,7 @@ const getData = async (page, tier, ench, quality, search) => {
   }
 
   const api = domain;
-  const url = `${api}api/items?${queryString}`;
+  const url = `${api}/api/items?${queryString}`;
 
   const res = await fetch(url, { cache: "no-store" });
 

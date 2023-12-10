@@ -19,7 +19,7 @@ export default function Footer() {
             <ul className='flex flex-col justify-between items-center gap-5'>
             <Link href='/guides'><li>Guides</li></Link>
                <Link href='/market'> <li>Market</li></Link>
-               <Link href='/market/sell-item'> <li>Sell Item</li></Link>
+               <Link href='/market/sell-item'><li>Sell Item</li></Link>
             </ul>
         </div>
         
