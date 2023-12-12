@@ -13,9 +13,9 @@ const page = parseInt(searchParams.page) || 1
          <div className='text-2xl font-bold'>Albion Online Guides</div>
         <hr className='my-2' />
         <div>Home / Guides</div>
-        <CategoryList />
         <div className='flex gap-12 flex-wrap lg:flex-nowrap'>
           <CardList page={page}/>
+          <Menu />
         </div>
     </div>
   )

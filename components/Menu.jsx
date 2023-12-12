@@ -7,51 +7,8 @@ import transmute from "@/images/transmute.webp";
 
 export default async function Menu() {
   return (
-    <div className='lg:w-2/6 w-full'>
-      <h1 className='lg:mt-12 mb-6 text-2xl font-bold'>Most Popular</h1>
-      <div>
-        <Link href='/guides/' className='flex items-center gap-5'>
-          <div className='w-1/4 md:w-1/6 relative aspect-square'>
-            <Image src={transmute} alt='' fill className=' object-cover rounded-[50%] border-[3px] border-gray-200' />
-          </div>
-          <div className='w-3/4 4 md:w-5/6 flex flex-col gap-1'>
-            <span className='text-xs rounded-lg font-[12px] px-2 py-[3px] bg-[#7c9d96;] text-white w-fit'>Refine</span>
-            <h3 className='text-sm'>Maximizing Profits in Albion Online: Transmutation</h3>
-            <div>
-              <span className='text-xs text-gray-500'>Shwarzfit - </span>
-              <span className='text-xs text-gray-300'>2023-12-09</span>
-            </div>
-          </div>
-        </Link>
-        <Link href='/guides/posts/how-to-use-albion-refine-profit-calculator' className='flex items-center gap-5 my-4'>
-          <div className='w-1/4  md:w-1/6  relative aspect-square'>
-            <Image src={refinetool} alt='' fill className=' object-cover rounded-[50%] border-[3px] border-gray-200' />
-          </div>
-          <div className='w-3/4 flex flex-col gap-1'>
-            <span className='text-xs rounded-lg font-[12px] px-2 py-[3px] bg-[#A1CCD1] text-white w-fit'>General</span>
-            <h3 className='text-sm'>How To Use Albion Refine Profit Calculator</h3>
-            <div>
-              <span className='text-xs text-gray-500'>Shwarzfit - </span>
-              <span className='text-xs text-gray-300'>2023-12-08</span>
-            </div>
-          </div>
-        </Link>
-        <Link href='/guides/posts/how-to-use-albion-craft-calculator' className='flex items-center gap-5'>
-          <div className='w-1/4  md:w-1/6  relative aspect-square'>
-            <Image src={crafttool} alt='' fill className=' object-cover rounded-[50%] border-[3px] border-gray-200' />
-          </div>
-          <div className='w-3/4 flex flex-col gap-1'>
-            <span className='text-xs rounded-lg font-[12px] px-2 py-[3px] bg-[#A1CCD1] text-white w-fit'>General</span>
-            <h3 className='text-sm'>How To Use Albion Craft Calculator</h3>
-            <div>
-              <span className='text-xs text-gray-500'>Shwarzfit - </span>
-              <span className='text-xs text-gray-300'>2023-12-08</span>
-            </div>
-          </div>
-        </Link>
-    
-      </div>
-      <h2 className='mt-12 mb-6 text-2xl font-bold'>Categories</h2>
+    <div className='lg:w-2/6 w-full pt-14'>
+      <h2 className='mb-6 text-2xl font-bold'>Categories</h2>
       <div className='flex justify-center items-center gap-4 flex-wrap'>
       <Link href='/guides/categories?cat=general'><div className='bg-[#A1CCD1] hover:bg-[#b2e2e8] cursor-pointer text-white w-20 h-6 rounded-lg shadow-md border-[1px] border-gray-400 text-center flex justify-center items-center text-xs'>General</div></Link>
       <Link href='/guides/categories?cat=pvp-pve'><div className='bg-[#dedcc9] hover:bg-[#eeecd9] cursor-pointer text-white w-20 h-6 rounded-lg shadow-md text-center border-[1px] border-gray-400 flex justify-center items-center text-xs'>Pvp / Pve</div></Link>

@@ -171,19 +171,19 @@ h1 {
 }
 
 .market-bg{
-  background-image:linear-gradient(rgba(0, 0, 0, 0.327),rgba(0, 0, 0, 0.8)) , url(../images/market3.png);
+  background-image:linear-gradient(rgba(0, 0, 0, 0.327),rgba(0, 0, 0, 0.8)) , url(../images/market3.webp);
   background-size: 100% 100%;
   height: 600px;
 }
 
 .hero-bg{
-  background-image:linear-gradient(rgba(0, 0, 0, 0.327),rgba(0, 0, 0, 0.8)) , url(../images/hero3.png);
+  background-image:linear-gradient(rgba(0, 0, 0, 0.327),rgba(0, 0, 0, 0.8)) , url(../images/hero3.webp);
   background-size: 100% 100%;
   height: 600px;
 }
 
 .profile-bg{
-  background-image:linear-gradient(rgba(0, 0, 0, 0.327),rgba(0, 0, 0, 0.8)) , url(../images/profile5.png);
+  background-image:linear-gradient(rgba(0, 0, 0, 0.327),rgba(0, 0, 0, 0.8)) , url(../images/profile5.webp);
   background-size: 100% 100%;
   height: 600px;
 }
@@ -203,17 +203,17 @@ h1 {
 
 @media (max-width: 576px) {
   .hero-bg{
-    background-image:linear-gradient(rgba(0, 0, 0, 0.327),rgba(0, 0, 0, 0.8)) , url(../images/hero3.png);
+    background-image:linear-gradient(rgba(0, 0, 0, 0.327),rgba(0, 0, 0, 0.8)) , url(../images/hero3.webp);
     background-size: 100% 100%;
     height: 400px;
   }
   .market-bg{
-    background-image:linear-gradient(rgba(0, 0, 0, 0.327),rgba(0, 0, 0, 0.8)) , url(../images/market3.png);
+    background-image:linear-gradient(rgba(0, 0, 0, 0.327),rgba(0, 0, 0, 0.8)) , url(../images/market3.webp);
     background-size: 100% 100%;
     height: 400px;
   }
   .profile-bg{
-    background-image:linear-gradient(rgba(0, 0, 0, 0.327),rgba(0, 0, 0, 0.8)) , url(../images/profile5.png);
+    background-image:linear-gradient(rgba(0, 0, 0, 0.327),rgba(0, 0, 0, 0.8)) , url(../images/profile5.webp);
     background-size: 100% 100%;
     height: 370px;
   }

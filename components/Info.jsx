@@ -3,9 +3,9 @@ import {PiBookOpen} from 'react-icons/pi'
 import {LiaCoinsSolid} from 'react-icons/lia'
 import {GiCrossedSwords} from 'react-icons/gi'
 import Image from 'next/image'
-import kutuphane from '@/images/kutuphane.png'
-import market from '@/images/market5.png'
-import trader from '@/images/trader.png'
+import kutuphane from '@/images/kutuphane.webp'
+import market from '@/images/market5.webp'
+import trader from '@/images/trader.webp'
 import Link from 'next/link'
 
 function Info() {
