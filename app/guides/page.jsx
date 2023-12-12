@@ -2,7 +2,8 @@ import CardList from '@/components/CardList'
 import CategoryList from '@/components/CategoryList'
 import Featured from '@/components/Featured'
 import Menu from '@/components/Menu'
-import React from 'react'
+import React, { Suspense } from 'react'
+import Loading from './loading'
 
 export default function Guides({searchParams}) {
 const page = parseInt(searchParams.page) || 1

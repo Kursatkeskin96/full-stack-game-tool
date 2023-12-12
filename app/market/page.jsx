@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect, useCallback } from "react";
+import React from "react";
 import items from "@/items.json";
 import Link from "next/link";
 import ItemCardList from "@/components/ItemCardList";
@@ -27,8 +27,6 @@ export default function Market({searchParams}) {
   
     router.push(`/market?${currentParams.toString()}`, undefined, { shallow: true });
   };
-  
-  
 
   return (
     <div>

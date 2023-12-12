@@ -1,11 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import url('https://fonts.googleapis.com/css2?family=Bitter&family=Dancing+Script:wght@500&family=EB+Garamond&family=Open+Sans:ital,wght@0,400;1,300&display=swap');
 
-body {
-  font-family: 'Bitter', serif;
-}
 
 .ql-container {
   font-size: 28px !important;

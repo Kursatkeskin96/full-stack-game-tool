@@ -21,11 +21,11 @@ export default function Card({item}) {
 
   return (
       <div className="mb-12 flex flex-col lg:flex-row gap-12 items-center">
+                <Link href={`/guides/posts/${item.slug}`}>
         <div className=" lg:flex-1 h-[350px] lg:h-[250px] md:h-[500px] lg:w-[250px] w-full md:w-[500px] relative">
-        <Link href={`/guides/posts/${item.slug}`}>
           <Image src={item.img} alt="pic" fill className="object-cover" /> 
-          </Link>
         </div>
+        </Link>
 
         <div className="lg:flex-1 flex flex-col h-[250px] gap-6 w-full"> 
             <div className="flex justify-between items-center  text-sm">
