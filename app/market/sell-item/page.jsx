@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import items from "@/items.json";
 import Link from "next/link";
 import { useRouter, redirect } from "next/navigation";
-import { useSession } from "next-auth/react";
+import { useSession, signIn } from "next-auth/react";
 
 export default function SellItem() {
   const { data: session, status } = useSession();
