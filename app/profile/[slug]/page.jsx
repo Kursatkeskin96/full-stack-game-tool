@@ -84,7 +84,7 @@ export default function Profile({ params }) {
           <h1 className="background-h">
             {user ? (
               <>
-              <p className='lg:text-5xl text-xl w-fit mx-auto px-4 text-gray-200'>Welcome to {user.name}'s Profile!</p>
+              <p className='lg:text-5xl text-xl w-fit mx-auto px-4 text-gray-200'>Welcome to {user.name}&apos;s Profile!</p>
               <p className="background-p lg:text-xl text-lg lg:mt-4 mt-2 w-fit mx-auto px-4 text-gray-300">
               Your journey has just started...
             </p>
