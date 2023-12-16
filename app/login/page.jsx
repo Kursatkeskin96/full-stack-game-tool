@@ -7,7 +7,7 @@ import { FaDiscord } from "react-icons/fa";
 import { redirect } from "next/navigation";
 
 
-const Home = () => {
+const Login = () => {
   const { data: session, status } = useSession();
 
   useEffect(() => {
@@ -30,7 +30,7 @@ const Home = () => {
             <div className='flex flex-col justify-evenly items-center lg:w-1/2 w-full bg-[#081E3B] h-full'>
               <h1 className='text-white text-center text-3xl'>Welcome To Albionjourney.com!</h1>
               <h3 className='text-gray-300 text-center text-lg'>If you want to begin your Journey, you can login with your Discord..</h3>
-            <button className='text-[#081E3B] rounded-md w-40 hover:bg-slate-200 py-1 bg-white flex justify-center items-center gap-2' onClick={() => signIn('discord')}>Sign In with <FaDiscord/> </button>
+            <button className='text-[#081E3B] rounded-md w-40 hover:bg-slate-200 py-1 bg-white flex justify-center items-center gap-2' onClick={() => signIn()}>Sign In with <FaDiscord/> </button>
             </div>
             </div>
 
@@ -41,4 +41,4 @@ const Home = () => {
   )
 }
 
-export default Home
+export default Login

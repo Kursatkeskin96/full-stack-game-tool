@@ -228,7 +228,9 @@ function Navbar() {
               {!session && (
                 <li className="ml-10 mr-5 text-sm text-white">
                   <button
-                    onClick={() => signIn("discord")}
+       onClick={async() => {
+        await signIn();
+      }}
                     className="bg-orange-600 px-4 rounded-md"
                   >
                     Login
