@@ -79,6 +79,7 @@ export default function Profile({ params }) {
 
   return (
     <>
+    <title>Manage Your Profile & Listings in Albion Online | Albion Journey</title>
       <div className="profile-bg flex flex-col items-center">
         <div className="m-auto flex flex-col items-center">
           <h1 className="background-h">

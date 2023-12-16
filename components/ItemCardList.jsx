@@ -21,7 +21,7 @@ const getData = async (page, tier, ench, quality, search) => {
     var domain = urlParts[1];
   }
 
-  const api = domain;
+  const api = domain;   
   const url = `${api}/api/items?${queryString}`;
 
   const res = await fetch(url);

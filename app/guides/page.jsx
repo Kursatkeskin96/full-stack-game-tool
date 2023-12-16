@@ -1,10 +1,11 @@
 import CardList from '@/components/CardList'
-import CategoryList from '@/components/CategoryList'
-import Featured from '@/components/Featured'
 import Menu from '@/components/Menu'
 import React, { Suspense } from 'react'
-import Loading from './loading'
-
+ 
+export const metadata = {
+  title: 'Albion Online Guides | Master the Game with Expert Strategies |  Albion Journey',
+  description: 'Dive into our extensive collection of Albion Online guides. From beginner tips to advanced strategies, Albion Journey offers everything you need to enhance your gameplay and dominate the world of Albion. Start your strategic journey today!',
+}
 export default function Guides({searchParams}) {
 const page = parseInt(searchParams.page) || 1
 

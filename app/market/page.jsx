@@ -29,6 +29,7 @@ export default function Market({searchParams}) {
   };
 
   return (
+    <> <title>Albion Online Marketplace | Buy & Sell Items with Ease | Albion Journey</title>
     <div>
       <div className="text-2xl pt-20 font-bold ml-4">Albion Journey Market</div>
       <hr className="my-2" />
@@ -175,5 +176,6 @@ onClick={() => updateQueryParams({ quality: "masterpiece" })}
         <ItemCardList ench={ench} quality={quality} tier={tier} search={search} page={page} />
       </div>
     </div>
+    </>
   );
 }
