@@ -8,14 +8,17 @@ import market from '@/images/market5.webp'
 import trader from '@/images/trader.webp'
 import Link from 'next/link'
 
+
 function Info() {
   return (
     <>
+
     <div className='mt-20 lg:mt-20 md:mt-0 w-full flex justify-evenly items-center py-2 flex-wrap'>
         <div className='w-40'>
             <PiBookOpen className='text-4xl mx-auto' />
             <p className='text-xs text-center mt-1'>You can find any guide you need in the Blog page.</p>
         </div>
+
         <div className='w-40'>
             <LiaCoinsSolid className='text-4xl mx-auto' />
             <p className='text-xs text-center mt-1'>You can make tons of silver via using our calculators.</p>
