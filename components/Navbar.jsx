@@ -242,7 +242,7 @@ function Navbar() {
             <div className="flex justify-between items-center gap-6">
               <div onClick={handleNav} className="md:hidden cursor-pointer">
                 <AiOutlineMenu
-                  className="text-white dark:text-white"
+                  className="text-white "
                   size={25}
                 />
               </div>
@@ -260,7 +260,7 @@ function Navbar() {
           <div
             className={
               nav
-                ? "fixed left-0 top-0 w-[100%] sm:w-[60%] md:w-[45%]  h-screen bg-[#ecf0f3] dark:bg-black p-10 ease-in duration-500 "
+                ? "fixed left-0 top-0 w-[100%] sm:w-[60%] md:w-[45%]  h-screen bg-[#ecf0f3] p-10 ease-in duration-500 "
                 : "fixed left-[-100%] h-screen top-0 p-10 ease-in duration-500 "
             }
           >
