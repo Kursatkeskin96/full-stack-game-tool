@@ -8,7 +8,7 @@ export default function Footer() {
     <>
 <div>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 220">
-  <path fill="#1b1b1b" fill-opacity="1" d="M0,128L120,133.3C240,139,480,149,720,149.3C960,149,1200,139,1320,133.3L1440,128L1440,320L1320,320C1200,320,960,320,720,320C480,320,240,320,120,320L0,320Z"></path>
+  <path fill="#1b1b1b" fillOpacity="1" d="M0,128L120,133.3C240,139,480,149,720,149.3C960,149,1200,139,1320,133.3L1440,128L1440,320L1320,320C1200,320,960,320,720,320C480,320,240,320,120,320L0,320Z"></path>
 </svg>
 </div>
     <div className='min-h-52 h-fit items-center pt-2 text-[#ECECEC] bg-[#1b1b1b] text-sm flex-wrap'>
