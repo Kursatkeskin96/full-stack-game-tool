@@ -16,6 +16,7 @@ const getData = async (slug) => {
   return res.json();
 };
 
+
 function getColorClass(catSlug) {
   const colorClasses = {
     general: "generaltext",
@@ -27,6 +28,31 @@ function getColorClass(catSlug) {
   };
 
   return colorClasses[catSlug] || ""; // Fallback to a default class if catSlug doesn't match
+}
+
+function getShortDescription(description, maxSentences = 3) {
+  // Remove HTML tags
+  const strippedDescription = description.replace(/<[^>]+>/g, '');
+
+  // Match sentences
+  const sentences = strippedDescription.match(/[^.!?]+[.!?]+/g) || [];
+
+  // Join the first few sentences
+  return sentences.slice(0, maxSentences).join(' ').trim();
+}
+
+
+export async function generateMetadata(slug) {
+  // read route params
+  const id = slug
+  // fetch data
+  const product = await fetch(`https://albionjourney.vercel.app/api/posts/${id.params.slug}`).then((res) => res.json())
+
+ const shortDescription = getShortDescription(product.post.desc);
+  return {
+    title: product.post.title,
+    description: shortDescription
+  }
 }
 
 
