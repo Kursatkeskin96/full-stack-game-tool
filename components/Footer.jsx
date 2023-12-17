@@ -39,7 +39,7 @@ export default function Footer() {
     <div className='text-white w-[90%] mt-10 mb-4 mx-auto'>
             <hr />
         </div>
-    <div className='flex justify-center flex-wrap items-center  text-xs  gap-6 pb-1'><p className='text-centertext-xs'>© 2023 by Shwarzfit</p> <p>|</p> <Link href='https://discord.gg/N6Nbts8Z'> <p className='flex justify-center items-center gap-2 underline'><FaDiscord className='text-[#7289da]' /> Join Community</p> </Link>      <p className='hidden sm:block md:block lg:block'>|</p>           <p>Contact: kursatkeskinn@gmail.com</p></div>
+    <div className='flex justify-center flex-wrap items-center  text-xs  gap-6 pb-1'><p className='text-centertext-xs'>© 2023 by Shwarzfit</p> <p>|</p> <Link href='https://discord.gg/ttFSTQUkVf'> <p className='flex justify-center items-center gap-2 underline'><FaDiscord className='text-[#7289da]' /> Join Community</p> </Link>      <p className='hidden sm:block md:block lg:block'>|</p>           <p>Contact: kursatkeskinn@gmail.com</p></div>
     </div>
     </>
   )
