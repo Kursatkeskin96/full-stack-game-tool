@@ -99,6 +99,10 @@ export default function ItemCard({ item }) {
         </div>
       </div>
       <div className="flex justify-center items-start gap-2 text-sm">
+        <div>Server:</div>
+        <div className="text-gray-400">{item.server}</div>
+      </div>
+      <div className="flex justify-center items-start gap-2 text-sm">
         <div>Seller:</div>
         <div className="text-gray-400">{item.seller}</div>
       </div>

@@ -31,6 +31,7 @@ export default function SellItem() {
   const [resource, setResource] = useState("");
   const [quantity, setQuantity] = useState("");
   const [discordId, setDiscordId] = useState("");
+  const [server, setServer] = useState("West")
 
   const handleTier = (e) => {
     setTier(e.target.value);
@@ -43,6 +44,10 @@ export default function SellItem() {
   const handleResource = (e) => {
     setResource(e.target.value);
   };
+
+  const handleServer = (e) => {
+    setServer(e.target.value)
+  }
 
   const handleRadioChange = (e) => {
     setChoose(e.target.value);
@@ -98,7 +103,6 @@ export default function SellItem() {
       setArtifact("");
     }
   };
-  console.log(session);
 
   useEffect(() => {
     // Check if the selected category is either 'armor' or 'head'
@@ -188,6 +192,7 @@ export default function SellItem() {
         seller: session?.user?.name,
         img: imageurl,
         resourceImg: resourceImg,
+        server,
       }),
     });
     if (res.status === 200) {
@@ -339,6 +344,20 @@ export default function SellItem() {
                         ))}
                       </>
                     )}
+                  </select>
+                </div>
+                   <div className="flex flex-col">
+                  <label name="tier" className="text-white mb-1">
+                    Server
+                  </label>
+                  <select
+                    name="tier"
+                    id="tier"
+                    className="h-8 w-52"
+                    onChange={handleServer}
+                  >
+                    <option value="West">West</option>
+                    <option value="East">East</option>
                   </select>
                 </div>
               </div>

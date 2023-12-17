@@ -94,4 +94,5 @@ model Item {
   createdAt DateTime @default(now())
   quantity String @default("0")
   discordId String?
+  server String?
 }
