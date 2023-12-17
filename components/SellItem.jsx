@@ -507,6 +507,20 @@ export default function SellItem() {
                   </select>
                 </div>
                 <div className="flex flex-col">
+                  <label name="tier" className="text-white mb-1">
+                    Server
+                  </label>
+                  <select
+                    name="tier"
+                    id="tier"
+                    className="h-8 w-28"
+                    onChange={handleServer}
+                  >
+                    <option value="West">West</option>
+                    <option value="East">East</option>
+                  </select>
+                </div>
+                <div className="flex flex-col">
                   <label name="q" className="text-white text-sm text-left mb-1">
                     Quantity
                   </label>
