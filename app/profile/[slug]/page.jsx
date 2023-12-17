@@ -34,7 +34,6 @@ const getRefer = async (searchParams) => {
 
   const api = domain;
   const res = await fetch(`${api}/api/users/${searchParams.search}`);
-console.log(res)
   if (!res.ok) {
     throw new Error("Failed to fetch user data");
   }
@@ -138,8 +137,6 @@ export default function Profile({ params, searchParams }) {
     }
   };
 
-console.log(refer)
-
   if (error) {
     return <div>Error loading data: {error}</div>;
   }
@@ -187,7 +184,7 @@ console.log(refer)
         
         <hr className="my-2" />
         <div className='flex flex-col justify-center items-center gap-4'>
-        <div className='text-lg ml-4 text-center'>If you have referred by someone else, you can write that user's discord nick in search. </div>
+        <div className='text-lg ml-4 text-center'>If you have referred by someone else, you can write that user&apos;s discord nick in search. </div>
         <div className='text-md ml-4 text-center'>We have valuable rewards for who refer our website.  </div>
         <div className='text-sm ml-4 text-center'><ul>
           <li><span className='font-bold '>10 refer:</span> 30x Tome Of Insight</li>
