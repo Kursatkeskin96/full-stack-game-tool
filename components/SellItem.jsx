@@ -161,9 +161,9 @@ export default function SellItem() {
   let resourceImg;
 
   if (ench !== "0") {
-    resourceImg = `https://render.albiononline.com/v1/item/T${tier}_${resource}_LEVEL${ench}`;
+    resourceImg = `https://render.albiononline.com/v1/item/${tier}_${resource}_LEVEL${ench}`;
   } else {
-    resourceImg = `https://render.albiononline.com/v1/item/T${tier}_${resource}`;
+    resourceImg = `https://render.albiononline.com/v1/item/${tier}_${resource}`;
   }
 
   const handleSubmit = async () => {
@@ -462,11 +462,11 @@ export default function SellItem() {
                     onChange={handleTier}
                   >
                     <option value="">Tier</option>
-                    <option value={4}>T4</option>
-                    <option value={5}>T5</option>
-                    <option value={6}>T6</option>
-                    <option value={7}>T7</option>
-                    <option value={8}>T8</option>
+                    <option value='T4'>T4</option>
+                    <option value='T5'>T5</option>
+                    <option value='T6'>T6</option>
+                    <option value='T7'>T7</option>
+                    <option value='T8'>T8</option>
                   </select>
                 </div>
                 <div className="flex flex-col">

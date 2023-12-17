@@ -602,7 +602,7 @@ useEffect(() => {
             ) : (
                 <div className="bg-green-500 text-white min-h-32 lg:w-1/3 w-[90%] mt-10 flex justfiy-start items-start mb-10">
                 <div className="mx-auto">
-                    <h5 className="underline font-bold">PROFITABILITY WITH % RETURN RATE</h5>
+                    <h5 className="underline font-bold">PROFITABILITY WITH {withFocus}% RETURN RATE</h5>
                  <div className="flex justify-evenly items-center mt-4 pb-2 text-sm">
                     <div className="font-bold">
                     <p>Item Price</p>

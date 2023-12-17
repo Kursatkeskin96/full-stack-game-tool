@@ -403,7 +403,6 @@ const calculateFocusProfit = () => {
 useEffect(() => {
     calculateFocusProfit()
 }, [focusCostValue, roundedIsProfit]);
-
   return (
     <div className="min-h-screen pt-20 max-w-[90%] mx-auto">
       <div className="text-2xl font-bold">
@@ -478,31 +477,31 @@ useEffect(() => {
              <div className="flex flex-wrap justify-center items-center gap-4">
              <button
  onClick={() => handleTierChange('4')}
- className={`bg-[#356079] text-white w-10  rounded-md shadowl-lg ${tier === 'T4' ? 'underline' : ''}`}
+ className={`bg-[#356079] text-white w-10  rounded-md shadowl-lg ${tier === '4' ? 'underline' : ''}`}
               >
                 T4
               </button>
               <button
  onClick={() => handleTierChange('5')}
-                className={`bg-[#76221A] text-white w-10 rounded-md shadowl-lg ${tier === 'T5' ? 'underline' : ''}`}
+                className={`bg-[#76221A] text-white w-10 rounded-md shadowl-lg ${tier === '5' ? 'underline' : ''}`}
               >
                 T5
               </button>
               <button
  onClick={() => handleTierChange('6')}
-                className={`bg-[#C06B29] text-white w-10 rounded-md shadowl-lg ${tier === 'T6' ? 'underline' : ''}`}
+                className={`bg-[#C06B29] text-white w-10 rounded-md shadowl-lg ${tier === '6' ? 'underline' : ''}`}
               >
                 T6
               </button>
               <button
  onClick={() => handleTierChange('7')}
-                className={`bg-[#D1B045]  text-white w-10 rounded-md shadowl-lg ${tier === 'T7' ? 'underline' : ''}`}
+                className={`bg-[#D1B045]  text-white w-10 rounded-md shadowl-lg ${tier === '7' ? 'underline' : ''}`}
               >
                 T7
               </button>
               <button
  onClick={() => handleTierChange('8')}
-                className={`bg-white text-black w-10 rounded-md shadowl-lg ${tier === 'T8' ? 'underline' : ''}`}
+                className={`bg-white text-black w-10 rounded-md shadowl-lg ${tier === '8' ? 'underline' : ''}`}
               >
                 T8
               </button>
