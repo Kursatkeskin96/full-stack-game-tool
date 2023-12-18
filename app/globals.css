@@ -1,8 +1,9 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
 @import url('https://fonts.googleapis.com/css2?family=Bitter&family=Dancing+Script:wght@500&family=EB+Garamond&family=Merriweather&family=Open+Sans:ital,wght@0,400;1,300&display=swap');
+
 
 body {
   font-family: 'Merriweather', serif;
@@ -14,6 +15,13 @@ body {
 
 .quill > .ql-container > .ql-editor.ql-blank::before {
   color: #b3b3b1;
+}
+
+.gradient {
+  background: #00DBDE;
+  background: linear-gradient(to right, #00DBDE 0%, #16a34a 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .general {

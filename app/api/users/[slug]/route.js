@@ -1,7 +1,6 @@
 import prisma from "@/lib/connect";
 import { NextResponse } from "next/server";
 
-//get single post
 export const GET = async (req, { params }) => {
   const { slug } = params;
 
@@ -10,7 +9,16 @@ export const GET = async (req, { params }) => {
       where: { name: slug },
     });
 
-    return new NextResponse(JSON.stringify({ user }, { status: 200 }));
+    // Count how many times 'slug' appears in the referredby field
+    const referredByCount = await prisma.user.count({
+      where: {
+        referredby: slug,
+      },
+    });
+
+    return new NextResponse(JSON.stringify({ user, referredByCount }), {
+      status: 200,
+    });
   } catch (error) {
     return new NextResponse(
       JSON.stringify({ message: "something went wrong" }, { status: 500 })

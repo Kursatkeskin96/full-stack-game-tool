@@ -71,6 +71,7 @@ export default function Profile({ params, searchParams }) {
   const [refer, setRefer] = useState("")
   const [searchTerm, setSearchTerm] = useState('');
   const [error, setError] = useState(null);
+  const [refcount, setRefcount] = useState()
 
   const handleSearchChange = (event) => {
     setSearchTerm(event.target.value);
@@ -81,17 +82,19 @@ export default function Profile({ params, searchParams }) {
     router.push(`/profile/${slug}?search=${encodeURIComponent(searchTerm)}`);
   };
 
-  useEffect(() => {
-    // Fetch user data
-    getData(slug)
-      .then(data => {
-        setUser(data.user);
-      })
-      .catch(error => {
-        setError(error.message);
-        console.error("Error fetching user data:", error);
-      });
-
+    useEffect(() => {
+      // Fetch user data and referredBy count
+      getData(slug)
+        .then(data => {
+          setUser(data.user);
+          setRefcount(data.referredByCount)
+          // Assuming you also want to display the count on the profile page
+          console.log(`Referred by '${slug}' count:`, data.referredByCount);
+        })
+        .catch(error => {
+          setError(error.message);
+          console.error("Error fetching user data:", error);
+        });
     // Fetch items data
     getItem(slug)
       .then(data => {
@@ -140,7 +143,6 @@ export default function Profile({ params, searchParams }) {
   if (error) {
     return <div>Error loading data: {error}</div>;
   }
-
   return (
     <>
     <title>Manage Your Profile & Listings in Albion Online | Albion Journey</title>
@@ -161,15 +163,6 @@ export default function Profile({ params, searchParams }) {
         </div>
       </div>
       <div className="pt-10 min-h-screen max-w-[80%] mx-auto">
-        <div className="text-2xl mt-5 font-bold ml-4 first-letter:uppercase">
-          {user && `${user.name}'s items on sale`}
-        </div>
-        <hr className="my-2" />
-        <div className="flex mt-10 justify-center items-center flex-wrap mx-auto gap-10">
-          {items.map((item) => (
-            <ItemCard key={item.id} item={item} />
-          ))}
-        </div>
         {user && session ? (
           <>
         {
@@ -186,10 +179,11 @@ export default function Profile({ params, searchParams }) {
         <div className='flex flex-col justify-center items-center gap-4'>
         <div className='text-lg ml-4 text-center'>If you have referred by someone else, you can write that user&apos;s discord nick in search. </div>
         <div className='text-md ml-4 text-center'>We have valuable rewards for who refer our website.  </div>
-        <div className='text-sm ml-4 text-center'><ul>
-          <li><span className='font-bold '>10 refer:</span> 30x Tome Of Insight</li>
-          <li><span className='font-bold '>50 refer:</span> 200x Tome Of Insight</li>
-          <li><span className='font-bold '>100 refer:</span> 500x Tome Of Insight</li></ul></div>
+        <div className='text-sm ml-4 text-center'>          <ul>
+          <li className='flex'><span className='font-bold w-16'>10 refer:</span><span className='ml-2'><Image src='https://render.albiononline.com/v1/item/T4_SKILLBOOK_STANDARD' width={20} height={20} alt='tome-of-insight' /></span> 30x Tome Of Insight </li>
+          <li className='flex '><span className='font-bold w-16'>50 refer:</span><span className='ml-2'><Image src='https://render.albiononline.com/v1/item/T4_SKILLBOOK_STANDARD' width={20} height={20} alt='tome-of-insight' /></span> 200x Tome Of Insight</li>
+          <li className='flex'><span className='font-bold w-16'>100 refer:</span><span className='ml-2'><Image src='https://render.albiononline.com/v1/item/T4_SKILLBOOK_STANDARD' width={20} height={20} alt='tome-of-insight' /></span> 500x Tome Of Insight</li>
+          </ul></div>
           </div>
         <div className='flex mt-10 justify-center items-center gap-2'>
 <div className="input-icon-container">
@@ -220,10 +214,24 @@ export default function Profile({ params, searchParams }) {
           </div>
         ) : (
           <div>    
-               <div className="text-2xl mt-10 font-bold ml-4 first-letter:uppercase">
-          Referred by {user.referredby}
+               <div className="text-2xl mt-10 font-bold  ml-4 first-letter:uppercase">
+          Refer A Friend And Earn Tones Of Silver!
         </div>
-        <hr className="my-2" /></div>
+        <hr className="my-2" />
+        <div className='flex my-10 justify-center gap-10 items-center flex-col lg:flex-row md:flex-row                        '>
+      <div className=''>
+      <p className='text-lg'>{user.name}&apos;s refer count: <span className=' text-orange-600'>{refcount}</span></p>
+        <p className='text-md'>{user.name} has refered by <span className='underline italic'>{user.referredby}</span></p>
+      </div>
+      <div className='text-sm'>
+          <ul>
+          <li className='flex'><span className='font-bold w-16'>10 refer:</span><span className='ml-2'><Image src='https://render.albiononline.com/v1/item/T4_SKILLBOOK_STANDARD' width={20} height={20} alt='tome-of-insight' /></span> 30x Tome Of Insight </li>
+          <li className='flex '><span className='font-bold w-16'>50 refer:</span><span className='ml-2'><Image src='https://render.albiononline.com/v1/item/T4_SKILLBOOK_STANDARD' width={20} height={20} alt='tome-of-insight' /></span> 200x Tome Of Insight</li>
+          <li className='flex'><span className='font-bold w-16'>100 refer:</span><span className='ml-2'><Image src='https://render.albiononline.com/v1/item/T4_SKILLBOOK_STANDARD' width={20} height={20} alt='tome-of-insight' /></span> 500x Tome Of Insight</li>
+          </ul>
+          </div>
+      </div>
+       </div>
         )
       }
     </div>
@@ -234,10 +242,19 @@ export default function Profile({ params, searchParams }) {
 
 </>
 ): <p>
-  Loading...
+  
 </p> }
-
+<div className="text-2xl mt-5 font-bold ml-4 first-letter:uppercase">
+          {user && `${user.name}'s items on sale`}
+        </div>
+        <hr className="my-2" />
+        <div className="flex mt-10 justify-center items-center flex-wrap mx-auto gap-10">
+          {items.map((item) => (
+            <ItemCard key={item.id} item={item} />
+          ))}
+        </div>
       </div>
+      
     </>
   );
 }
