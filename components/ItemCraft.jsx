@@ -592,7 +592,7 @@ useEffect(() => {
                       <p>{formattedItemPrice}</p>
                     <p>{formattedReturnedResource}</p>
                     <p>{formattedResourceCost}</p>
-                    <p>{formattedUsageFee}</p>
+                    <p>{formattedSellOrder}</p>
                     <p>{formattedUsageFee}</p>
                     <p>{formattedProfit} </p>
                     </div>
@@ -616,7 +616,7 @@ useEffect(() => {
                       <p>{formattedItemPrice}</p>
                     <p>{formattedReturnedResource}</p>
                     <p>{formattedResourceCost}</p>
-                    <p>{formattedUsageFee}</p>
+                    <p>{formattedSellOrder}</p>
                     <p>{formattedUsageFee}</p>
                     <p>{formattedProfit} </p>
                     </div>
