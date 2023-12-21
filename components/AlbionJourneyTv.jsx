@@ -10,15 +10,7 @@ export default function AlbionJourneyTv() {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    if (typeof window !== 'undefined') {
-      var currentURL = window.location.href;
-      var urlParts = currentURL.split("/");
-      var domain = urlParts[1];
-    }
-  
-    const api = domain;
-    setIsLoading(true);
-    fetch(`${api}/api/twitch`) // Adjust the API endpoint as needed
+    fetch(`https://www.albionjourney.com/api/twitch`) // Adjust the API endpoint as needed
       .then((response) => response.json())
       .then((data) => {
         setStreamerInfo(data);
@@ -32,15 +24,8 @@ export default function AlbionJourneyTv() {
   }, []);
 
   useEffect(() => {
-    if (typeof window !== 'undefined') {
-      var currentURL = window.location.href;
-      var urlParts = currentURL.split("/");
-      var domain = urlParts[1];
-    }
-  
-    const api = domain;
     setIsLoading(true);
-    fetch(`${api}/api/twitchuser`) // Adjust the API endpoint as needed
+    fetch(`https://www.albionjourney.com/api/twitchuser`) // Adjust the API endpoint as needed
       .then((response) => response.json())
       .then((data) => {
         setUserInfo(data);
