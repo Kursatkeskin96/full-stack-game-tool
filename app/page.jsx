@@ -1,3 +1,4 @@
+import AlbionJourneyTv from '@/components/AlbionJourneyTv'
 import HeroSection from '@/components/HeroSection'
 import Info from '@/components/Info'
 import WhoAreWe from '@/components/WhoAreWe'
@@ -14,6 +15,7 @@ export default function Home() {
     <HeroSection />
     <WhoAreWe />
     <Info />
+    <AlbionJourneyTv />
    </div>
   )
 }

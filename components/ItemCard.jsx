@@ -126,6 +126,7 @@ export default function ItemCard({ item }) {
         <div>
           <div className="flex justify-center items-center">
             <Link
+            target="_blank"
               className="bg-orange-600 mb-4 w-32 text-white mx-auto text-center rounded-md mt-4"
               href={`https://discord.com/users/${item.discordId}`}
             >
