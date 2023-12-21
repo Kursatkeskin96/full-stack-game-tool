@@ -3,39 +3,43 @@ import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
-const getUserData = async () => {
-  const url = `https://www.albionjourney.com/api/twitchuser`;
-
-  const res = await fetch(url);
-
-  if (!res.ok) {
-    throw new Error("Failed to fetch items");
-  }
-
-  return res.json();
-};
-
-const getStreamerData = async () => {
-  const url = `https://www.albionjourney.com/api/twitch`;
-
-  const res = await fetch(url);
-
-  if (!res.ok) {
-    throw new Error("Failed to fetch items");
-  }
-
-  return res.json();
-};
-
-export default async function AlbionJourneyTv() {
+export default function AlbionJourneyTv() {
+  const [streamerInfo, setStreamerInfo] = useState(null);
+  const [userInfo, setUserInfo] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  if (error) return <p>Error loading streamer info.</p>;
-  const userInfo = await getUserData()
-  const streamerInfo = await getStreamerData()
-  return (
+  useEffect(() => {
+    fetch(`https://www.albionjourney.com/api/twitch`) // Adjust the API endpoint as needed
+      .then((response) => response.json())
+      .then((data) => {
+        setStreamerInfo(data);
+        setIsLoading(false);
+      })
+      .catch((error) => {
+        console.error("Error fetching streamer info:", error);
+        setError(error);
+        setIsLoading(false);
+      });
+  }, []);
 
+  useEffect(() => {
+    setIsLoading(true);
+    fetch(`https://www.albionjourney.com/api/twitchuser`) // Adjust the API endpoint as needed
+      .then((response) => response.json())
+      .then((data) => {
+        setUserInfo(data);
+        setIsLoading(false);
+      })
+      .catch((error) => {
+        console.error("Error fetching streamer info:", error);
+        setError(error);
+        setIsLoading(false);
+      });
+  }, []);
+
+  if (error) return <p>Error loading streamer info.</p>;
+  return (
     <>
       <div className="bg-[#9147ff] mt-32 pb-10 text-white  mx-auto flex-wrap lg:max-w-[80%] max-w-[90%] rounded-md shadow-lg">
         <div className="pt-5">
