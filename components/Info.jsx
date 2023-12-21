@@ -31,23 +31,6 @@ function Info() {
         </div>
     </div>
 
-<div className='flex justify-center items-center'>
-<h4 className=" text-4xl mt-20 font-bold gradient text-center mx-auto flex lg:flex-row md:flex-row flex-col gap-4">
-<LuGift className='text-[#00DBDE] text-center mx-auto' /> Refer Your Friends & Earn Rewards!<LuGift className='text-[#16A34A] text-center mx-auto' />
-</h4>
-</div>
-
-<div className='max-w-[80%] flex-col gap-2 mt-6 mx-auto flex justify-center text-center items-center'>
-<p className='text-lg'>Welcome to Albion Journey, where your connections bring you rewards! We are excited to introduce our Refer & Reward System, a program designed to thank you for spreading the word about our community. It is simple, rewarding, and adds an extra layer of fun to your experience with us.</p>
-<p>All you need to do is refer your friends and encourage them to enter your Discord username in the input field on their <span className='font-bold underline'>profile</span> page. That is all it takes! You can also easily track how many referrals you have. It is that simple! Start sharing and watch your rewards grow as your referrals increase.</p>
-<div className='text-md ml-4 mt-5 text-center'>          <ul>
-          <li className='flex'><span className='font-bold w-20'>10 refer:</span><span className='ml-2'><Image src='https://render.albiononline.com/v1/item/T4_SKILLBOOK_STANDARD' width={20} height={20} alt='tome-of-insight' /></span> 30x Tome Of Insight </li>
-          <li className='flex '><span className='font-bold w-20'>50 refer:</span><span className='ml-2'><Image src='https://render.albiononline.com/v1/item/T4_SKILLBOOK_STANDARD' width={20} height={20} alt='tome-of-insight' /></span> 200x Tome Of Insight</li>
-          <li className='flex'><span className='font-bold w-20'>100 refer:</span><span className='ml-2'><Image src='https://render.albiononline.com/v1/item/T4_SKILLBOOK_STANDARD' width={20} height={20} alt='tome-of-insight' /></span> 500x Tome Of Insight</li>
-          </ul></div>
-</div>          
-<p className='text-center text-sm italic mx-auto mt-10'>This refer & reward system will last until January 20, 2024.</p>
-
     <hr className='mt-20 w-[80%] mx-auto'></hr>
 
     <div className='flex mt-10 justify-center items-center lg:gap-20 lg:max-w-[80%] max-w-[90%] mx-auto flex-wrap'>
