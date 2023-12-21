@@ -63,13 +63,13 @@ export default function AlbionJourneyTv() {
           </h2>
         </div>
         <p className="text-gray-200 text-center max-w-[90%] mt-10 mx-auto">
-          Albion Journey is not just a platform; we're a thriving community,
+          Albion Journey is not just a platform; we are a thriving community,
           passionately dedicated to enhancing your Albion Online experience.
         </p>
         <p className="text-gray-200 text-center max-w-[90%] mx-auto mt-4">
-          Our featured streamers are not just players; they're storytellers,
+          Our featured streamers are not just players; they are storytellers,
           strategists, and your guides to the vast universe of Albion Online.
-          Whether you're looking for the latest PvP tactics, efficient farming
+          Whether you are looking for the latest PvP tactics, efficient farming
           methods, or just want to enjoy some engaging Albion adventures, our
           streamers have something special for you.
         </p>
