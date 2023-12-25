@@ -4,7 +4,7 @@ import Card from "@/components/Card";
 
 const getData = async (page, cat) => {
   const res = await fetch(
-    `https://albionjourney.vercel.app/api/posts?page=${page}&cat=${cat || ""}`,
+    `https://albionjourney.vercel.app/api/posts?page=${page}&cat=${cat || ""}`, {cache: "no-store"}
   );
 
   if (!res.ok) {
