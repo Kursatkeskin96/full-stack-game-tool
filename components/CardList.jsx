@@ -4,7 +4,7 @@ import Card from "@/components/Card";
 
 const getData = async (page, cat) => {
   const res = await fetch(
-    `https://albionjourney.vercel.app/api/posts?page=${page}&cat=${cat || ""}`,
+    `https://www.albionjourney.com/api/posts?page=${page}&cat=${cat || ""}`,
   );
 
   if (!res.ok) {
@@ -17,7 +17,7 @@ const getData = async (page, cat) => {
 const CardList = async ({ page, cat }) => {
   const { posts, count } = await getData(page, cat);
 
-  const POST_PER_PAGE = 2;
+  const POST_PER_PAGE = 5;
 
   const hasPrev = POST_PER_PAGE * (page - 1) > 0;
   const hasNext = POST_PER_PAGE * (page - 1) + POST_PER_PAGE < count;

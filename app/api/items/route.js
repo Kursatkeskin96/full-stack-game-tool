@@ -10,11 +10,16 @@ export const GET = async (req) => {
   const ench = searchParams.get("ench");
   const quality = searchParams.get("quality");
 
-  const ITEM_PER_PAGE = 8;
+  const ITEM_PER_PAGE = 12;
 
   const search = searchParams.get("search") || "";
 
   const query = {
+    orderBy: [
+      {
+        createdAt: "desc",
+      },
+    ],
     take: ITEM_PER_PAGE,
     skip: ITEM_PER_PAGE * (page - 1),
     where: {

@@ -36,7 +36,7 @@ const getData = async (page, tier, ench, quality, search) => {
 const ItemCardList = async ({ page, tier, ench, quality, search }) => {
   const { items, count } = await getData(page, tier, ench, quality, search);
 
-  const ITEM_PER_PAGE = 8;
+  const ITEM_PER_PAGE = 12;
 
   const hasPrev = ITEM_PER_PAGE * (page - 1) > 0;
   const hasNext = ITEM_PER_PAGE * (page - 1) + ITEM_PER_PAGE < count;
