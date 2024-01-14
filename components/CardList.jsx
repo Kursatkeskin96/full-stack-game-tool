@@ -18,7 +18,7 @@ const getData = async (page, cat) => {
   }
 
   const api = domain;   
-  const url =  `https://albionjourney.vercel.app/api/posts?page=${page}&cat=${cat || ""}`;
+  const url =  `https://albionjourney.com/api/posts?page=${page}&cat=${cat || ""}`;
 
   const res = await fetch(url);
 
