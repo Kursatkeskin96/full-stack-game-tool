@@ -16,7 +16,7 @@ function getColorClass(catSlug) {
 }
 
 export default function Card({item}) {
-  const itemDescSubstring = item.desc.substring(0, 120);
+  const itemDescSubstring = item?.desc?.substring(0, 120);
   const colorClass = getColorClass(item.catSlug);
 
   return (

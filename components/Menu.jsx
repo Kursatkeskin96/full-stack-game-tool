@@ -1,9 +1,6 @@
 import React from 'react'
-import Image from 'next/image'
 import Link from 'next/link'
-import crafttool from "@/images/crafttool.webp";
-import refinetool from "@/images/refinetool.webp";
-import transmute from "@/images/transmute.webp";
+
 
 export default async function Menu() {
   return (
