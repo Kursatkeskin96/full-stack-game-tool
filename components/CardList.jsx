@@ -1,29 +1,14 @@
-'use client'
 import React from "react";
 import Pagination from "@/components/Pagination";
 import Card from "@/components/Card";
 
 const getData = async (page, cat) => {
-  const queryParams = {};
-
-  // Add parameters to queryParams only if they exist
-  if (page) queryParams.page = page;
-  if (cat) queryParams.cat = cat;
-  // Construct the query string
-  const queryString = new URLSearchParams(queryParams).toString();
-  if (typeof window !== 'undefined') {
-    var currentURL = window.location.href;
-    var urlParts = currentURL.split("/");
-    var domain = urlParts[1];
-  }
-
-  const api = domain;   
-  const url =  `https://albionjourney.com/api/posts?page=${page}&cat=${cat || ""}`;
-
-  const res = await fetch(url);
+  const res = await fetch(
+    `https://albionjourney.vercel.app/api/posts?page=${page}&cat=${cat || ""}`,
+  );
 
   if (!res.ok) {
-    throw new Error("Failed to fetch items");
+    throw new Error("Failed");
   }
 
   return res.json();
