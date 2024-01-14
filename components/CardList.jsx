@@ -6,9 +6,11 @@ const getData = async (page, cat) => {
   const res = await fetch(
     `https://albionjourney.vercel.app/api/posts?page=${page}&cat=${cat || ""}`,
   );
+
   if (!res.ok) {
     throw new Error("Failed");
   }
+
   return res.json();
 };
 
