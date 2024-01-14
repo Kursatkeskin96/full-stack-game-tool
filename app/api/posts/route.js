@@ -5,7 +5,7 @@ import { getAuthSession } from "@/lib/auth";
 export const GET = async (req) => {
   const { searchParams } = new URL(req.url);
 
-  const page = searchParams.get("page");
+  const page = parseInt(searchParams.get("page")) || 1; // Default to 1 if page is not provided
   const cat = searchParams.get("cat");
 
   const POST_PER_PAGE = 2;

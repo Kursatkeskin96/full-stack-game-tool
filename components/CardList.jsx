@@ -2,7 +2,7 @@ import React from "react";
 import Pagination from "@/components/Pagination";
 import Card from "@/components/Card";
 
-const getData = async (page, cat) => {
+const getData = async (page = 1, cat) => { 
   const res = await fetch(
     `https://albionjourney.vercel.app/api/posts?page=${page}&cat=${cat || ""}`,
   );
@@ -14,7 +14,7 @@ const getData = async (page, cat) => {
   return res.json();
 };
 
-const CardList = async ({ page, cat }) => {
+const CardList = async ({ page = 1, cat }) => {
   const { posts, count } = await getData(page, cat);
 
   const POST_PER_PAGE = 2;
