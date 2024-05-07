@@ -42,6 +42,7 @@ export default function Market({searchParams}) {
           <span className="font-bold cursor-pointer">Market</span>
         </Link>
       </div>
+      <div><p className="text-sm ml-4 mt-6 text-gray-500">Click <Link className=" font-bold underline text-blue-400" href='https://www.albionjourney.com/market/sell-item'>here</Link> to list your items for sale in our marketplace.</p></div>
       <div className=" bg-gray-900 pb-5 mt-10">
           <div className="flex lg:justify-around justify-center gap-10 lg:gap-0  items-center">
           <div className="flex flex-col lg:flex-row justify-center items-start mt-5 lg:ml-10 flex-wrap">

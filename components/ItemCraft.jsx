@@ -5,6 +5,7 @@ import Image from "next/image";
 import { TbCoins } from "react-icons/tb";
 import { set } from "mongoose";
 import Link from "next/link";
+import { GiReceiveMoney } from "react-icons/gi";
 
 export default function ItemCalculator() {
   const [category, setCategory] = useState("");
@@ -266,6 +267,7 @@ useEffect(() => {
   <Link href="/" className="font-bold">Home</Link>
   <Link href="/profit-calculator/item-calculator"> / Item Calculator</Link>
       </div>
+      <div><p className="text-sm px-2 mt-6 text-gray-500">If you are unsure how to use our Albion Online Crafting Calculator, please refer to our detailed guide <Link className=" font-bold underline text-blue-400" href='https://www.albionjourney.com/guides/posts/how-to-use-albion-craft-calculator'>here</Link>.</p></div>
 
       <div className="bg-[rgb(55,62,77)] min-h-fit pb-10 mt-10">
         <div className="flex justify-center lg:gap-0 gap-4 lg:justify-evenly items-center pt-10 flex-wrap">
@@ -566,14 +568,15 @@ useEffect(() => {
                 </div>
               </div>
               )}
+
             </div>
-            
           </div>
-          
+
         </div>
         
          )}
                {category && tier && ench && selectedItem && r1cost && itemPrice &&(
+             <>             
         <div className="flex justify-center items-center flex-wrap">
             {roundedIsProfit < 0 ? (
                 <div className="bg-red-500 text-white min-h-32 lg:w-1/3 w-[90%] mt-10 flex justfiy-start items-start mb-10">
@@ -622,11 +625,19 @@ useEffect(() => {
                     </div>
                     </div>
                 </div>
+
                 </div>
+
             )}
+
         </div>
+        <div className="flex gap-1 justify-center items-center text-sm text-center mt-6 text-gray-100">List your items in our <Link className="font-bold underline text-blue-400" href='https://www.albionjourney.com/market'> market section</Link> for quick sales. <span className="flex text-xl justify-center items-center"> <GiReceiveMoney className=" ml-1 mb-1 text-white" /></span>
+</div>
+        </>
         )}
+
       </div>
+
 
     </div>
   );
