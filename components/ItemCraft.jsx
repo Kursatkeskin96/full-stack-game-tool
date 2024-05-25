@@ -222,7 +222,6 @@ useEffect(() => {
   const formattedUsageFee = formatNumberWithCommas(roundedCalculateFee)
   const isProfitNegative = roundedIsProfit < 0; 
 
-  // Item Images
   let imageurl;
 
   if (ench !== "0") {
@@ -264,8 +263,8 @@ useEffect(() => {
       </div>
       <hr className="my-2 px-2"></hr>
       <div className="flex gap-2 px-2">
-  <Link href="/" className="font-bold">Home</Link>
-  <Link href="/profit-calculator/item-calculator"> / Item Calculator</Link>
+        <Link href="/" className="font-bold">Home</Link>
+        <Link href="/profit-calculator/item-calculator"> / Item Calculator</Link>
       </div>
       <div><p className="text-sm px-2 mt-6 text-gray-500">If you are unsure how to use our Albion Online Crafting Calculator, please refer to our detailed guide <Link className=" font-bold underline text-blue-400" href='https://www.albionjourney.com/guides/posts/how-to-use-albion-craft-calculator'>here</Link>.</p></div>
 
@@ -367,7 +366,6 @@ useEffect(() => {
               placeholder="48"
             />
           </div>
-
           
         </div>
         <div className="flex justify-center lg:gap-20 gap-10 items-start mt-10 lg:mt-5 lg:ml-10 flex-wrap">
@@ -378,32 +376,32 @@ useEffect(() => {
                 </p> 
                 </div>
              <div className="flex flex-wrap justify-center items-center gap-4">
-             <button
- onClick={() => handleTierChange('T4')}
- className={`bg-[#356079] text-white w-10  rounded-md shadowl-lg ${tier === 'T4' ? 'underline' : ''}`}
+              <button
+                onClick={() => handleTierChange('T4')}
+                className={`bg-[#356079] text-white w-10  rounded-md shadowl-lg ${tier === 'T4' ? 'underline' : ''}`}
               >
                 T4
               </button>
               <button
- onClick={() => handleTierChange('T5')}
+                onClick={() => handleTierChange('T5')}
                 className={`bg-[#76221A] text-white w-10 rounded-md shadowl-lg ${tier === 'T5' ? 'underline' : ''}`}
               >
                 T5
               </button>
               <button
- onClick={() => handleTierChange('T6')}
+                onClick={() => handleTierChange('T6')}
                 className={`bg-[#C06B29] text-white w-10 rounded-md shadowl-lg ${tier === 'T6' ? 'underline' : ''}`}
               >
                 T6
               </button>
               <button
- onClick={() => handleTierChange('T7')}
+                onClick={() => handleTierChange('T7')}
                 className={`bg-[#D1B045]  text-white w-10 rounded-md shadowl-lg ${tier === 'T7' ? 'underline' : ''}`}
               >
                 T7
               </button>
               <button
- onClick={() => handleTierChange('T8')}
+                onClick={() => handleTierChange('T8')}
                 className={`bg-white text-black w-10 rounded-md shadowl-lg ${tier === 'T8' ? 'underline' : ''}`}
               >
                 T8
@@ -419,33 +417,31 @@ useEffect(() => {
                 </div>
                 <div className="flex flex-wrap  justify-center items-center gap-4">
               <button
- onClick={() => handleEnchChange('0')}
-                
+                onClick={() => handleEnchChange('0')}
                 className={`w-10 bg-white rounded-md shadow-lg text-black ${ench === '0' ? 'underline' : ''}`}
               >
                 0
               </button>
               <button
- onClick={() => handleEnchChange('1')}
+                onClick={() => handleEnchChange('1')}
                 className={`w-10  bg-[#61D984] rounded-md shadow-lg text-black ${ench === '1' ? 'underline' : ''}`}
               >
                 .1
               </button>
               <button
- onClick={() => handleEnchChange('2')}
+                onClick={() => handleEnchChange('2')}
                 className={`w-10 bg-[#47D8E5] rounded-md shadow-lg text-black ${ench === '2' ? 'underline' : ''}`}
               >
                 .2
               </button>
               <button
- onClick={() => handleEnchChange('3')}
+                onClick={() => handleEnchChange('3')}
                 className={`w-10  bg-[#A87DE2] rounded-md shadow-lg text-black ${ench === '3' ? 'underline' : ''}`}
               >
                 .3
               </button>
               <button
- onClick={() => handleEnchChange('4')}
-               
+                onClick={() => handleEnchChange('4')}
                 className={`w-10 bg-[#F6E169] rounded-md shadow-lg text-black ${ench === '4' ? 'underline' : ''}`}
               >
                .4
@@ -458,9 +454,9 @@ useEffect(() => {
         {selectedItem && selectedSubCategory && category && tier && ench && (
         <div className="flex justify-evenly items-center pt-20 flex-wrap">
           <div className="flex flex-wrap justify-center items-center flex-col md:gap-7 md:flex-row lg:flex-row w-[90%] lg:gap-10 bg-slate-600 p-2 mb-10 rounded-md shadow-lg">
-          <div className="flex flex-col items-center">
+            <div className="flex flex-col items-center">
               {selectedItem && (
-                <Image src={imageurl} alt="item-img" width={130} height={130} />
+                <Image src={imageurl} alt="item-img" width={130} height={130} unoptimized />
               )}
             </div>
                 
@@ -501,6 +497,7 @@ useEffect(() => {
                       alt="item-img"
                       width={50}
                       height={50}
+                      unoptimized
                     />
                   )}
                 </div>
@@ -526,6 +523,7 @@ useEffect(() => {
                     alt="item-img"
                     width={50}
                     height={50}
+                    unoptimized
                   />
                 </div>
                 <div className="flex">
@@ -551,6 +549,7 @@ useEffect(() => {
                     alt="item-img"
                     width={50}
                     height={50}
+                    unoptimized
                   />
                 </div>
                 <div className="flex">
