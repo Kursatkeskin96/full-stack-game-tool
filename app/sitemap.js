@@ -10,6 +10,7 @@ export default async function sitemap() {
     "/guides/posts/how-to-use-albion-craft-calculator",
     "/guides/posts/how-to-use-albion-refine-profit-calculator",
     "/guides/posts/maximizing-profits-in-albion-online-transmutation",
+    "/guides/posts/how-to-start-albion-online-eu-server",
     "/market",
     "/profit-calculator/item-calculator",
     "/profit-calculator/refine-calculator",

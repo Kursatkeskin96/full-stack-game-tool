@@ -6,6 +6,12 @@ import { TbCoins } from "react-icons/tb";
 import { set } from "mongoose";
 import Link from "next/link";
 import { GiReceiveMoney } from "react-icons/gi";
+import { FaThumbsUp } from "react-icons/fa";
+import { FaCoins } from "react-icons/fa6";
+import { FaThumbsDown } from "react-icons/fa";
+
+
+
 
 export default function ItemCalculator() {
   const [category, setCategory] = useState("");
@@ -21,18 +27,17 @@ export default function ItemCalculator() {
   const [withoutFocus, setWithoutFocus] = useState(24);
   const [q1, setQ1] = useState("");
   const [q2, setQ2] = useState("");
-  const [q3, setQ3] = useState("")
+  const [q3, setQ3] = useState("");
   const [recipe1, setRecipe1] = useState("");
   const [recipe2, setRecipe2] = useState("");
-  const [r1cost, setR1cost] = useState(0)
-  const [r2cost, setR2cost] = useState(0)
-  const [r3cost, setR3cost] = useState(0)
+  const [r1cost, setR1cost] = useState(0);
+  const [r2cost, setR2cost] = useState(0);
+  const [r3cost, setR3cost] = useState(0);
   const [artifact, setArtifact] = useState("");
   const [selectedItemObj, setSelectedItemObj] = useState(null);
-  const [itemValue, setItemValue] = useState('')
+  const [itemValue, setItemValue] = useState("");
   const [calculatedItemValue, setCalculatedItemValue] = useState(0);
-  const [itemPrice, setItemPrice] = useState('')
-  
+  const [itemPrice, setItemPrice] = useState("");
 
   const handleItemPrice = (e) => {
     // Convert the input value to an integer
@@ -40,46 +45,45 @@ export default function ItemCalculator() {
 
     // Check if the conversion result is a valid number
     if (!isNaN(priceValue)) {
-        setItemPrice(priceValue);
+      setItemPrice(priceValue);
     } else {
-        setItemPrice(0); // Set to 0 or any other default value in case of invalid input
+      setItemPrice(0); // Set to 0 or any other default value in case of invalid input
     }
-};
-
+  };
 
   const handleR1cost = (e) => {
-    const r1Value = parseInt(e.target.value, 10)
+    const r1Value = parseInt(e.target.value, 10);
     if (!isNaN(r1Value)) {
       setR1cost(r1Value);
-  } else {
+    } else {
       setR1cost(0); // Set to 0 or any other default value in case of invalid input
-  }
-}
+    }
+  };
 
-const handleR2cost = (e) => {
-    setR2cost(e.target.value)
-}
+  const handleR2cost = (e) => {
+    setR2cost(e.target.value);
+  };
 
-const handleR3cost = (e) => {
-setR3cost(e.target.value)
-}
+  const handleR3cost = (e) => {
+    setR3cost(e.target.value);
+  };
 
-const handleUsageFee = (e) => {
+  const handleUsageFee = (e) => {
     const usageFeeValue = parseInt(e.target.value, 10); // Convert string to integer
     if (!isNaN(usageFeeValue)) {
-        setUsageFee(usageFeeValue);
+      setUsageFee(usageFeeValue);
     } else {
-        setUsageFee(0); // Set to 0 or any default value in case of non-numeric input
+      setUsageFee(0); // Set to 0 or any default value in case of non-numeric input
     }
-};
+  };
 
-const handleTierChange = (newTier) => {
-  setTier(newTier);
-};
+  const handleTierChange = (newTier) => {
+    setTier(newTier);
+  };
 
-const handleEnchChange = (newEnch) => {
-  setEnch(newEnch);
-};
+  const handleEnchChange = (newEnch) => {
+    setEnch(newEnch);
+  };
 
   const handleWithFocus = (e) => {
     setWithFocus(e.target.value);
@@ -116,7 +120,7 @@ const handleEnchChange = (newEnch) => {
       setRecipe1(selectedItemObj.recipe1);
       setRecipe2(selectedItemObj.recipe2);
       setArtifact(selectedItemObj.artifact);
-      setItemValue(selectedItemObj.itemValue)
+      setItemValue(selectedItemObj.itemValue);
     } else {
       setName(""); // Reset the name if no item is selected
       setQ1("");
@@ -130,25 +134,38 @@ const handleEnchChange = (newEnch) => {
 
   useEffect(() => {
     // Check if the selected category is either 'armor' or 'head'
-    const isArmorOrHead = ['armor', 'head', 'shoes', 'magic', 'melee', 'ranged', "off-hand", "accessories"].includes(category.toLowerCase());
-  
+    const isArmorOrHead = [
+      "armor",
+      "head",
+      "shoes",
+      "magic",
+      "melee",
+      "ranged",
+      "off-hand",
+      "accessories",
+    ].includes(category.toLowerCase());
+
     if (isArmorOrHead) {
-      const categoryData = items.find(item => item.hasOwnProperty(category.toLowerCase()));
+      const categoryData = items.find((item) =>
+        item.hasOwnProperty(category.toLowerCase())
+      );
       if (categoryData) {
         const subCategoryData = categoryData[category.toLowerCase()];
-        setSubCategories(subCategoryData.map(cat => cat.category));
+        setSubCategories(subCategoryData.map((cat) => cat.category));
       } else {
         setSubCategories([]);
       }
     }
   }, [category]);
-  
+
   useEffect(() => {
     if (selectedSubCategory) {
-      const categoryData = items.find(item => item.hasOwnProperty(category.toLowerCase()));
+      const categoryData = items.find((item) =>
+        item.hasOwnProperty(category.toLowerCase())
+      );
       if (categoryData) {
         const itemsInSubCategory = categoryData[category.toLowerCase()].find(
-          cat => cat.category === selectedSubCategory.toLowerCase()
+          (cat) => cat.category === selectedSubCategory.toLowerCase()
         );
         if (itemsInSubCategory) {
           setDisplayItems(itemsInSubCategory.items);
@@ -159,20 +176,20 @@ const handleEnchChange = (newEnch) => {
     }
   }, [selectedSubCategory]);
 
-  
-  const mainCategory = 'armor'; // or 'head', etc., based on user selection
-  const subCategoryToFind = 'leather hood'; // This should be the subcategory you're looking for
-  
-  const categoryData = items.find(item => item.hasOwnProperty(mainCategory));
-  
+  const mainCategory = "armor"; // or 'head', etc., based on user selection
+  const subCategoryToFind = "leather hood"; // This should be the subcategory you're looking for
+
+  const categoryData = items.find((item) => item.hasOwnProperty(mainCategory));
+
   let linkValue;
   if (categoryData) {
-      const matchedSubCategory = categoryData[mainCategory].find(subCat => subCat.category === subCategoryToFind);
-      if (matchedSubCategory) {
-          linkValue = matchedSubCategory.value;
-      }
+    const matchedSubCategory = categoryData[mainCategory].find(
+      (subCat) => subCat.category === subCategoryToFind
+    );
+    if (matchedSubCategory) {
+      linkValue = matchedSubCategory.value;
+    }
   }
-
 
   const handleItemValue = () => {
     const tierNumber = parseInt(tier.substring(1)); // Convert "T4" to 4, "T5" to 5, etc.
@@ -181,46 +198,50 @@ const handleEnchChange = (newEnch) => {
     const total = tierNumber + enchNumber;
     const increment = Math.max(total - 4, 0); // Calculate the increment over the base tier (T4)
     return itemValue * Math.pow(2, increment);
-};
-
-useEffect(() => {
-    const newValue = handleItemValue();
-    setCalculatedItemValue(newValue);
-}, [tier, ench, itemValue]);
+  };
 
   useEffect(() => {
-    handleItemValue()
-  }, [tier, ench, category, subCategories, selectedItem])
+    const newValue = handleItemValue();
+    setCalculatedItemValue(newValue);
+  }, [tier, ench, itemValue]);
+
+  useEffect(() => {
+    handleItemValue();
+  }, [tier, ench, category, subCategories, selectedItem]);
 
   function formatNumberWithCommas(number) {
     return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-}
-  const nutritionFee = calculatedItemValue*0.1125
-  const calculateUsageFee = nutritionFee*(usageFee/100) 
-  const roundedCalculateFee = Math.round(calculateUsageFee)
+  }
+  const nutritionFee = calculatedItemValue * 0.1125;
+  const calculateUsageFee = nutritionFee * (usageFee / 100);
+  const roundedCalculateFee = Math.round(calculateUsageFee);
 
-  const resourceCost = (q1 * r1cost) + (q2 * r2cost) 
+  const resourceCost = q1 * r1cost + q2 * r2cost;
   const roundedResourceCost = Math.round(resourceCost);
 
-  const returnedResources = roundedResourceCost * withFocus / 100
+  const returnedResources = (roundedResourceCost * withFocus) / 100;
   const roundedReturnedResources = Math.round(returnedResources);
 
-  const sellOrder = itemPrice * 0.065
-  const roundedSellOrder = Math.round(sellOrder)
+  const sellOrder = itemPrice * 0.065;
+  const roundedSellOrder = Math.round(sellOrder);
 
-  const totalCost = roundedResourceCost + roundedSellOrder + roundedCalculateFee + (1 * r3cost)
-  const roundedTotalCost = Math.round(totalCost)
+  const totalCost =
+    roundedResourceCost + roundedSellOrder + roundedCalculateFee + 1 * r3cost;
+  const roundedTotalCost = Math.round(totalCost);
 
-  const isProfit = roundedReturnedResources + parseInt(itemPrice) - parseInt(roundedTotalCost)
-  const roundedIsProfit = Math.round(isProfit)
+  const isProfit =
+    roundedReturnedResources + parseInt(itemPrice) - parseInt(roundedTotalCost);
+  const roundedIsProfit = Math.round(isProfit);
 
   const formattedProfit = formatNumberWithCommas(roundedIsProfit);
-  const formattedItemPrice = formatNumberWithCommas(itemPrice)
-  const formattedReturnedResource = formatNumberWithCommas(roundedReturnedResources)
-  const formattedResourceCost = formatNumberWithCommas(roundedResourceCost)
-  const formattedSellOrder = formatNumberWithCommas(roundedSellOrder)
-  const formattedUsageFee = formatNumberWithCommas(roundedCalculateFee)
-  const isProfitNegative = roundedIsProfit < 0; 
+  const formattedItemPrice = formatNumberWithCommas(itemPrice);
+  const formattedReturnedResource = formatNumberWithCommas(
+    roundedReturnedResources
+  );
+  const formattedResourceCost = formatNumberWithCommas(roundedResourceCost);
+  const formattedSellOrder = formatNumberWithCommas(roundedSellOrder);
+  const formattedUsageFee = formatNumberWithCommas(roundedCalculateFee);
+  const isProfitNegative = roundedIsProfit < 0;
 
   let imageurl;
 
@@ -242,14 +263,14 @@ useEffect(() => {
   }
 
   let recipeImg1;
-  if (selectedItem && ench!== "0") {
+  if (selectedItem && ench !== "0") {
     recipeImg1 = `https://render.albiononline.com/v1/item/${tier}_${recipe1}_LEVEL${ench}`;
   } else {
     recipeImg1 = `https://render.albiononline.com/v1/item/${tier}_${recipe1}`;
   }
 
   let recipeImg2;
-  if (selectedItem && ench!== "0") {
+  if (selectedItem && ench !== "0") {
     recipeImg2 = `https://render.albiononline.com/v1/item/${tier}_${recipe2}_LEVEL${ench}`;
   } else {
     recipeImg2 = `https://render.albiononline.com/v1/item/${tier}_${recipe2}`;
@@ -263,10 +284,27 @@ useEffect(() => {
       </div>
       <hr className="my-2 px-2"></hr>
       <div className="flex gap-2 px-2">
-        <Link href="/" className="font-bold">Home</Link>
-        <Link href="/profit-calculator/item-calculator"> / Item Calculator</Link>
+        <Link href="/" className="font-bold">
+          Home
+        </Link>
+        <Link href="/profit-calculator/item-calculator">
+          {" "}
+          / Item Calculator
+        </Link>
       </div>
-      <div><p className="text-sm px-2 mt-6 text-gray-500">If you are unsure how to use our Albion Online Crafting Calculator, please refer to our detailed guide <Link className=" font-bold underline text-blue-400" href='https://www.albionjourney.com/guides/posts/how-to-use-albion-craft-calculator'>here</Link>.</p></div>
+      <div>
+        <p className="text-sm px-2 mt-6 text-gray-500">
+          If you are unsure how to use our Albion Online Crafting Calculator,
+          please refer to our detailed guide{" "}
+          <Link
+            className=" font-bold underline text-blue-400"
+            href="https://www.albionjourney.com/guides/posts/how-to-use-albion-craft-calculator"
+          >
+            here
+          </Link>
+          .
+        </p>
+      </div>
 
       <div className="bg-[rgb(55,62,77)] min-h-fit pb-10 mt-10">
         <div className="flex justify-center lg:gap-0 gap-4 lg:justify-evenly items-center pt-10 flex-wrap">
@@ -366,278 +404,312 @@ useEffect(() => {
               placeholder="48"
             />
           </div>
-          
         </div>
         <div className="flex justify-center lg:gap-20 gap-10 items-start mt-10 lg:mt-5 lg:ml-10 flex-wrap">
           <div className="flex flex-col">
-             <div> 
+            <div>
               <p className="text-gray-300 mb-2 lg: underline lg:text-left text-center">
                 Tier
-                </p> 
-                </div>
-             <div className="flex flex-wrap justify-center items-center gap-4">
+              </p>
+            </div>
+            <div className="flex flex-wrap justify-center items-center gap-4">
               <button
-                onClick={() => handleTierChange('T4')}
-                className={`bg-[#356079] text-white w-10  rounded-md shadowl-lg ${tier === 'T4' ? 'underline' : ''}`}
+                onClick={() => handleTierChange("T4")}
+                className={`bg-[#356079] text-white w-10  rounded-md shadowl-lg ${
+                  tier === "T4" ? "underline" : ""
+                }`}
               >
                 T4
               </button>
               <button
-                onClick={() => handleTierChange('T5')}
-                className={`bg-[#76221A] text-white w-10 rounded-md shadowl-lg ${tier === 'T5' ? 'underline' : ''}`}
+                onClick={() => handleTierChange("T5")}
+                className={`bg-[#76221A] text-white w-10 rounded-md shadowl-lg ${
+                  tier === "T5" ? "underline" : ""
+                }`}
               >
                 T5
               </button>
               <button
-                onClick={() => handleTierChange('T6')}
-                className={`bg-[#C06B29] text-white w-10 rounded-md shadowl-lg ${tier === 'T6' ? 'underline' : ''}`}
+                onClick={() => handleTierChange("T6")}
+                className={`bg-[#C06B29] text-white w-10 rounded-md shadowl-lg ${
+                  tier === "T6" ? "underline" : ""
+                }`}
               >
                 T6
               </button>
               <button
-                onClick={() => handleTierChange('T7')}
-                className={`bg-[#D1B045]  text-white w-10 rounded-md shadowl-lg ${tier === 'T7' ? 'underline' : ''}`}
+                onClick={() => handleTierChange("T7")}
+                className={`bg-[#D1B045]  text-white w-10 rounded-md shadowl-lg ${
+                  tier === "T7" ? "underline" : ""
+                }`}
               >
                 T7
               </button>
               <button
-                onClick={() => handleTierChange('T8')}
-                className={`bg-white text-black w-10 rounded-md shadowl-lg ${tier === 'T8' ? 'underline' : ''}`}
+                onClick={() => handleTierChange("T8")}
+                className={`bg-white text-black w-10 rounded-md shadowl-lg ${
+                  tier === "T8" ? "underline" : ""
+                }`}
               >
                 T8
               </button>
-              </div>
-              
-             </div>
-             <div className="flex flex-col">
-             <div> 
+            </div>
+          </div>
+          <div className="flex flex-col">
+            <div>
               <p className="text-gray-300 mb-2 lg:underline lg:text-left text-center">
                 Enchanment
-                </p> 
-                </div>
-                <div className="flex flex-wrap  justify-center items-center gap-4">
+              </p>
+            </div>
+            <div className="flex flex-wrap  justify-center items-center gap-4">
               <button
-                onClick={() => handleEnchChange('0')}
-                className={`w-10 bg-white rounded-md shadow-lg text-black ${ench === '0' ? 'underline' : ''}`}
+                onClick={() => handleEnchChange("0")}
+                className={`w-10 bg-white rounded-md shadow-lg text-black ${
+                  ench === "0" ? "underline" : ""
+                }`}
               >
                 0
               </button>
               <button
-                onClick={() => handleEnchChange('1')}
-                className={`w-10  bg-[#61D984] rounded-md shadow-lg text-black ${ench === '1' ? 'underline' : ''}`}
+                onClick={() => handleEnchChange("1")}
+                className={`w-10  bg-[#61D984] rounded-md shadow-lg text-black ${
+                  ench === "1" ? "underline" : ""
+                }`}
               >
                 .1
               </button>
               <button
-                onClick={() => handleEnchChange('2')}
-                className={`w-10 bg-[#47D8E5] rounded-md shadow-lg text-black ${ench === '2' ? 'underline' : ''}`}
+                onClick={() => handleEnchChange("2")}
+                className={`w-10 bg-[#47D8E5] rounded-md shadow-lg text-black ${
+                  ench === "2" ? "underline" : ""
+                }`}
               >
                 .2
               </button>
               <button
-                onClick={() => handleEnchChange('3')}
-                className={`w-10  bg-[#A87DE2] rounded-md shadow-lg text-black ${ench === '3' ? 'underline' : ''}`}
+                onClick={() => handleEnchChange("3")}
+                className={`w-10  bg-[#A87DE2] rounded-md shadow-lg text-black ${
+                  ench === "3" ? "underline" : ""
+                }`}
               >
                 .3
               </button>
               <button
-                onClick={() => handleEnchChange('4')}
-                className={`w-10 bg-[#F6E169] rounded-md shadow-lg text-black ${ench === '4' ? 'underline' : ''}`}
+                onClick={() => handleEnchChange("4")}
+                className={`w-10 bg-[#F6E169] rounded-md shadow-lg text-black ${
+                  ench === "4" ? "underline" : ""
+                }`}
               >
-               .4
+                .4
               </button>
             </div>
-              
-             </div>
-            </div>
-          
+          </div>
+        </div>
+
         {selectedItem && selectedSubCategory && category && tier && ench && (
-        <div className="flex justify-evenly items-center pt-20 flex-wrap">
-          <div className="flex flex-wrap justify-center items-center flex-col md:gap-7 md:flex-row lg:flex-row w-[90%] lg:gap-10 bg-slate-600 p-2 mb-10 rounded-md shadow-lg">
-            <div className="flex flex-col items-center">
-              {selectedItem && (
-                <Image src={imageurl} alt="item-img" width={130} height={130} unoptimized />
-              )}
-            </div>
-                
-            <div className="flex flex-col">
-              {selectedItem && (
-                <div>
-                  <h3 className="text-white text-2xl my-2">{name}</h3>
-                </div>
-              )}
-
-              <div className="flex flex-col mb-4">
-                <label name="itemprice" className="text-center text-white">
-                  Item Price
-                </label>
-                <input
-                onChange={handleItemPrice}
-                  name="itemprice"
-                  id="itemprice"
-                  type="number"
-                  placeholder="Type Unit Price"
-                  min="0"
-                  className="text-center w-32 mx-auto"
-                />
+          <div className="flex justify-evenly items-center pt-20 flex-wrap">
+            <div className="flex flex-wrap justify-center items-center flex-col md:gap-7 md:flex-row lg:flex-row w-[90%] lg:gap-10 bg-slate-600 p-2 mb-10 rounded-md shadow-lg">
+              <div className="flex flex-col items-center">
+                {selectedItem && (
+                  <Image
+                    src={imageurl}
+                    alt="item-img"
+                    width={130}
+                    height={130}
+                    unoptimized
+                  />
+                )}
               </div>
-              
-            </div>
 
-            <div className="lg:ml-32 mt-4 lg:mt-0">
-              <h3 className="text-center text-xl text-white">
-                Crafting Requirements
-              </h3>
-              <hr />
-              <div className="flex justify-center items-center pt-4 gap-4">
-                <div>
-                  {selectedItem && (
-                    <Image
-                      src={recipeImg1}
-                      alt="item-img"
-                      width={50}
-                      height={50}
-                      unoptimized
+              <div className="flex flex-col">
+                {selectedItem && (
+                  <div>
+                    <h3 className="text-white text-2xl my-2">{name}</h3>
+                  </div>
+                )}
+
+                <div className="flex flex-col mb-4">
+                  <label name="itemprice" className="text-center text-white">
+                    Item Price
+                  </label>
+                  <input
+                    onChange={handleItemPrice}
+                    name="itemprice"
+                    id="itemprice"
+                    type="number"
+                    placeholder="Type Unit Price"
+                    min="0"
+                    className="text-center w-32 mx-auto"
+                  />
+                </div>
+              </div>
+
+              <div className="lg:ml-32 mt-4 lg:mt-0">
+                <h3 className="text-center text-xl text-white">
+                  Crafting Requirements
+                </h3>
+                <hr />
+                <div className="flex justify-center items-center pt-4 gap-4">
+                  <div>
+                    {selectedItem && (
+                      <Image
+                        src={recipeImg1}
+                        alt="item-img"
+                        width={50}
+                        height={50}
+                        unoptimized
+                      />
+                    )}
+                  </div>
+                  <div className="flex">
+                    <p className="text-sm text-white">{q1}</p>
+                    <p className="text-sm ml-2 mr-4 text-white">x</p>
+                    <input
+                      name="r1cost"
+                      id="r1cost"
+                      type="number"
+                      min="0"
+                      placeholder="Type Unit Price"
+                      className="text-center w-32 mx-auto"
+                      onChange={handleR1cost}
                     />
-                  )}
+                  </div>
                 </div>
-                <div className="flex">
-                  <p className="text-sm text-white">{q1}</p>
-                  <p className="text-sm ml-2 mr-4 text-white">x</p>
-                  <input
-                    name="r1cost"
-                    id="r1cost"
-                    type="number"
-                    min="0"
-                    placeholder="Type Unit Price"
-                    className="text-center w-32 mx-auto"
-                    onChange={handleR1cost}
-                  />
-                </div>
-               </div>
-               {q2 && (
-              <div className="flex justify-center items-center gap-4">
-                <div>
-                  <Image
-                    src={recipeImg2}
-                    alt="item-img"
-                    width={50}
-                    height={50}
-                    unoptimized
-                  />
-                </div>
-                <div className="flex">
-                  <p className="text-sm text-white">{q2}</p>
-                  <p className="text-sm ml-2 mr-4 text-white">x</p>
-                  <input
-                    onChange={handleR2cost}
-                    name="r2cost"
-                    id="r2cost"
-                    type="number"
-                    placeholder="Type Unit Price"
-                    min="0"
-                    className="text-center w-32 mx-auto"
-                  />
-                </div>
+                {q2 && (
+                  <div className="flex justify-center items-center gap-4">
+                    <div>
+                      <Image
+                        src={recipeImg2}
+                        alt="item-img"
+                        width={50}
+                        height={50}
+                        unoptimized
+                      />
+                    </div>
+                    <div className="flex">
+                      <p className="text-sm text-white">{q2}</p>
+                      <p className="text-sm ml-2 mr-4 text-white">x</p>
+                      <input
+                        onChange={handleR2cost}
+                        name="r2cost"
+                        id="r2cost"
+                        type="number"
+                        placeholder="Type Unit Price"
+                        min="0"
+                        className="text-center w-32 mx-auto"
+                      />
+                    </div>
+                  </div>
+                )}
+                {artifact && (
+                  <div className="flex justify-center items-center gap-4">
+                    <div>
+                      <Image
+                        src={artifactImg}
+                        alt="item-img"
+                        width={50}
+                        height={50}
+                        unoptimized
+                      />
+                    </div>
+                    <div className="flex">
+                      <p className="text-sm text-white">1</p>
+                      <p className="text-sm ml-2 mr-4 text-white">x</p>
+                      <input
+                        onChange={handleR3cost}
+                        name="r3cost"
+                        id="r3cost"
+                        type="number"
+                        placeholder="Type Unit Price"
+                        min="0"
+                        className="text-center w-32 mx-auto"
+                      />
+                    </div>
+                  </div>
+                )}
               </div>
-              )}
-              {artifact && (
-              <div className="flex justify-center items-center gap-4">
-                <div>
-                  <Image
-                    src={artifactImg}
-                    alt="item-img"
-                    width={50}
-                    height={50}
-                    unoptimized
-                  />
-                </div>
-                <div className="flex">
-                  <p className="text-sm text-white">1</p>
-                  <p className="text-sm ml-2 mr-4 text-white">x</p>
-                  <input
-                    onChange={handleR3cost}
-                    name="r3cost"
-                    id="r3cost"
-                    type="number"
-                    placeholder="Type Unit Price"
-                    min="0"
-                    className="text-center w-32 mx-auto"
-                  />
-                </div>
-              </div>
-              )}
-
             </div>
           </div>
-
-        </div>
-        
-         )}
-               {category && tier && ench && selectedItem && r1cost && itemPrice &&(
-             <>             
-        <div className="flex justify-center items-center flex-wrap">
-            {roundedIsProfit < 0 ? (
-                <div className="bg-red-500 text-white min-h-32 lg:w-1/3 w-[90%] mt-10 flex justfiy-start items-start mb-10">
-                <div className="mx-auto">
-                    <h5 className="underline font-bold">PROFITABILITY WITH %{withFocus} RETURN RATE</h5>
-                 <div className="flex justify-evenly items-center pb-2 mt-4 text-sm">
-                 <div className="font-bold">
-                    <p>Item Price</p>
-                    <p>Returned Resource</p>
-                    <p>- Material Cost</p>
-                    <p>- Sell Order Tax %6.5</p>
-                    <p>- Usage Fee</p>
-                    <p>Total = </p>
-                    </div>
-                    <div>
-                      <p>{formattedItemPrice}</p>
-                    <p>{formattedReturnedResource}</p>
-                    <p>{formattedResourceCost}</p>
-                    <p>{formattedSellOrder}</p>
-                    <p>{formattedUsageFee}</p>
-                    <p>{formattedProfit} </p>
-                    </div>
-                    </div>
-                </div>
-                </div>
-            ) : (
-                <div className="bg-green-500 text-white min-h-32 lg:w-1/3 w-[90%] mt-10 flex justfiy-start items-start mb-10">
-                <div className="mx-auto">
-                    <h5 className="underline font-bold">PROFITABILITY WITH {withFocus}% RETURN RATE</h5>
-                 <div className="flex justify-evenly items-center mt-4 pb-2 text-sm">
-                    <div className="font-bold">
-                    <p>Item Price</p>
-                    <p>Returned Resource</p>
-                    <p>- Material Cost</p>
-                    <p>- Sell Order Tax %6.5</p>
-                    <p>- Usage Fee</p>
-                    <p>Total = </p>
-                    </div>
-                    <div>
-                      <p>{formattedItemPrice}</p>
-                    <p>{formattedReturnedResource}</p>
-                    <p>{formattedResourceCost}</p>
-                    <p>{formattedSellOrder}</p>
-                    <p>{formattedUsageFee}</p>
-                    <p>{formattedProfit} </p>
-                    </div>
-                    </div>
-                </div>
-
-                </div>
-
-            )}
-
-        </div>
-        <div className="flex gap-1 justify-center items-center text-sm text-center mt-6 text-gray-100">List your items in our <Link className="font-bold underline text-blue-400" href='https://www.albionjourney.com/market'> market section</Link> for quick sales. <span className="flex text-xl justify-center items-center"> <GiReceiveMoney className=" ml-1 mb-1 text-white" /></span>
-</div>
-        </>
         )}
-
+        {category && tier && ench && selectedItem && r1cost && itemPrice && (
+          <>
+            <div className="flex justify-center items-center flex-wrap">
+              {roundedIsProfit < 0 ? (
+  <div className="text-white min-h-32 mt-10 flex justfiy-start items-start mb-10">
+  <div className="mx-auto">
+    <div className="bg-slate-600 w-[100%] px-2 md:px-0 md:w-[450px] lg:w-[500px] h-fit py-5 text-center flex justify-center items-center rounded-[10px] shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px]">
+      <h5 className="font-bold flex justify-center items-center gap-5">
+        PROFITABILITY WITH {withFocus}% RETURN RATE <FaThumbsDown className="text-xl text-red-500" />
+      </h5>
+    </div>
+    <div className="bg-slate-600 w-[100%] px-2 md:w-[450px] gap-10 text-sm lg:w-[500px] h-fit py-5 flex justify-evenly items-center mt-5 rounded-[10px] shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px]">
+      <div className="font-bold flex flex-col gap-1">
+        <p>Item Price</p>
+        <p>Returned Resource</p>
+        <p className="text-gray-200">- Material Cost</p>
+        <p className="text-gray-200">- Sell Order Tax %6.5</p>
+        <p className="text-gray-200">- Usage Fee</p>
+        <p className="mt-6 text-lg underline">Total = </p>
       </div>
-
-
+      <div className=" font-semibold flex flex-col gap-1">
+        <p>{formattedItemPrice}</p>
+        <p>{formattedReturnedResource}</p>
+        <p className="text-red-500">- {formattedResourceCost}</p>
+        <p className="text-red-500">- {formattedSellOrder}</p>
+        <p className="text-red-500">- {formattedUsageFee}</p>
+        <p className="mt-6 flex justify-center items-center gap-1 text-lg text-red-500">{formattedProfit} <span className="text-[10px]"><FaCoins /></span></p>
+      </div>
+    </div>
+  </div>
+</div>
+              ) : (
+                <div className="text-white min-h-32 lg:w-1/3 w-[90%] mt-10 flex justfiy-start items-start mb-10">
+                  <div className="mx-auto">
+                    <div className="bg-slate-600 w-[300px] md:w-[450px] lg:w-[500px] h-[40px] text-center flex justify-center items-center rounded-[10px] shadow-2xl">
+                      <h5 className="font-bold flex justify-center items-center gap-5">
+                        PROFITABILITY WITH {withFocus}% RETURN RATE <FaThumbsUp className="text-xl text-green-500" />
+                      </h5>
+                    </div>
+                    <div className="bg-slate-600 w-[300px] md:w-[450px] gap-10 text-sm lg:w-[500px] h-fit py-5 flex justify-evenly items-center mt-5 rounded-[10px] shadow-2xl ">
+                      <div className="font-bold flex flex-col gap-1">
+                        <p>Item Price</p>
+                        <p>Returned Resource</p>
+                        <p className="text-gray-200">- Material Cost</p>
+                        <p className="text-gray-200">- Sell Order Tax %6.5</p>
+                        <p className="text-gray-200">- Usage Fee</p>
+                        <p className="mt-6 text-lg underline">Total = </p>
+                      </div>
+                      <div className=" font-semibold flex flex-col gap-1">
+                        <p>{formattedItemPrice}</p>
+                        <p>{formattedReturnedResource}</p>
+                        <p className="text-red-500">- {formattedResourceCost}</p>
+                        <p className="text-red-500">- {formattedSellOrder}</p>
+                        <p className="text-red-500">- {formattedUsageFee}</p>
+                        <p className="mt-6 flex justify-center items-center gap-1 text-lg text-green-400">{formattedProfit} <span className="text-[10px]"><FaCoins /></span></p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )}
+            </div>
+            <div className="flex gap-1 justify-center items-center text-sm text-center mt-6 text-gray-100">
+              List your items in our{" "}
+              <Link
+                className="font-bold underline text-blue-400"
+                href="https://www.albionjourney.com/market"
+              >
+                {" "}
+                market section
+              </Link>{" "}
+              for quick sales.{" "}
+              <span className="flex text-xl justify-center items-center">
+                {" "}
+                <GiReceiveMoney className=" ml-1 mb-1 text-white" />
+              </span>
+            </div>
+          </>
+        )}
+      </div>
     </div>
   );
 }
