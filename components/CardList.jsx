@@ -6,7 +6,7 @@ import { Triangle } from "react-loader-spinner";
 
 const getData = async (page, cat) => {
   const res = await fetch(
-    `http://localhost:3000/api/posts?page=${page}&cat=${cat || ""}`
+    `https://www.albionjourney.com/api/posts?page=${page}&cat=${cat || ""}`
   );
 
   if (!res.ok) {
