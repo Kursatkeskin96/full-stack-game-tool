@@ -9,7 +9,8 @@ import { GiReceiveMoney } from "react-icons/gi";
 import { FaThumbsUp } from "react-icons/fa";
 import { FaCoins } from "react-icons/fa6";
 import { FaThumbsDown } from "react-icons/fa";
-
+import PriceChart from "@/components/PriceChart";
+import ItemSoldChart from "@/components/ItemSoldChart"
 
 
 
@@ -38,16 +39,19 @@ export default function ItemCalculator() {
   const [itemValue, setItemValue] = useState("");
   const [calculatedItemValue, setCalculatedItemValue] = useState(0);
   const [itemPrice, setItemPrice] = useState("");
+  const [city, setCity] = useState("Martlock")
+  const [server, setServer] = useState("europe")
+  const [apiData, setApiData] = useState(null);
+  const [sellOrderData , setSellOrderData] = useState(null)
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
 
   const handleItemPrice = (e) => {
-    // Convert the input value to an integer
     const priceValue = parseInt(e.target.value, 10);
-
-    // Check if the conversion result is a valid number
     if (!isNaN(priceValue)) {
       setItemPrice(priceValue);
     } else {
-      setItemPrice(0); // Set to 0 or any other default value in case of invalid input
+      setItemPrice(0); 
     }
   };
 
@@ -99,6 +103,12 @@ export default function ItemCalculator() {
     setDisplayItems([]);
   };
 
+  const handleCity = (e) => {
+    setCity(e.target.value)
+  }
+const handleServer = (e) => {
+  setServer(e.target.value)
+}
   const handleSubCategory = (e) => {
     setSelectedSubCategory(e.target.value);
   };
@@ -191,6 +201,67 @@ export default function ItemCalculator() {
     }
   }
 
+useEffect(() => {
+  if (selectedItem && tier && ench !== null) {
+    const fetchApiData = async () => {
+      setLoading(true);
+      setError(null);
+
+      let url = `https://${server}.albion-online-data.com/api/v2/stats/history/${tier}_${selectedItem}?locations=${city}&time-scale=24`;
+      if (ench !== "0") {
+        url = `https://${server}.albion-online-data.com/api/v2/stats/history/${tier}_${selectedItem}@${ench}?locations=${city}&time-scale=24`;
+      }
+
+      try {
+        const response = await fetch(url);
+        if (!response.ok) {
+          throw new Error("Failed to fetch data");
+        }
+        const data = await response.json();
+        setApiData(data); // Update the state with the fetched data
+      } catch (error) {
+        setError(error.message);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchApiData();
+  }
+}, [selectedItem, tier, ench, server, city]); // Added `server` to dependency array
+
+useEffect(() => {
+  if (selectedItem && tier && ench !== null) {
+    const fetchSellOrderData = async () => {
+      setLoading(true);
+      setError(null);
+
+      let url = `https://${server}.albion-online-data.com/api/v2/stats/prices/${tier}_${selectedItem}?locations=${city}&qualities=2`;
+      if (ench !== "0"){
+        url = `https://${server}.albion-online-data.com/api/v2/stats/prices/${tier}_${selectedItem}@${ench}?locations=${city}&qualities=2`;
+      }
+      try {
+        const response = await fetch(url);
+        if(!response.ok){
+          throw new Error("Failed to fetch data");
+        }
+        const data = await response.json();
+        setSellOrderData(data);
+        if (data && data.length > 0) {
+          setItemPrice(data[0].sell_price_min); // Set the initial input value
+        }
+        console.log(sellOrderData)
+      } catch (error) {
+        setError(error.message)
+      } finally {
+        setLoading(false)
+      }
+    }
+    fetchSellOrderData()
+  }
+}, [selectedItem, tier, ench, server, city])
+
+
+
   const handleItemValue = () => {
     const tierNumber = parseInt(tier.substring(1)); // Convert "T4" to 4, "T5" to 5, etc.
     const enchNumber = parseInt(ench); // Convert enchantment to a number
@@ -277,6 +348,8 @@ export default function ItemCalculator() {
   }
   let matImg3 = `https://render.albiononline.com/v1/item/${q3}`;
 
+
+
   return (
     <div className="min-h-screen pt-20 mx-auto">
       <div className="text-2xl px-2 font-bold">
@@ -307,7 +380,44 @@ export default function ItemCalculator() {
       </div>
 
       <div className="bg-[rgb(55,62,77)] min-h-fit pb-10 mt-10">
+     
+
         <div className="flex justify-center lg:gap-0 gap-4 lg:justify-evenly items-center pt-10 flex-wrap">
+        <div className="flex flex-col">
+            <label name="category" className="text-white  mb-1">
+              Server
+            </label>
+            <select
+              name="category"
+              id="category"
+              className="h-8 lg:w-20 w-60"
+              onChange={handleCity}
+            >
+              <option value="europe">EU</option>
+              <option value="west">America</option>
+              <option value="east">Asia</option>
+            </select>
+          </div>
+        <div className="flex flex-col">
+            <label name="category" className="text-white  mb-1">
+              Choose City
+            </label>
+            <select
+              name="category"
+              id="category"
+              className="h-8 lg:w-28 w-60"
+              onChange={handleCity}
+            >
+              <option value="Martlock">Martlock</option>
+              <option value="Bridgewatch">Bridgewatch</option>
+              <option value="Lymhurst">Lymhurst</option>
+              <option value="Fortsterling">Fort Sterling</option>
+              <option value="Thetford">Thetford</option>
+              <option value="Caerleon">Caerleon</option>
+              <option value="Blackmarket">Black Market</option>
+            </select>
+          </div>
+
           <div className="flex flex-col">
             <label name="category" className="text-white  mb-1">
               Choose Item Category
@@ -508,7 +618,7 @@ export default function ItemCalculator() {
 
         {selectedItem && selectedSubCategory && category && tier && ench && (
           <div className="flex justify-evenly items-center pt-20 flex-wrap">
-            <div className="flex flex-wrap justify-center items-center flex-col md:gap-7 md:flex-row lg:flex-row w-[90%] lg:gap-10 bg-slate-600 p-2 mb-10 rounded-md shadow-lg">
+            <div className="flex flex-wrap justify-center items-center flex-col md:gap-7 md:flex-row lg:flex-row w-[90%] lg:gap-5 bg-slate-600 p-2 mb-10 rounded-md shadow-lg">
               <div className="flex flex-col items-center">
                 {selectedItem && (
                   <Image
@@ -524,24 +634,27 @@ export default function ItemCalculator() {
               <div className="flex flex-col">
                 {selectedItem && (
                   <div>
-                    <h3 className="text-white text-2xl my-2">{name}</h3>
+                    <h3 className="text-white text-2xl my-2 text-center">{name}</h3>
                   </div>
                 )}
 
-                <div className="flex flex-col mb-4">
-                  <label name="itemprice" className="text-center text-white">
-                    Item Price
-                  </label>
-                  <input
-                    onChange={handleItemPrice}
-                    name="itemprice"
-                    id="itemprice"
-                    type="number"
-                    placeholder="Type Unit Price"
-                    min="0"
-                    className="text-center w-32 mx-auto"
-                  />
-                </div>
+<div>
+      <div className="flex flex-col">
+        <label name="itemprice" className="text-center text-sm text-white">
+          Lowest Price in {city}
+        </label>
+        <input
+          onChange={handleItemPrice}
+          name="itemprice"
+          id="itemprice"
+          type="number"
+          placeholder="Type Unit Price"
+          min="0"
+          value={itemPrice} // Use the itemPrice state for the input value
+          className="text-center w-32 mx-auto"
+        />
+      </div>
+    </div>
               </div>
 
               <div className="lg:ml-32 mt-4 lg:mt-0">
@@ -629,6 +742,8 @@ export default function ItemCalculator() {
                 )}
               </div>
             </div>
+   <PriceChart apiData={apiData} />
+     <ItemSoldChart apiData={apiData} />
           </div>
         )}
         {category && tier && ench && selectedItem && r1cost && itemPrice && (
